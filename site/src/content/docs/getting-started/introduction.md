@@ -48,6 +48,10 @@ Potrzebujesz jednej z tych platform z zainstalowanym pluginem:
 
 Żadne zewnętrzne narzędzia SEO nie są wymagane — plugin działa z web search. Opcjonalne konektory (Ahrefs, Similarweb, Google Search Console, Google Analytics) dodają precyzję danych.
 
+## Pochodzenie projektu
+
+SEO Machine bazuje na oryginalnym projekcie [SEO Machine](https://github.com/TheCraigHewitt/seomachine) autorstwa Craiga Hewitta. Niniejsza wersja jest forkiem rozwijanym niezależnie.
+
 ## Następne kroki
 
 Gotowy do instalacji? Przejdź do [przewodnika instalacji](/getting-started/installation/).

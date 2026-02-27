@@ -88,6 +88,13 @@
 }
 
 
+/* --- Content Width: wider for tab-heavy pages --- */
+
+:root {
+  --sl-content-width: 65rem;
+}
+
+
 /* --- Code Blocks: compact, rounded, clean --- */
 
 .expressive-code .frame {
