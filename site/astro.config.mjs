@@ -6,7 +6,7 @@ import preact from '@astrojs/preact';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'SEO Machine',
+      title: 'Seomachine Plugin',
       description: 'Najlepszy plugin SEO do narzędzi opartych na Claude. Badanie słów kluczowych, optymalizacja treści, audyty techniczne, GEO, lokalne SEO i więcej.',
       defaultLocale: 'pl',
       social: {
