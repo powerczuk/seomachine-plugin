@@ -6,55 +6,92 @@
    SEO Machine — Custom Styles (Tailwind + Starlight)
    ============================================= */
 
-/* --- Accent Colors --- */
+/* --- shadcn Design Tokens (dark default for Starlight) --- */
 :root {
-  --sl-color-accent-low: #1e3a5f;
-  --sl-color-accent: #3b82f6;
-  --sl-color-accent-high: #93c5fd;
+  --sl-color-accent-low: #3a1e12;
+  --sl-color-accent: #d97757;
+  --sl-color-accent-high: #f0b89e;
 
-  /* --- shadcn Design Tokens (dark) --- */
-  --radius: 0.75rem;
-  --background: 222 16% 10%;
-  --foreground: 220 14% 88%;
-  --card: 222 13% 16%;
-  --card-foreground: 220 14% 88%;
-  --muted: 220 10% 20%;
-  --muted-foreground: 222 7% 56%;
-  --border: 220 10% 24%;
-  --input: 220 10% 24%;
-  --ring: 217 91% 60%;
-  --primary: 217 91% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 10% 20%;
-  --secondary-foreground: 220 14% 88%;
+  --radius: 0.5rem;
+  --background: oklch(0.2679 0.0036 106.6427);
+  --foreground: oklch(0.8074 0.0142 93.0137);
+  --card: oklch(0.2679 0.0036 106.6427);
+  --card-foreground: oklch(0.9818 0.0054 95.0986);
+  --popover: oklch(0.3085 0.0035 106.6039);
+  --popover-foreground: oklch(0.9211 0.0040 106.4781);
+  --primary: oklch(0.6724 0.1308 38.7559);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.9818 0.0054 95.0986);
+  --secondary-foreground: oklch(0.3085 0.0035 106.6039);
+  --muted: oklch(0.2213 0.0038 106.7070);
+  --muted-foreground: oklch(0.7713 0.0169 99.0657);
+  --accent: oklch(0.2130 0.0078 95.4245);
+  --accent-foreground: oklch(0.9663 0.0080 98.8792);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.3618 0.0101 106.8928);
+  --input: oklch(0.4336 0.0113 100.2195);
+  --ring: oklch(0.6724 0.1308 38.7559);
+  --chart-1: oklch(0.5583 0.1276 42.9956);
+  --chart-2: oklch(0.6898 0.1581 290.4107);
+  --chart-3: oklch(0.2130 0.0078 95.4245);
+  --chart-4: oklch(0.3074 0.0516 289.3230);
+  --chart-5: oklch(0.5608 0.1348 42.0584);
+  --sidebar: oklch(0.2357 0.0024 67.7077);
+  --sidebar-foreground: oklch(0.8074 0.0142 93.0137);
+  --sidebar-primary: oklch(0.3250 0 0);
+  --sidebar-primary-foreground: oklch(0.9881 0 0);
+  --sidebar-accent: oklch(0.1680 0.0020 106.6177);
+  --sidebar-accent-foreground: oklch(0.8074 0.0142 93.0137);
+  --sidebar-border: oklch(0.9401 0 0);
+  --sidebar-ring: oklch(0.7731 0 0);
 }
 
+/* --- shadcn Design Tokens (light) --- */
 :root[data-theme='light'] {
-  --sl-color-accent-low: #dbeafe;
-  --sl-color-accent: #2563eb;
-  --sl-color-accent-high: #1e3a5f;
+  --sl-color-accent-low: #fde8df;
+  --sl-color-accent: #c96442;
+  --sl-color-accent-high: #5c2c1a;
 
-  /* --- shadcn Design Tokens (light) --- */
-  --background: 0 0% 100%;
-  --foreground: 215 25% 17%;
-  --card: 0 0% 100%;
-  --card-foreground: 215 25% 17%;
-  --muted: 210 40% 97%;
-  --muted-foreground: 215 16% 47%;
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 221 83% 53%;
-  --primary: 221 83% 53%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 210 40% 97%;
-  --secondary-foreground: 215 25% 17%;
+  --background: oklch(0.9818 0.0054 95.0986);
+  --foreground: oklch(0.3438 0.0269 95.7226);
+  --card: oklch(0.9818 0.0054 95.0986);
+  --card-foreground: oklch(0.1908 0.0020 106.5859);
+  --popover: oklch(1.0000 0 0);
+  --popover-foreground: oklch(0.2671 0.0196 98.9390);
+  --primary: oklch(0.6171 0.1375 39.0427);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.9245 0.0138 92.9892);
+  --secondary-foreground: oklch(0.4334 0.0177 98.6048);
+  --muted: oklch(0.9341 0.0153 90.2390);
+  --muted-foreground: oklch(0.6059 0.0075 97.4233);
+  --accent: oklch(0.9245 0.0138 92.9892);
+  --accent-foreground: oklch(0.2671 0.0196 98.9390);
+  --destructive: oklch(0.1908 0.0020 106.5859);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.8847 0.0069 97.3627);
+  --input: oklch(0.7621 0.0156 98.3528);
+  --ring: oklch(0.6171 0.1375 39.0427);
+  --chart-1: oklch(0.5583 0.1276 42.9956);
+  --chart-2: oklch(0.6898 0.1581 290.4107);
+  --chart-3: oklch(0.8816 0.0276 93.1280);
+  --chart-4: oklch(0.8822 0.0403 298.1792);
+  --chart-5: oklch(0.5608 0.1348 42.0584);
+  --sidebar: oklch(0.9663 0.0080 98.8792);
+  --sidebar-foreground: oklch(0.3590 0.0051 106.6524);
+  --sidebar-primary: oklch(0.6171 0.1375 39.0427);
+  --sidebar-primary-foreground: oklch(0.9881 0 0);
+  --sidebar-accent: oklch(0.9245 0.0138 92.9892);
+  --sidebar-accent-foreground: oklch(0.3250 0 0);
+  --sidebar-border: oklch(0.9401 0 0);
+  --sidebar-ring: oklch(0.7731 0 0);
 }
 
 
 /* --- Code Blocks: compact, rounded, clean --- */
 
 .expressive-code .frame {
-  @apply !rounded-xl;
+  @apply !rounded-lg;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -63,26 +100,29 @@
 }
 
 .expressive-code pre {
-  @apply !rounded-xl !text-[0.84rem] !leading-relaxed;
+  @apply !rounded-lg !text-[0.84rem] !leading-relaxed;
   padding: 0.7rem 1rem !important;
 }
 
-/* Hide frame header (●●● Terminal window bar) */
+/* Hide frame header (Terminal window bar) */
 .expressive-code .frame .header {
   display: none !important;
 }
 
-/* Subtle grey left border for all code blocks */
+/* Subtle left border for shell/json code blocks */
 .expressive-code[data-language="bash"] .frame,
 .expressive-code[data-language="sh"] .frame,
 .expressive-code[data-language="json"] .frame {
-  border-left: 2.5px solid hsl(var(--border)) !important;
+  border-left: 2.5px solid var(--border) !important;
 }
 
 /* --- Copy Button: smaller, subtler --- */
 
 .expressive-code .copy button {
   @apply !w-7 !h-7 !rounded-lg;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 4px !important;
   opacity: 0.35 !important;
   transition: opacity 0.15s ease !important;
@@ -106,15 +146,13 @@
   opacity: 1;
 }
 
-/* --- Frame header (language label) — hidden above, keep rounded for edge cases --- */
-
 
 /* --- Inline code --- */
 
 :not(pre) > code {
   @apply !rounded-md !text-[0.85em] !font-medium;
-  background: hsl(var(--muted)) !important;
-  color: hsl(var(--foreground)) !important;
+  background: var(--muted) !important;
+  color: var(--foreground) !important;
   padding: 0.1rem 0.35rem !important;
 }
 
@@ -123,8 +161,8 @@
 
 .hero-badge {
   @apply inline-block rounded-full text-sm font-semibold mb-4;
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background: var(--primary);
+  color: var(--primary-foreground);
   padding: 0.25rem 0.75rem;
 }
 
@@ -132,20 +170,20 @@
 /* --- Feature Cards --- */
 
 .feature-card {
-  @apply rounded-xl p-6 transition-all duration-200;
-  background: hsl(var(--card));
-  border: 1px solid hsl(var(--border));
+  @apply rounded-lg p-6 transition-all duration-200;
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 .feature-card:hover {
-  border-color: hsl(var(--ring));
+  border-color: var(--ring);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px hsl(var(--ring) / 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .feature-card h3 {
   @apply mt-0;
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 
 
@@ -162,19 +200,19 @@
 /* --- Motto / Testimonial --- */
 
 .motto-block {
-  @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
+  @apply my-10 rounded-r-lg italic text-lg leading-relaxed;
   padding: 1.75rem 2rem;
-  border-left: 3px solid hsl(var(--primary));
-  background: hsl(var(--muted));
+  border-left: 3px solid var(--primary);
+  background: var(--muted);
 }
 
 .motto-block .motto-author {
   @apply block mt-4 not-italic text-sm font-semibold;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 
-/* --- Tables — cleaner --- */
+/* --- Tables --- */
 
 table {
   @apply text-sm;
@@ -196,7 +234,7 @@ table th {
 }
 
 .sl-link-card:hover {
-  border-color: hsl(var(--ring));
+  border-color: var(--ring);
 }
 
 
@@ -204,12 +242,12 @@ table th {
 
 header.header {
   backdrop-filter: blur(12px) saturate(1.2) !important;
-  background: rgba(17, 18, 20, 0.82) !important;
+  background: rgba(38, 38, 36, 0.82) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
 :root[data-theme='light'] header.header {
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(250, 249, 245, 0.85) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -234,13 +272,13 @@ starlight-theme-select .caret {
 /* --- Light Mode Polish --- */
 
 :root[data-theme='light'] {
-  --sl-color-bg: #ffffff;
-  --sl-color-bg-sidebar: #f8fafc;
-  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
-  --sl-color-hairline-light: #e2e8f0;
-  --sl-color-hairline: #cbd5e1;
-  --sl-color-text: #1e293b;
-  --sl-color-text-accent: #1d4ed8;
+  --sl-color-bg: #faf9f5;
+  --sl-color-bg-sidebar: #f5f4ee;
+  --sl-color-bg-nav: rgba(250, 249, 245, 0.85);
+  --sl-color-hairline-light: #dad9d4;
+  --sl-color-hairline: #b4b2a7;
+  --sl-color-text: #3d3929;
+  --sl-color-text-accent: #c96442;
 }
 
 :root[data-theme='light'] .sidebar-pane {
@@ -266,20 +304,20 @@ html {
 
 .glossary-nav {
   @apply flex flex-wrap gap-2 pb-4 mb-6;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
 }
 
 .glossary-nav a {
   @apply inline-block text-sm font-medium no-underline rounded-full;
   padding: 0.25rem 0.75rem;
-  background: hsl(var(--muted));
-  color: hsl(var(--foreground));
+  background: var(--muted);
+  color: var(--foreground);
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .glossary-nav a:hover {
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .glossary-list {
@@ -288,7 +326,7 @@ html {
 
 .glossary-term {
   @apply py-4;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   scroll-margin-top: 5rem;
 }
 
@@ -302,16 +340,16 @@ html {
 
 .glossary-term p {
   @apply my-1 text-sm leading-relaxed;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .glossary-term .glossary-related {
   @apply mt-2 text-xs;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .glossary-term .glossary-related a {
-  color: hsl(var(--primary));
+  color: var(--primary);
   text-decoration: none;
 }
 
