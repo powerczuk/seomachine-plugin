@@ -1,46 +1,45 @@
 ---
 title: Instalacja
-description: Zainstaluj SEO Machine na Claude Cowork, Claude Code, Cursor, VS Code, Windsurf lub Claude Desktop
+description: Zainstaluj SEO Machine na Claude Desktop, Claude Code, Cursor, VS Code lub Windsurf
 ---
 
 import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
 
 <Aside type="tip" title="Najłatwiejsza metoda">
-Jeżeli nie masz doświadczenia technicznego, wybierz **Claude Cowork** — wystarczy kilka kliknięć
+Jeżeli nie masz doświadczenia technicznego, wybierz **Claude Desktop** — wystarczy kilka kliknięć
 w interfejsie aplikacji. Nie musisz niczego wpisywać w terminalu.
 </Aside>
 
 ## Wybierz platformę
 
 <Tabs>
-  <TabItem label="Claude Cowork">
-    Cowork to aplikacja desktopowa Claude z interfejsem graficznym. To najłatwiejszy sposób na instalację.
+  <TabItem label="Claude Desktop">
+    Claude Desktop to aplikacja desktopowa z interfejsem graficznym. To najłatwiejszy sposób na instalację.
 
     **Z marketplace (zalecane)**
 
-    1. Otwórz aplikację Claude Desktop
-    2. Uruchom lub otwórz sesję Cowork
-    3. Przejdź do **Ustawienia → Pluginy**
-    4. Wyszukaj **„SEO Machine"**
-    5. Kliknij **Zainstaluj** — gotowe!
+    1. Otwórz Claude Desktop
+    2. Przejdź do **Settings → Developer → Plugins**
+    3. Wyszukaj **„SEO Machine"**
+    4. Kliknij **Zainstaluj** — gotowe!
 
     **Instalacja ręczna**
 
     1. Pobierz plugin ze [strony GitHub releases](https://github.com/powerczuk/seomachine-plugin/releases)
-    2. W Cowork przejdź do **Ustawienia → Pluginy → Zainstaluj z pliku**
+    2. Przejdź do **Settings → Developer → Plugins → Zainstaluj z pliku**
     3. Wybierz pobrany plik `.zip`
   </TabItem>
 
   <TabItem label="Claude Code CLI">
     Claude Code CLI to narzędzie uruchamiane w terminalu (wierszu poleceń). Jeżeli nie wiesz
-    co to terminal — wybierz zakładkę **Claude Cowork**.
+    co to terminal — wybierz zakładkę **Claude Desktop**.
 
     **Z rejestru pluginów**
 
     Otwórz terminal i wpisz:
 
     ```bash
-    claude plugin add seo-machine
+    claude plugin install seo-machine
     ```
 
     **Z repozytorium GitHub**
@@ -50,7 +49,7 @@ w interfejsie aplikacji. Nie musisz niczego wpisywać w terminalu.
     ```bash
     git clone https://github.com/powerczuk/seomachine-plugin.git
     cd seomachine-plugin
-    claude plugin add .
+    claude plugin install .
     ```
 
     **Sprawdź czy się zainstalowało**
@@ -89,7 +88,7 @@ w interfejsie aplikacji. Nie musisz niczego wpisywać w terminalu.
     Otwórz terminal w VS Code (menu **Terminal → Nowy terminal**) i wpisz:
 
     ```bash
-    claude plugin add seo-machine
+    claude plugin install seo-machine
     ```
 
     Możesz też użyć palety poleceń: `Cmd+Shift+P` → **„Claude Code: Install Plugin"** → wpisz `seo-machine`.
@@ -111,16 +110,8 @@ w interfejsie aplikacji. Nie musisz niczego wpisywać w terminalu.
     Lub w terminalu:
 
     ```bash
-    claude plugin add seo-machine
+    claude plugin install seo-machine
     ```
-  </TabItem>
-
-  <TabItem label="Claude Desktop">
-    **Z marketplace (zalecane)**
-
-    1. Otwórz Claude Desktop
-    2. Przejdź do **Settings → Developer → Plugins**
-    3. Wyszukaj **„SEO Machine"** i zainstaluj
   </TabItem>
 </Tabs>
 

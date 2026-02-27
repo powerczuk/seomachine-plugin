@@ -14,7 +14,7 @@ const TOOLS = [
     id: 'similarweb',
     name: 'Similarweb',
     description: 'Dane o ruchu, competitive intelligence',
-    docsUrl: 'https://www.similarweb.com/corp/developer/',
+    docsUrl: 'https://developers.similarweb.com/',
     docsLabel: 'Jak uzyskać klucz API Similarweb',
     configType: 'url' as const,
     defaultUrl: 'https://mcp.similarweb.com',
@@ -41,7 +41,7 @@ const TOOLS = [
     id: 'semrush',
     name: 'Semrush',
     description: 'Alternatywa dla Ahrefs — dane keywords/backlinków',
-    docsUrl: 'https://www.semrush.com/api/',
+    docsUrl: 'https://developer.semrush.com/api/',
     docsLabel: 'Jak uzyskać klucz API Semrush',
     configType: 'apikey' as const,
     defaultUrl: '',
@@ -68,8 +68,14 @@ const TOOLS = [
 
 const PLATFORMS = [
   {
+    id: 'claude-desktop',
+    name: 'Claude Desktop',
+    path: 'claude_desktop_config.json',
+    wrapper: 'mcpServers',
+  },
+  {
     id: 'claude-code',
-    name: 'Claude Code / Cowork',
+    name: 'Claude Code',
     path: '.mcp.json',
     wrapper: 'mcpServers',
   },
@@ -91,18 +97,12 @@ const PLATFORMS = [
     path: 'Ustawienia MCP Windsurf',
     wrapper: 'mcpServers',
   },
-  {
-    id: 'claude-desktop',
-    name: 'Claude Desktop',
-    path: 'claude_desktop_config.json',
-    wrapper: 'mcpServers',
-  },
 ];
 
 export default function ConfigWizard() {
   const [selectedTools, setSelectedTools] = useState<Set<string>>(new Set());
   const [apiKeys, setApiKeys] = useState<Record<string, string>>({});
-  const [platform, setPlatform] = useState('claude-code');
+  const [platform, setPlatform] = useState('claude-desktop');
   const [copied, setCopied] = useState(false);
 
   const toggleTool = (id: string) => {
@@ -284,6 +284,7 @@ export default function ConfigWizard() {
                 onClick={() => setPlatform(p.id)}
                 style={{
                   padding: '0.4rem 0.85rem',
+                  minWidth: '7rem',
                   borderRadius: '9999px',
                   border: `1px solid ${platform === p.id ? 'var(--primary)' : 'var(--border)'}`,
                   background: platform === p.id ? 'var(--primary)' : 'var(--card)',
@@ -328,12 +329,12 @@ export default function ConfigWizard() {
                 position: 'absolute',
                 top: '0.5rem',
                 right: '0.5rem',
-                padding: '0.35rem 0.75rem',
+                padding: '0.4rem 0.85rem',
                 borderRadius: '0.5rem',
                 border: '1px solid var(--border)',
                 background: 'var(--card)',
                 color: 'var(--foreground)',
-                fontSize: '0.78rem',
+                fontSize: '0.85rem',
                 cursor: 'pointer',
               }}
             >

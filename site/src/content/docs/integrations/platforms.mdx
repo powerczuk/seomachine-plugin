@@ -1,6 +1,6 @@
 ---
 title: Konfiguracja platform
-description: Szczegółowa konfiguracja per platforma — Claude Cowork, Claude Code, Cursor, VS Code, Windsurf i Claude Desktop
+description: Szczegółowa konfiguracja per platforma — Claude Desktop, Claude Code, Cursor, VS Code i Windsurf
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
@@ -11,12 +11,11 @@ Każda platforma przechowuje konfigurację MCP i pluginów w innym miejscu:
 
 | Platforma | Lokalizacja konfiguracji MCP | Przechowywanie pluginów |
 |-----------|------------------------------|------------------------|
+| Claude Desktop | `claude_desktop_config.json` | Zarządzane przez aplikację |
 | Claude Code CLI | `~/.claude/settings.json` | `~/.claude/plugins/` |
-| Claude Cowork | Zarządzane przez aplikację | Zarządzane przez aplikację |
 | Cursor | `.cursor/mcp.json` | Natywna obsługa pluginów |
 | VS Code | `.vscode/mcp.json` | Przez rozszerzenie Claude Code |
 | Windsurf | Ustawienia MCP Windsurf | Natywna obsługa pluginów |
-| Claude Desktop | `claude_desktop_config.json` | Zarządzane przez aplikację |
 
 ## Konfiguracja wielu platform naraz
 
@@ -39,7 +38,7 @@ Alternatywnie: **Settings → Extensions → Claude Code → Plugins** — dodaj
 
 ### VS Code
 
-Rozszerzenie Claude Code jest dostępne bezpośrednio z VS Code marketplace. Wyszukaj „Claude Code" w panelu rozszerzeń. Następnie zainstaluj plugin przez terminal: `claude plugin add seo-machine`.
+Rozszerzenie Claude Code jest dostępne bezpośrednio z VS Code marketplace. Wyszukaj „Claude Code" w panelu rozszerzeń. Następnie zainstaluj plugin przez terminal: `claude plugin install seo-machine`.
 
 ### Windsurf
 

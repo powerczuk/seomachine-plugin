@@ -39,12 +39,11 @@ Plugin rozszerza Claude o trzy typy komponentów:
 
 Potrzebujesz jednej z tych platform z zainstalowanym pluginem:
 
-- Claude Cowork (aplikacja desktopowa)
+- Claude Desktop (aplikacja desktopowa)
 - Claude Code (CLI)
 - Cursor IDE
 - VS Code z rozszerzeniem Claude Code
 - Windsurf
-- Claude Desktop
 
 Żadne zewnętrzne narzędzia SEO nie są wymagane — plugin działa z web search. Opcjonalne konektory (Ahrefs, Similarweb, Google Search Console, Google Analytics) dodają precyzję danych.
 
