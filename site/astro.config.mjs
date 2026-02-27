@@ -22,16 +22,16 @@ export default defineConfig({
         baseUrl: 'https://github.com/powerczuk/seomachine-plugin/edit/main/site/',
       },
       expressiveCode: {
-        themes: ['starlight-dark', 'starlight-light'],
+        themes: ['github-light', 'github-dark'],
         styleOverrides: {
-          borderRadius: '0.75rem',
-          codePaddingBlock: '0.75rem',
+          borderRadius: '1rem',
+          codePaddingBlock: '0.875rem',
           codePaddingInline: '1rem',
-          codeFontSize: '0.85rem',
-          codeLineHeight: '1.55',
+          codeFontSize: '0.84rem',
+          codeLineHeight: '1.6',
           uiFontSize: '0.7rem',
           frames: {
-            shadowColor: 'rgba(0, 0, 0, 0.08)',
+            shadowColor: 'transparent',
           },
         },
       },

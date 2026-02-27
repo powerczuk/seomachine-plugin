@@ -4,136 +4,140 @@
 
 /* =============================================
    SEO Machine — Custom Styles (Tailwind + Starlight)
-   Design system adapted from owerczuk.dev
+   1:1 adapted from Claude Code documentation
+   (code.claude.com/docs)
    ============================================= */
 
-/* --- Design Tokens (dark default for Starlight) --- */
+
+/* ===========================================================
+   1. DESIGN TOKENS
+   =========================================================== */
+
+/* --- Dark mode (default) --- */
 :root {
   --sl-color-accent-low: #3a1e12;
   --sl-color-accent: #d97757;
   --sl-color-accent-high: #f0b89e;
 
   --radius: 1rem;
-  --background: oklch(0.2679 0.0036 106.6427);
-  --foreground: oklch(0.9576 0.0027 106.4494);
-  --card: oklch(0.2928 0.0018 106.5092);
-  --card-foreground: oklch(0.9818 0.0054 95.0986);
-  --popover: oklch(0.3085 0.0035 106.6039);
-  --popover-foreground: oklch(0.9211 0.0040 106.4781);
-  --primary: oklch(0.6724 0.1308 38.7559);
-  --primary-foreground: oklch(0.1908 0.0020 106.5859);
-  --secondary: oklch(0.9818 0.0054 95.0986);
-  --secondary-foreground: oklch(0.3085 0.0035 106.6039);
-  --muted: oklch(0.2213 0.0038 106.7070);
-  --muted-foreground: oklch(0.7713 0.0169 99.0657);
-  --accent: oklch(0.2130 0.0078 95.4245);
-  --accent-foreground: oklch(0.9663 0.0080 98.8792);
-  --destructive: oklch(0.6368 0.2078 25.3313);
-  --destructive-foreground: oklch(1.0000 0 0);
-  --success: oklch(0.6000 0.1500 145);
-  --border: oklch(0.3618 0.0101 106.8928);
-  --input: oklch(0.4336 0.0113 100.2195);
-  --ring: oklch(0.6724 0.1308 38.7559);
-  --chart-1: oklch(0.5583 0.1276 42.9956);
-  --chart-2: oklch(0.6898 0.1581 290.4107);
-  --chart-3: oklch(0.2130 0.0078 95.4245);
-  --chart-4: oklch(0.3074 0.0516 289.3230);
-  --chart-5: oklch(0.5608 0.1348 42.0584);
-  --sidebar: oklch(0.2357 0.0024 67.7077);
-  --sidebar-foreground: oklch(0.8074 0.0142 93.0137);
-  --sidebar-primary: oklch(0.3250 0 0);
-  --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.1680 0.0020 106.6177);
-  --sidebar-accent-foreground: oklch(0.8074 0.0142 93.0137);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0.7731 0 0);
 
-  /* Shadow system */
-  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
-  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --background: #0f1117;
+  --foreground: #d4d4d8;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #d4d4d8;
+  --primary: #d97757;
+  --primary-foreground: #0f1117;
+  --primary-light: #f0b89e;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #1c1c21;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #22c55e;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #27272a;
+  --ring: #d97757;
 
-  /* Gradient tokens — warm amber palette (dark) */
-  --gradient-from: oklch(0.6724 0.1308 38.7559);
-  --gradient-via: oklch(0.5500 0.0900 55);
-  --gradient-to: oklch(0.5800 0.0700 75);
-  --gradient-warm: oklch(0.5800 0.1200 30);
-  --glow-color: oklch(0.6724 0.1308 38.7559 / 0.08);
-  --glow-color-accent: oklch(0.5500 0.0900 55 / 0.06);
-  --glow-color-warm: oklch(0.5800 0.1200 30 / 0.05);
+  --sidebar: #0f1117;
+  --sidebar-foreground: #a1a1aa;
+  --sidebar-primary: #d97757;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.05);
+  --sidebar-accent-foreground: #d4d4d8;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #d97757;
+
+  --codeblock-bg: #0B0C0E;
+  --codeblock-border: rgba(255, 255, 255, 0.1);
+
+  /* Starlight core overrides */
+  --sl-color-bg: #0f1117;
+  --sl-color-bg-sidebar: #0f1117;
+  --sl-color-bg-nav: rgba(15, 17, 23, 0.75);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.06);
+  --sl-color-hairline: rgba(255, 255, 255, 0.1);
+  --sl-color-text: #d4d4d8;
+  --sl-color-text-accent: #d97757;
+  --sl-content-width: 52rem;
+
+  /* Font — match Claude Code docs system stack */
+  --sl-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --sl-font-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
-/* --- Design Tokens (light) --- */
+/* --- Light mode --- */
 :root[data-theme='light'] {
   --sl-color-accent-low: #fde8df;
   --sl-color-accent: #c96442;
   --sl-color-accent-high: #5c2c1a;
 
-  --background: oklch(0.9818 0.0054 95.0986);
-  --foreground: oklch(0.3438 0.0269 95.7226);
-  --card: oklch(0.9665 0.0067 97.3521);
-  --card-foreground: oklch(0.1908 0.0020 106.5859);
-  --popover: oklch(1.0000 0 0);
-  --popover-foreground: oklch(0.2671 0.0196 98.9390);
-  --primary: oklch(0.6171 0.1375 39.0427);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.9245 0.0138 92.9892);
-  --secondary-foreground: oklch(0.4334 0.0177 98.6048);
-  --muted: oklch(0.9341 0.0153 90.2390);
-  --muted-foreground: oklch(0.5341 0.0078 97.4503);
-  --accent: oklch(0.9245 0.0138 92.9892);
-  --accent-foreground: oklch(0.2671 0.0196 98.9390);
-  --destructive: oklch(0.1908 0.0020 106.5859);
-  --destructive-foreground: oklch(1.0000 0 0);
-  --success: oklch(0.5500 0.1500 145);
-  --border: oklch(0.8847 0.0069 97.3627);
-  --input: oklch(0.7621 0.0156 98.3528);
-  --ring: oklch(0.6171 0.1375 39.0427);
-  --chart-1: oklch(0.5583 0.1276 42.9956);
-  --chart-2: oklch(0.6898 0.1581 290.4107);
-  --chart-3: oklch(0.8816 0.0276 93.1280);
-  --chart-4: oklch(0.8822 0.0403 298.1792);
-  --chart-5: oklch(0.5608 0.1348 42.0584);
-  --sidebar: oklch(0.9663 0.0080 98.8792);
-  --sidebar-foreground: oklch(0.3590 0.0051 106.6524);
-  --sidebar-primary: oklch(0.6171 0.1375 39.0427);
-  --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.9245 0.0138 92.9892);
-  --sidebar-accent-foreground: oklch(0.3250 0 0);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0.7731 0 0);
+  --background: #ffffff;
+  --foreground: #374151;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #374151;
+  --primary: #c96442;
+  --primary-foreground: #ffffff;
+  --primary-light: #d97757;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #374151;
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  --accent: #f3f4f6;
+  --accent-foreground: #111827;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #22c55e;
+  --border: rgba(3, 7, 18, 0.1);
+  --input: #e5e7eb;
+  --ring: #c96442;
 
-  /* Shadow system - light */
-  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
-  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #c96442;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(0, 0, 0, 0.03);
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: rgba(0, 0, 0, 0.06);
+  --sidebar-ring: #c96442;
 
-  /* Gradient tokens — warm amber palette (light) */
-  --gradient-from: oklch(0.5583 0.1276 42.9956);
-  --gradient-via: oklch(0.4800 0.0800 55);
-  --gradient-to: oklch(0.5200 0.0600 75);
-  --gradient-warm: oklch(0.5000 0.1100 30);
-  --glow-color: oklch(0.5583 0.1276 42.9956 / 0.10);
-  --glow-color-accent: oklch(0.4800 0.0800 55 / 0.07);
-  --glow-color-warm: oklch(0.5000 0.1100 30 / 0.06);
+  --codeblock-bg: #ffffff;
+  --codeblock-border: rgba(3, 7, 18, 0.1);
+
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
+  --sl-color-hairline-light: #e5e7eb;
+  --sl-color-hairline: #d1d5db;
+  --sl-color-text: #374151;
+  --sl-color-text-accent: #c96442;
 }
 
 
-/* --- Base Layer --- */
+/* ===========================================================
+   2. BASE LAYER
+   =========================================================== */
 
 @layer base {
   * {
     border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
   }
 
   .skip-to-content {
@@ -143,7 +147,7 @@
     padding: 0.5rem 1rem;
     background: var(--primary);
     color: var(--primary-foreground);
-    border-radius: calc(var(--radius) - 2px);
+    border-radius: 0.375rem;
   }
 
   .skip-to-content:focus {
@@ -164,369 +168,42 @@
 }
 
 
-/* --- Utility Classes (owerczuk.dev design system) --- */
-
-@layer utilities {
-  /* Text gradient — apply to text for gradient color effect */
-  .text-gradient {
-    background: linear-gradient(
-      135deg,
-      var(--gradient-from) 0%,
-      var(--gradient-via) 50%,
-      var(--gradient-to) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Ambient glow orb — position with absolute + top/left */
-  .glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-    will-change: transform;
-  }
-
-  .glow-orb-primary {
-    background: radial-gradient(
-      circle,
-      var(--glow-color) 0%,
-      transparent 70%
-    );
-  }
-
-  .glow-orb-accent {
-    background: radial-gradient(
-      circle,
-      var(--glow-color-accent) 0%,
-      transparent 70%
-    );
-  }
-
-  /* Subtle noise overlay for sections */
-  .noise-overlay::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.4;
-  }
-
-  /* Gradient border glow on cards */
-  .card-glow {
-    position: relative;
-  }
-
-  .card-glow::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      var(--gradient-from),
-      var(--gradient-via),
-      var(--gradient-to)
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    padding: 1px;
-  }
-
-  .card-glow:hover::before {
-    opacity: 0.35;
-  }
-
-  /* Section gradient washes */
-  .section-gradient-subtle {
-    background: linear-gradient(
-      180deg,
-      var(--background) 0%,
-      color-mix(in oklch, var(--muted) 50%, transparent) 50%,
-      var(--background) 100%
-    );
-  }
-
-  .section-gradient-primary {
-    background: linear-gradient(
-      135deg,
-      color-mix(in oklch, var(--gradient-from) 4%, var(--background)) 0%,
-      var(--background) 50%,
-      color-mix(in oklch, var(--gradient-to) 4%, var(--background)) 100%
-    );
-  }
-
-  /* Mesh gradient — layered radial stops for organic depth */
-  .section-mesh {
-    background:
-      radial-gradient(ellipse 80% 60% at 10% 20%, color-mix(in oklch, var(--gradient-from) 7%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 85% 70%, color-mix(in oklch, var(--gradient-to) 6%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 50% 50%, color-mix(in oklch, var(--gradient-via) 4%, transparent) 0%, transparent 60%),
-      var(--background);
-  }
-
-  /* Warm tonal gradient — amber undertone for visual rhythm */
-  .section-gradient-warm {
-    background:
-      radial-gradient(ellipse 70% 50% at 80% 30%, color-mix(in oklch, var(--gradient-warm) 4%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 20% 70%, color-mix(in oklch, var(--gradient-from) 3%, transparent) 0%, transparent 70%),
-      var(--background);
-  }
-
-  /* Cool directional gradient — left-to-right sweep */
-  .section-gradient-sweep {
-    background: linear-gradient(
-      105deg,
-      color-mix(in oklch, var(--gradient-from) 3%, var(--background)) 0%,
-      var(--background) 40%,
-      var(--background) 60%,
-      color-mix(in oklch, var(--gradient-to) 3%, var(--background)) 100%
-    );
-  }
-
-  /* Dramatic CTA gradient — bolder mesh */
-  .section-gradient-cta {
-    background:
-      radial-gradient(ellipse 80% 50% at 20% 50%, color-mix(in oklch, var(--gradient-from) 10%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 60% at 80% 50%, color-mix(in oklch, var(--gradient-via) 8%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 50% 80%, color-mix(in oklch, var(--gradient-to) 5%, transparent) 0%, transparent 60%),
-      var(--background);
-  }
-
-  /* Top fade — subtle section separator */
-  .section-fade-top {
-    background: linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--muted) 60%, transparent) 0%,
-      transparent 30%
-    );
-  }
-
-  /* Bottom fade — subtle section separator */
-  .section-fade-bottom {
-    background: linear-gradient(
-      0deg,
-      color-mix(in oklch, var(--muted) 60%, transparent) 0%,
-      transparent 30%
-    );
-  }
-
-  /* CSS-only fade-in-up — for above-the-fold content */
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out both;
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-
-/* --- Content Width: wider for tab-heavy pages --- */
-
-:root {
-  --sl-content-width: 65rem;
-}
-
-
-/* --- Code Blocks: compact, rounded, clean --- */
-
-/* Override Expressive Code background — neutral grey (dark) */
-.expressive-code .frame {
-  @apply !rounded-xl;
-  box-shadow: var(--shadow-sm) !important;
-  --ec-codeBg: oklch(0.22 0 0) !important;
-}
-
-/* Override Expressive Code background — near-black (light) */
-:root[data-theme='light'] .expressive-code .frame {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
-  --ec-codeBg: oklch(0.18 0 0) !important;
-}
-
-:root[data-theme='light'] .expressive-code pre {
-  background: oklch(0.18 0 0) !important;
-}
-
-.expressive-code pre {
-  @apply !rounded-xl !text-[0.84rem] !leading-relaxed;
-  padding: 0.7rem 1rem !important;
-  background: oklch(0.22 0 0) !important;
-}
-
-/* Hide frame header (Terminal window bar) */
-.expressive-code .frame .header {
-  display: none !important;
-}
-
-/* Subtle left border for shell/json code blocks */
-.expressive-code[data-language="bash"] .frame,
-.expressive-code[data-language="sh"] .frame,
-.expressive-code[data-language="json"] .frame {
-  border-left: 2.5px solid var(--border) !important;
-}
-
-/* --- Copy Button: smaller, subtler --- */
-
-.expressive-code .copy button {
-  @apply !w-7 !h-7 !rounded-lg;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 4px !important;
-  opacity: 0.35 !important;
-  transition: opacity 0.15s ease !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.expressive-code .copy button:hover {
-  opacity: 0.85 !important;
-}
-
-.expressive-code .copy button svg {
-  @apply !w-3.5 !h-3.5;
-}
-
-/* Only show copy on hover for cleaner look */
-.expressive-code .copy {
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  display: flex !important;
-  align-items: center !important;
-  top: 0.5rem !important;
-  right: 0.5rem !important;
-}
-
-.expressive-code:hover .copy {
-  opacity: 1;
-}
-
-
-/* --- Inline code --- */
-
-:not(pre) > code {
-  @apply !rounded-md !text-[0.85em] !font-medium;
-  background: var(--muted) !important;
-  color: var(--foreground) !important;
-  padding: 0.1rem 0.35rem !important;
-}
-
-
-/* --- Hero Badge --- */
-
-.hero-badge {
-  @apply inline-block rounded-full text-sm font-semibold mb-4;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  padding: 0.25rem 0.75rem;
-}
-
-
-/* --- Feature Cards --- */
-
-.feature-card {
-  @apply rounded-xl p-6 transition-all duration-300;
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-}
-
-.feature-card:hover {
-  border-color: var(--ring);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.feature-card h3 {
-  @apply mt-0;
-  color: var(--primary);
-}
-
-
-/* --- Badge "New" --- */
-
-.badge-new {
-  @apply inline-block rounded-full text-xs font-semibold ml-2 align-middle;
-  background: #22c55e;
-  color: white;
-  padding: 0.1rem 0.45rem;
-}
-
-
-/* --- Motto / Testimonial --- */
-
-.motto-block {
-  @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
-  padding: 1.75rem 2rem;
-  border-left: 3px solid var(--primary);
-  background: var(--muted);
-}
-
-.motto-block .motto-author {
-  @apply block mt-4 not-italic text-sm font-semibold;
-  color: var(--muted-foreground);
-}
-
-
-/* --- Tables --- */
-
-table {
-  @apply text-sm;
-}
-
-table code {
-  @apply whitespace-nowrap;
-}
-
-table th {
-  @apply font-semibold;
-}
-
-
-/* --- Link Cards --- */
-
-.sl-link-card {
-  @apply transition-all duration-300;
-  border-radius: var(--radius);
-}
-
-.sl-link-card:hover {
-  border-color: var(--ring);
-  box-shadow: var(--shadow-md);
-}
-
-
-/* --- Header: glassmorphism + gradient border --- */
+/* ===========================================================
+   3. HEADER / NAVBAR
+   Claude Code: z-30 fixed, h-16, backdrop-blur, border-b
+   border-gray-500/5, transition-colors duration-500
+   =========================================================== */
 
 header.header {
-  backdrop-filter: blur(12px) saturate(1.2) !important;
-  background: rgba(38, 38, 36, 0.82) !important;
+  backdrop-filter: blur(12px) !important;
+  transition: background-color 0.5s, border-color 0.5s !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(15, 17, 23, 0.75) !important;
 }
 
 :root[data-theme='light'] header.header {
-  background: rgba(250, 249, 245, 0.85) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  background: rgba(255, 255, 255, 0.60) !important;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.05) !important;
 }
 
-/* --- Theme Toggle: icon-only --- */
+/* Support backdrop-blur */
+@supports (backdrop-filter: blur(1px)) {
+  :root[data-theme='light'] header.header {
+    background: rgba(255, 255, 255, 0.60) !important;
+  }
+}
 
+/* Site title — match Claude Code nav logo sizing */
+.site-title a {
+  gap: 0.5rem;
+}
+
+.site-title img {
+  height: 1.75rem !important;
+  width: auto !important;
+}
+
+/* Theme Toggle: icon-only (clean, no dropdown caret) */
 starlight-theme-select label {
   --sl-select-width: 1.5em !important;
   gap: 0 !important;
@@ -543,46 +220,671 @@ starlight-theme-select .caret {
   display: none !important;
 }
 
-/* --- Light Mode Polish --- */
 
-:root[data-theme='light'] {
-  --sl-color-bg: #faf9f5;
-  --sl-color-bg-sidebar: #f5f4ee;
-  --sl-color-bg-nav: rgba(250, 249, 245, 0.85);
-  --sl-color-hairline-light: #dad9d4;
-  --sl-color-hairline: #b4b2a7;
-  --sl-color-text: #3d3929;
-  --sl-color-text-accent: #c96442;
+/* ===========================================================
+   4. SIDEBAR
+   Claude Code: w-[18rem], rounded-xl items, py-1.5 pr-3,
+   hover:bg-gray-600/5, active: bg-primary/10 text-primary
+   with text-shadow
+   =========================================================== */
+
+.sidebar-pane {
+  background: var(--sl-color-bg-sidebar) !important;
 }
 
-:root[data-theme='light'] .sidebar-pane {
-  background: var(--sl-color-bg-sidebar);
+/* Sidebar links — rounded-xl with smooth color transitions */
+nav.sidebar a,
+nav.sidebar details > summary {
+  border-radius: 0.75rem !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+/* Hover state — subtle background like Claude Code */
+nav.sidebar a:hover,
+nav.sidebar details > summary:hover {
+  background: rgba(107, 114, 128, 0.05) !important;
+}
+
+:root[data-theme='light'] nav.sidebar a:hover,
+:root[data-theme='light'] nav.sidebar details > summary:hover {
+  background: rgba(107, 114, 128, 0.05) !important;
+}
+
+/* Active page — bg-primary/10 with bold text-shadow like Claude Code */
+nav.sidebar a[aria-current="page"] {
+  background: color-mix(in srgb, var(--primary) 10%, transparent) !important;
+  color: var(--primary) !important;
+  text-shadow: -0.2px 0 0 currentColor, 0.2px 0 0 currentColor !important;
+}
+
+/* Sidebar group labels — match Claude Code's eyebrow: text-primary text-sm font-semibold */
+.group-label span {
+  color: var(--primary) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em !important;
 }
 
 
-/* --- Smooth Scrolling --- */
+/* ===========================================================
+   5. CONTENT AREA TYPOGRAPHY
+   Claude Code: prose prose-gray dark:prose-invert
+   mt-8 mb-14, [contain:inline-size] isolate
+   h1: text-2xl sm:text-3xl font-bold tracking-tight
+   h2: flex font-semibold
+   =========================================================== */
 
-html {
-  @apply scroll-smooth;
+/* Page title (h1) — match Claude Code exactly */
+.content-panel h1 {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.2 !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (min-width: 640px) {
+  .content-panel h1 {
+    font-size: 1.875rem !important;
+  }
+}
+
+/* Content headings */
+.sl-markdown-content h2 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  white-space: pre-wrap !important;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.sl-markdown-content h4 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Paragraph spacing to match Claude Code prose */
+.sl-markdown-content p {
+  line-height: 1.75 !important;
+}
+
+/* Content links — primary color, underline on hover */
+.sl-markdown-content a:not([class]) {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+.sl-markdown-content a:not([class]):hover {
+  text-decoration: underline !important;
+}
+
+/* Lists — comfortable spacing */
+.sl-markdown-content ul,
+.sl-markdown-content ol {
+  padding-left: 1.5rem !important;
+}
+
+.sl-markdown-content li {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Horizontal rules */
+.sl-markdown-content hr {
+  border-color: var(--border) !important;
+  margin: 2rem 0 !important;
+}
+
+/* Strong text — slightly darker in light mode */
+:root[data-theme='light'] .sl-markdown-content strong {
+  color: #111827 !important;
 }
 
 
-/* --- Utility: Starlight Card Grid spacing --- */
+/* ===========================================================
+   6. CODE BLOCKS
+   Claude Code: rounded-2xl, border border-gray-950/10
+   dark:border-white/10, bg-white (light), #0B0C0E (dark)
+   mt-5 mb-8, font-variant-ligatures: none
+   scrollbar-thin scrollbar-thumb-rounded
+   =========================================================== */
 
+.expressive-code {
+  margin-top: 1.25rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.expressive-code .frame {
+  border-radius: 1rem !important;
+  border: 1px solid var(--codeblock-border) !important;
+  box-shadow: none !important;
+  --ec-codeBg: var(--codeblock-bg) !important;
+  overflow: hidden !important;
+}
+
+.expressive-code pre {
+  border-radius: 1rem !important;
+  font-size: 0.84rem !important;
+  line-height: 1.6 !important;
+  padding: 0.875rem 1rem !important;
+  background: var(--codeblock-bg) !important;
+  font-variant-ligatures: none !important;
+  overflow-x: auto !important;
+}
+
+/* Scrollbar styling on code blocks — match Claude Code */
+.expressive-code pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.expressive-code pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.expressive-code pre::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+.expressive-code pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.20);
+}
+
+:root:not([data-theme='light']) .expressive-code pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.20);
+}
+
+:root:not([data-theme='light']) .expressive-code pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Light mode code blocks — white background */
+:root[data-theme='light'] .expressive-code .frame {
+  border: 1px solid rgba(3, 7, 18, 0.1) !important;
+  --ec-codeBg: #ffffff !important;
+}
+
+:root[data-theme='light'] .expressive-code pre {
+  background: #ffffff !important;
+}
+
+/* Hide frame header (Terminal window bar) */
+.expressive-code .frame .header {
+  display: none !important;
+}
+
+/* No special left border on any language */
+.expressive-code[data-language="bash"] .frame,
+.expressive-code[data-language="sh"] .frame,
+.expressive-code[data-language="json"] .frame {
+  border-left-width: 1px !important;
+}
+
+/* Copy button — hidden by default, appear on hover */
+.expressive-code .copy {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  display: flex !important;
+  align-items: center !important;
+  top: 0.75rem !important;
+  right: 1rem !important;
+}
+
+.expressive-code:hover .copy {
+  opacity: 1;
+}
+
+.expressive-code .copy button {
+  width: 1.625rem !important;
+  height: 1.625rem !important;
+  border-radius: 0.375rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.15s ease !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.expressive-code .copy button:hover {
+  opacity: 0.85 !important;
+}
+
+.expressive-code .copy button svg {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+}
+
+
+/* ===========================================================
+   7. INLINE CODE
+   Claude Code: subtle background, border, rounded-md
+   =========================================================== */
+
+:not(pre) > code {
+  font-size: 0.85em !important;
+  font-weight: 500 !important;
+  border-radius: 0.375rem !important;
+  background: var(--muted) !important;
+  color: var(--foreground) !important;
+  padding: 0.125rem 0.375rem !important;
+  border: 1px solid var(--border) !important;
+}
+
+
+/* ===========================================================
+   8. CALLOUTS / ASIDES
+   Claude Code: my-4 px-5 py-4 rounded-2xl flex gap-3 border
+   Colored text content: text-blue-800 dark:text-blue-300 etc.
+   =========================================================== */
+
+.starlight-aside {
+  border-radius: 1rem !important;
+  border-width: 1px !important;
+  border-left-width: 1px !important;
+  border-style: solid !important;
+  padding: 1rem 1.25rem !important;
+  margin: 1rem 0 !important;
+  display: flex !important;
+  gap: 0.75rem !important;
+}
+
+/* --- Note: blue --- */
+.starlight-aside--note {
+  border-color: #bfdbfe !important;
+  background: #eff6ff !important;
+}
+
+.starlight-aside--note .starlight-aside__title,
+.starlight-aside--note .starlight-aside__content,
+.starlight-aside--note .starlight-aside__content p,
+.starlight-aside--note .starlight-aside__content a {
+  color: #1e40af !important;
+}
+
+.starlight-aside--note .starlight-aside__icon {
+  color: #1e40af !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--note {
+  border-color: rgba(30, 58, 138, 0.4) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__icon {
+  color: #93c5fd !important;
+}
+
+/* --- Tip: green --- */
+.starlight-aside--tip {
+  border-color: #bbf7d0 !important;
+  background: #f0fdf4 !important;
+}
+
+.starlight-aside--tip .starlight-aside__title,
+.starlight-aside--tip .starlight-aside__content,
+.starlight-aside--tip .starlight-aside__content p,
+.starlight-aside--tip .starlight-aside__content a {
+  color: #166534 !important;
+}
+
+.starlight-aside--tip .starlight-aside__icon {
+  color: #166534 !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--tip {
+  border-color: rgba(22, 101, 52, 0.4) !important;
+  background: rgba(34, 197, 94, 0.1) !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__icon {
+  color: #86efac !important;
+}
+
+/* --- Caution: amber --- */
+.starlight-aside--caution {
+  border-color: #fed7aa !important;
+  background: #fffbeb !important;
+}
+
+.starlight-aside--caution .starlight-aside__title,
+.starlight-aside--caution .starlight-aside__content,
+.starlight-aside--caution .starlight-aside__content p,
+.starlight-aside--caution .starlight-aside__content a {
+  color: #92400e !important;
+}
+
+.starlight-aside--caution .starlight-aside__icon {
+  color: #92400e !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--caution {
+  border-color: rgba(146, 64, 14, 0.4) !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__icon {
+  color: #fcd34d !important;
+}
+
+/* --- Danger: red --- */
+.starlight-aside--danger {
+  border-color: #fecaca !important;
+  background: #fef2f2 !important;
+}
+
+.starlight-aside--danger .starlight-aside__title,
+.starlight-aside--danger .starlight-aside__content,
+.starlight-aside--danger .starlight-aside__content p,
+.starlight-aside--danger .starlight-aside__content a {
+  color: #991b1b !important;
+}
+
+.starlight-aside--danger .starlight-aside__icon {
+  color: #991b1b !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--danger {
+  border-color: rgba(153, 27, 27, 0.4) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__icon {
+  color: #fca5a5 !important;
+}
+
+/* Aside text sizing — match Claude Code's text-sm prose */
+.starlight-aside__content {
+  font-size: 0.875rem !important;
+  line-height: 1.625 !important;
+}
+
+.starlight-aside__title {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+}
+
+
+/* ===========================================================
+   9. TABS
+   Claude Code: border-b border-gray-200, gap-x-6
+   Active: text-primary border-current font-semibold
+   Inactive: text-gray-900 border-transparent hover:border-gray-300
+   =========================================================== */
+
+starlight-tabs [role="tablist"] {
+  border-bottom: 1px solid var(--border) !important;
+  gap: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 1px !important;
+}
+
+starlight-tabs [role="tab"] {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.625rem !important;
+  margin-bottom: -1px !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--foreground) !important;
+  cursor: pointer !important;
+  transition: color 0.15s ease, border-color 0.15s ease !important;
+}
+
+starlight-tabs [role="tab"][aria-selected="true"] {
+  color: var(--primary) !important;
+  border-bottom-color: currentColor !important;
+}
+
+starlight-tabs [role="tab"]:hover:not([aria-selected="true"]) {
+  border-bottom-color: var(--sl-color-hairline) !important;
+}
+
+
+/* ===========================================================
+   10. TABLES
+   Claude Code: m-0 min-w-full w-full, td min-w-[150px],
+   th text-left, td[data-numeric] tabular-nums
+   =========================================================== */
+
+table {
+  font-size: 0.875rem !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+table th {
+  font-weight: 600 !important;
+  text-align: left !important;
+}
+
+table code {
+  white-space: nowrap !important;
+}
+
+table td {
+  min-width: 150px !important;
+}
+
+
+/* ===========================================================
+   11. CARDS
+   Claude Code: rounded-2xl bg-white dark:bg-background-dark
+   border border-gray-950/10 dark:border-white/10
+   hover:!border-primary, cursor-pointer
+   =========================================================== */
+
+/* Starlight Card component */
+.card {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
+  transition: border-color 0.2s ease !important;
+  overflow: hidden !important;
+}
+
+.card:hover {
+  border-color: var(--primary) !important;
+}
+
+/* Card title — icon color */
+.card .title .icon {
+  color: var(--primary) !important;
+  fill: var(--primary) !important;
+}
+
+/* Card grid */
 .card-grid {
-  @apply gap-4;
+  gap: 1rem !important;
+}
+
+/* Link cards */
+.sl-link-card {
+  border-radius: 1rem !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.sl-link-card:hover {
+  border-color: var(--primary) !important;
 }
 
 
-/* --- Glossary --- */
+/* ===========================================================
+   12. PAGINATION (prev/next links)
+   Claude Code: rounded-2xl, border, hover:border-primary
+   =========================================================== */
+
+.pagination-links a {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.pagination-links a:hover {
+  border-color: var(--primary) !important;
+}
+
+
+/* ===========================================================
+   13. SEARCH
+   =========================================================== */
+
+dialog.pagefind-ui {
+  border-radius: 1rem !important;
+}
+
+
+/* ===========================================================
+   14. RIGHT SIDEBAR / TABLE OF CONTENTS
+   Claude Code: active item text-primary font-medium
+   border-primary, inactive hover:text-gray-900 dark:text-gray-400
+   =========================================================== */
+
+/* TOC active link */
+starlight-toc a[aria-current="true"] {
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+  border-color: var(--primary) !important;
+}
+
+/* TOC hover */
+starlight-toc a:hover {
+  color: var(--foreground) !important;
+}
+
+
+/* ===========================================================
+   15. DETAILS / ACCORDIONS
+   Claude Code: border-standard rounded-2xl mb-3
+   bg-background-light dark:bg-codeblock
+   hover:bg-gray-100 dark:bg-gray-800 rounded-t-xl
+   =========================================================== */
+
+.sl-markdown-content details {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  margin-bottom: 0.75rem !important;
+  overflow: hidden !important;
+  background: var(--card) !important;
+}
+
+.sl-markdown-content details summary {
+  padding: 1rem 1.25rem !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.sl-markdown-content details summary:hover {
+  background: rgba(107, 114, 128, 0.05) !important;
+}
+
+.sl-markdown-content details[open] summary {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+
+/* ===========================================================
+   16. HERO / SPLASH PAGE
+   =========================================================== */
+
+.hero-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.25rem 0.75rem;
+}
+
+.badge-new {
+  display: inline-block;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  background: #22c55e;
+  color: white;
+  padding: 0.1rem 0.45rem;
+}
+
+
+/* ===========================================================
+   17. BLOCKQUOTE / MOTTO
+   =========================================================== */
+
+.motto-block {
+  margin: 2.5rem 0;
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--muted);
+}
+
+.motto-block .motto-author {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+
+/* ===========================================================
+   18. GLOSSARY
+   =========================================================== */
 
 .glossary-nav {
-  @apply flex flex-wrap gap-2 pb-4 mb-6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
 }
 
 .glossary-nav a {
-  @apply inline-block text-sm font-medium no-underline rounded-full;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   background: var(--muted);
   color: var(--foreground);
@@ -595,11 +897,12 @@ html {
 }
 
 .glossary-list {
-  @apply space-y-0;
+  display: flex;
+  flex-direction: column;
 }
 
 .glossary-term {
-  @apply py-4;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--border);
   scroll-margin-top: 5rem;
 }
@@ -609,16 +912,22 @@ html {
 }
 
 .glossary-term h3 {
-  @apply mt-0 mb-1 text-base font-semibold;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .glossary-term p {
-  @apply my-1 text-sm leading-relaxed;
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.625;
   color: var(--muted-foreground);
 }
 
 .glossary-term .glossary-related {
-  @apply mt-2 text-xs;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 
@@ -629,4 +938,31 @@ html {
 
 .glossary-term .glossary-related a:hover {
   text-decoration: underline;
+}
+
+
+/* ===========================================================
+   19. FOOTER
+   Claude Code: border-t border-gray-100 dark:border-gray-800/50
+   py-16 md:py-20 max-w-[984px]
+   Link color: text-gray-950/50 hover:text-gray-950/70
+   =========================================================== */
+
+footer {
+  border-top: 1px solid var(--border) !important;
+}
+
+
+/* ===========================================================
+   20. GLOBAL LAYOUT
+   =========================================================== */
+
+.main-frame {
+  background: var(--sl-color-bg) !important;
+}
+
+/* Ensure proper content spacing — match Claude Code mt-8 mb-14 */
+.content-panel {
+  padding-top: 0.5rem !important;
+  padding-bottom: 3.5rem !important;
 }

@@ -4,3 +4,4 @@ site/.astro/
 *.env
 .DS_Store
 .playwright-mcp/
+.firecrawl/
