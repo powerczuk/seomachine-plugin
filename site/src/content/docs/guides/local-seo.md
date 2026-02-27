@@ -1,42 +1,44 @@
 ---
-title: Local SEO Guide
-description: Optimize for local search, Google Business Profile, citations, and "near me" keywords
+title: Przewodnik lokalnego SEO
+description: Optymalizacja pod lokalne wyszukiwanie, Google Business Profile, cytacje i frazy „blisko mnie"
 ---
 
-Local SEO helps businesses appear in location-based searches. The local pack captures 44% of all clicks on local search result pages.
+Lokalne SEO pomaga firmom pojawiać się w wyszukiwaniach opartych na lokalizacji. Local pack przechwytuje 44% wszystkich kliknięć na stronach wyników lokalnego wyszukiwania.
 
-## Key Areas
+## Kluczowe obszary
 
 ### Google Business Profile
 
-Your GBP is the primary local search touchpoint. Complete all fields: name, address, phone, hours, categories, photos (10+), weekly posts, Q&A, and attributes.
+Twój GBP to główny punkt styku z lokalnym searchem. Uzupełnij wszystkie pola: nazwa, adres, telefon, godziny, kategorie, zdjęcia (10+), cotygodniowe posty, Q&A i atrybuty.
 
-### NAP Consistency
+### Spójność NAP
 
-Name, Address, Phone must be identical everywhere — including abbreviations ("Street" vs "St."). Pick one format and enforce it across all citations.
+Name, Address, Phone muszą być identyczne wszędzie — włącznie ze skrótami („ul." vs „ulica"). Wybierz jeden format i egzekwuj go we wszystkich cytacjach.
 
-### Citation Building
+### Budowanie cytacji
 
-**Tier 1:** Data aggregators (Data Axle, Neustar Localeze, Foursquare) — distributes to 50-150+ directories.
-**Tier 2:** Major directories (Google, Apple Maps, Bing Places, Yelp, BBB, Facebook).
-**Tier 3:** Industry-specific directories.
+**Tier 1:** Agregatory danych (Data Axle, Neustar Localeze, Foursquare) — dystrybucja do 50–150+ katalogów.
 
-### Local Keywords
+**Tier 2:** Główne katalogi (Google, Apple Maps, Bing Places, Yelp, BBB, Facebook).
 
-Target patterns like `[service] in [city]`, `[service] near me`, `best [service] [city]`, and neighborhood-level terms.
+**Tier 3:** Katalogi branżowe.
 
-### Local Schema
+### Lokalne keywords
 
-Implement `LocalBusiness` with `GeoCoordinates`, `OpeningHoursSpecification`, and `AggregateRating`.
+Targetuj wzorce: `[usługa] w [miasto]`, `[usługa] blisko mnie`, `najlepszy [usługa] [miasto]` i frazy na poziomie dzielnic.
 
-### Reviews
+### Lokalne schema
 
-Aim for 4.5+ stars, 50+ reviews, 100% response rate within 24-48 hours.
+Zaimplementuj `LocalBusiness` z `GeoCoordinates`, `OpeningHoursSpecification` i `AggregateRating`.
 
-## Using SEO Machine
+### Opinie
 
+Celuj w 4,5+ gwiazdek, 50+ opinii, 100% wskaźnik odpowiedzi w ciągu 24–48 godzin.
+
+## Użycie SEO Machine
+
+```bash
+/local-seo "Nazwa firmy" "Miasto, Region" [URL GBP]
 ```
-/local-seo "Business Name" "City, State" [GBP URL]
-```
 
-This runs the full local SEO audit including GBP analysis, NAP consistency, citations, local keywords, schema, and reviews.
+Uruchamia pełny audyt lokalnego SEO obejmujący analizę GBP, spójność NAP, cytacje, lokalne keywords, schema i opinie.

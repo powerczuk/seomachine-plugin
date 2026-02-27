@@ -5,7 +5,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'SEO Machine',
-      description: 'The most comprehensive SEO plugin for Claude-powered tools. Keyword research, content optimization, technical audits, GEO, local SEO, and more.',
+      description: 'Najlepszy plugin SEO do narzędzi opartych na Claude. Badanie słów kluczowych, optymalizacja treści, audyty techniczne, GEO, lokalne SEO i więcej.',
+      defaultLocale: 'pl',
       social: {
         github: 'https://github.com/powerczuk/seomachine-plugin',
       },
@@ -20,52 +21,52 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: 'Getting Started',
+          label: 'Pierwsze kroki',
           items: [
-            { label: 'Introduction', slug: 'getting-started/introduction' },
-            { label: 'Installation', slug: 'getting-started/installation' },
-            { label: 'Quick Start', slug: 'getting-started/quick-start' },
+            { label: 'Wprowadzenie', slug: 'getting-started/introduction' },
+            { label: 'Instalacja', slug: 'getting-started/installation' },
+            { label: 'Szybki start', slug: 'getting-started/quick-start' },
           ],
         },
         {
-          label: 'Commands',
+          label: 'Komendy',
           items: [
-            { label: 'Overview', slug: 'commands/overview' },
-            { label: 'Content Creation', slug: 'commands/content-creation' },
-            { label: 'Site Architecture', slug: 'commands/site-architecture' },
-            { label: 'GEO & AI Search', slug: 'commands/geo-ai-search' },
-            { label: 'Local SEO', slug: 'commands/local-seo' },
-            { label: 'Strategy & Analysis', slug: 'commands/strategy-analysis' },
+            { label: 'Przegląd', slug: 'commands/overview' },
+            { label: 'Tworzenie treści', slug: 'commands/content-creation' },
+            { label: 'Architektura strony', slug: 'commands/site-architecture' },
+            { label: 'GEO i wyszukiwanie AI', slug: 'commands/geo-ai-search' },
+            { label: 'Lokalne SEO', slug: 'commands/local-seo' },
+            { label: 'Strategia i analiza', slug: 'commands/strategy-analysis' },
           ],
         },
         {
-          label: 'Skills & Agents',
+          label: 'Umiejętności i agenci',
           items: [
-            { label: 'Skills Reference', slug: 'skills/reference' },
-            { label: 'Agents Reference', slug: 'skills/agents' },
+            { label: 'Skills', slug: 'skills/reference' },
+            { label: 'Agenci', slug: 'skills/agents' },
           ],
         },
         {
-          label: 'Guides',
+          label: 'Przewodniki',
           items: [
-            { label: 'GEO — AI Search Optimization', slug: 'guides/geo' },
-            { label: 'Local SEO', slug: 'guides/local-seo' },
-            { label: 'Use Cases & Workflows', slug: 'guides/use-cases' },
+            { label: 'GEO — optymalizacja pod AI', slug: 'guides/geo' },
+            { label: 'Lokalne SEO', slug: 'guides/local-seo' },
+            { label: 'Przypadki użycia', slug: 'guides/use-cases' },
           ],
         },
         {
-          label: 'Integrations',
+          label: 'Integracje',
           items: [
-            { label: 'Connectors Guide', slug: 'integrations/connectors' },
-            { label: 'Platform Setup', slug: 'integrations/platforms' },
+            { label: 'Konektory', slug: 'integrations/connectors' },
+            { label: 'Konfiguracja platform', slug: 'integrations/platforms' },
           ],
         },
         {
-          label: 'Reference',
+          label: 'Referencje',
           items: [
-            { label: 'Security', slug: 'reference/security' },
+            { label: 'Bezpieczeństwo', slug: 'reference/security' },
             { label: 'Changelog', slug: 'reference/changelog' },
-            { label: 'Contributing', slug: 'reference/contributing' },
+            { label: 'Współtworzenie', slug: 'reference/contributing' },
           ],
         },
       ],

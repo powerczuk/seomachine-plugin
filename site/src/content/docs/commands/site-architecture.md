@@ -1,52 +1,58 @@
 ---
-title: Site Architecture Commands
-description: Commands for audits, topic clusters, internal linking, schema, and quick wins
+title: Komendy architektury strony
+description: Komendy do audytów, klastrów tematycznych, linkowania wewnętrznego, schema i szybkich wygranych
 ---
 
 ## /audit
 
-Full-site SEO audit — technical, on-page, content, and competitive analysis.
+Pełny audyt SEO — techniczny, on-page, content i analiza konkurencji.
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/audit <URL domeny> [URL-e konkurencji]
 ```
-/audit <domain URL> [competitor URLs]
-```
 
-**Audit sections:**
-1. **Technical SEO** — crawlability, performance, Core Web Vitals, structured data, security
-2. **On-Page SEO** — samples 5-10 key pages for element analysis
-3. **Content Analysis** — depth, freshness, thin content, duplicates, topic gaps
-4. **Keyword Analysis** — current targeting, cannibalization, quick wins
-5. **Competitor Comparison** — side-by-side with 1-3 competitors
+**Sekcje audytu:**
 
-**Output:** Executive summary with health score, technical checklist, on-page issues table, content gap recommendations, prioritized action plan.
+1. **Techniczne SEO** — crawlability, wydajność, Core Web Vitals, structured data, bezpieczeństwo
+2. **On-Page SEO** — próbka 5–10 kluczowych stron pod kątem elementów
+3. **Analiza treści** — głębokość, świeżość, thin content, duplikaty, luki tematyczne
+4. **Analiza keywords** — aktualne targetowanie, kanibalizacja, szybkie wygrane
+5. **Porównanie z konkurencją** — zestawienie z 1–3 konkurentami
 
-**Example:**
-```
-/audit https://example.com https://competitor1.com https://competitor2.com
+**Output:** Executive summary z health score, checklist techniczny, tabela problemów on-page, rekomendacje content gap, priorytetyzowany plan działania.
+
+**Przykład:**
+
+```bash
+/audit https://example.com https://konkurent1.com https://konkurent2.com
 ```
 
 ---
 
 ## /topic-clusters
 
-Map topic clusters with pillar pages, subtopics, and internal linking.
+Mapowanie klastrów tematycznych z pillar pages, podtematami i linkowaniem wewnętrznym.
 
-**Syntax:**
-```
-/topic-clusters <seed topic or keyword>
+**Składnia:**
+
+```bash
+/topic-clusters <temat bazowy lub keyword>
 ```
 
-**What it produces:**
-- Cluster overview with page count, total volume, timeline
-- Pillar page specification (3,000-5,000+ words)
-- Cluster page table with keyword, intent, volume, difficulty, priority
-- Internal linking matrix
-- Content calendar (2-4 pages/month cadence)
-- Schema recommendations per page type
+**Co produkuje:**
 
-**Example:**
-```
+- Przegląd klastra z liczbą stron, łącznym wolumenem, timeline
+- Specyfikacja pillar page (3 000–5 000+ słów)
+- Tabela stron klastra z keyword, intencją, wolumenem, difficulty, priorytetem
+- Matryca linkowania wewnętrznego
+- Kalendarz contentowy (kadencja 2–4 strony/miesiąc)
+- Rekomendacje schema per typ strony
+
+**Przykład:**
+
+```bash
 /topic-clusters "email marketing"
 ```
 
@@ -54,51 +60,56 @@ Map topic clusters with pillar pages, subtopics, and internal linking.
 
 ## /internal-links
 
-Analyze and suggest strategic internal linking improvements.
+Analiza i sugestie strategicznego linkowania wewnętrznego.
 
-**Syntax:**
-```
-/internal-links <URL or sitemap URL> [focus page URL]
+**Składnia:**
+
+```bash
+/internal-links <URL lub sitemap URL> [URL strony docelowej]
 ```
 
-**Output:** Link health summary, priority link additions, orphan pages list, anchor text improvements, topic cluster link map, implementation checklist.
+**Output:** Podsumowanie zdrowia linków, priorytetowe dodania linków, lista stron-sierot, poprawki anchor text, mapa linków klastrów tematycznych, checklist implementacji.
 
 ---
 
 ## /schema-gen
 
-Generate JSON-LD schema markup for any page type.
+Generowanie JSON-LD schema markup dla dowolnego typu strony.
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/schema-gen <URL lub typ strony> [typy schema]
 ```
-/schema-gen <URL or page type> [schema types]
-```
 
-**Supported types:** Article, FAQ, HowTo, Product, BreadcrumbList, LocalBusiness, Organization, Review, AggregateRating, Event, Recipe, VideoObject, SoftwareApplication.
+**Obsługiwane typy:** Article, FAQ, HowTo, Product, BreadcrumbList, LocalBusiness, Organization, Review, AggregateRating, Event, Recipe, VideoObject, SoftwareApplication.
 
-**Output:** Recommended schema types, copy-paste ready `<script>` blocks, implementation instructions, validation guidance.
+**Output:** Rekomendowane typy schema, gotowe do wklejenia bloki `<script>`, instrukcje implementacji, wskazówki walidacji.
 
-**Example:**
-```
-/schema-gen https://myblog.com/how-to-guide HowTo FAQ
+**Przykład:**
+
+```bash
+/schema-gen https://mojblog.pl/poradnik HowTo FAQ
 ```
 
 ---
 
 ## /low-hanging-fruit
 
-Find quick-win keywords and pages for immediate ranking gains.
+Znajdowanie szybkich wygranych — keywords i strony do natychmiastowego wzrostu pozycji.
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/low-hanging-fruit <URL domeny>
 ```
-/low-hanging-fruit <domain URL>
-```
 
-**What it finds:**
-- Keywords at positions 11-20 (close to page 1)
-- High-impression, low-CTR pages
-- Pages with missing meta descriptions
-- Content ranking for low-difficulty keywords with no dedicated page
-- Internal link opportunities to boost existing rankings
+**Co znajduje:**
 
-**Output:** Prioritized opportunity table with estimated impact, specific action items, effort vs impact matrix.
+- Keywords na pozycjach 11–20 (blisko strony 1)
+- Strony z dużą liczbą wyświetleń ale niskim CTR
+- Strony z brakującymi meta description
+- Treści rankujące na łatwe keywords bez dedykowanej strony
+- Okazje linkowania wewnętrznego do wzmocnienia istniejących pozycji
+
+**Output:** Priorytetyzowana tabela okazji z szacowanym wpływem, konkretne elementy do działania, matryca wysiłek vs wpływ.

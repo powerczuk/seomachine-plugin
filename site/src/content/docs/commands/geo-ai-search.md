@@ -1,67 +1,72 @@
 ---
-title: GEO & AI Search Commands
-description: Commands for optimizing visibility in AI search engines
+title: Komendy GEO i wyszukiwania AI
+description: Komendy do optymalizacji widoczności w wyszukiwarkach AI
 ---
 
 ## /geo-audit
 
-Audit your site's visibility and citability in AI search engines like ChatGPT, Perplexity, and Google AI Overviews.
+Audyt widoczności i cytowalności Twojej strony w wyszukiwarkach AI (ChatGPT, Perplexity, Google AI Overviews).
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/geo-audit <URL domeny> [nazwa marki]
 ```
-/geo-audit <domain URL> [brand name]
-```
 
-**What it checks:**
+**Co sprawdza:**
 
-| Dimension | What it measures |
-|-----------|-----------------|
-| AI Crawler Access | robots.txt allowing GPTBot, ClaudeBot, PerplexityBot |
-| llms.txt Presence | Whether you have an llms.txt file and its quality |
-| Content Citability | Whether passages can stand alone when extracted by AI |
-| Schema Markup | Structured data that helps AI engines parse content |
-| E-E-A-T Signals | Author bios, credentials, citations, expert quotes |
-| Brand Mentions | Third-party mentions, earned media, social sentiment |
-| Content Freshness | Last-updated timestamps, recency of data |
-| Technical Readiness | JavaScript rendering, hidden content issues |
+| Wymiar | Co mierzy |
+|--------|-----------|
+| Dostęp crawlerów AI | robots.txt zezwalający GPTBot, ClaudeBot, PerplexityBot |
+| Obecność llms.txt | Czy masz plik llms.txt i jaka jest jego jakość |
+| Cytowalność treści | Czy fragmenty mogą samodzielnie funkcjonować po wyciągnięciu przez AI |
+| Schema Markup | Structured data pomagające AI parsować treść |
+| Sygnały E-E-A-T | Biogramy autorów, referencje, cytaty ekspertów |
+| Wzmianki marki | Wzmianki stron trzecich, earned media, sentiment |
+| Świeżość treści | Timestampy ostatniej aktualizacji, aktualność danych |
+| Gotowość techniczna | Renderowanie JavaScript, ukryte treści |
 
-**Output:** GEO readiness score (0-100), issue-by-issue breakdown with fix instructions, prioritized action plan, competitor comparison.
+**Output:** GEO readiness score (0–100), szczegółowy breakdown problemów z instrukcjami naprawy, priorytetyzowany plan działania, porównanie z konkurencją.
 
-**Example:**
-```
+**Przykład:**
+
+```bash
 /geo-audit https://example.com "Example Brand"
 ```
 
-See the [GEO Guide](/guides/geo/) for the full framework behind this command.
+Zobacz [przewodnik GEO](/guides/geo/) po pełny framework stojący za tą komendą.
 
 ---
 
 ## /llms-txt
 
-Generate an optimized llms.txt file for AI crawler guidance.
+Generowanie zoptymalizowanego pliku llms.txt do nawigacji crawlerów AI.
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/llms-txt <URL domeny> [URL sitemap]
 ```
-/llms-txt <domain URL> [sitemap URL]
-```
 
-**What it does:**
-1. Crawls your sitemap or top pages to identify authoritative content
-2. Categorizes pages by topic and importance
-3. Generates a Markdown-formatted llms.txt following the specification
-4. Provides placement instructions
+**Co robi:**
 
-**Output:** Ready-to-deploy llms.txt file, deployment instructions (place at `domain.com/llms.txt`), optional llms-full.txt for comprehensive coverage.
+1. Crawluje Twoją sitemap lub top strony aby zidentyfikować autorytatywne treści
+2. Kategoryzuje strony po tematach i ważności
+3. Generuje llms.txt w formacie Markdown zgodnie ze specyfikacją
+4. Dostarcza instrukcje umieszczenia
 
-**Example:**
-```
+**Output:** Gotowy do wdrożenia plik llms.txt, instrukcje deploymentu (umieść pod `domena.pl/llms.txt`), opcjonalny llms-full.txt dla pełnego pokrycia.
+
+**Przykład:**
+
+```bash
 /llms-txt https://example.com https://example.com/sitemap.xml
 ```
 
-### What is llms.txt?
+### Czym jest llms.txt?
 
-The llms.txt file is a standard that acts as a curated Markdown index for LLM crawlers. Unlike robots.txt (which controls access), llms.txt tells AI systems which content is most important and how it's organized.
+Plik llms.txt to standard działający jako kuratorowany indeks Markdown dla crawlerów LLM. W odróżnieniu od robots.txt (który kontroluje dostęp), llms.txt mówi systemom AI, które treści są najważniejsze i jak są zorganizowane.
 
-LLMs have limited context windows and struggle to process entire websites. By providing a standardized Markdown file at `/llms.txt`, you give AI systems a clear overview of your most important content.
+LLM-y mają ograniczone okna kontekstu i nie radzą sobie z przetwarzaniem całych stron. Udostępniając ustandaryzowany plik Markdown pod `/llms.txt`, dajesz systemom AI jasny przegląd najważniejszych treści.
 
-As of mid-2025, over 950 domains have adopted this standard, including Anthropic, Cloudflare, Stripe, and Vercel.
+Od połowy 2025 roku ponad 950 domen przyjęło ten standard, w tym Anthropic, Cloudflare, Stripe i Vercel.

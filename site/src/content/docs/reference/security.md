@@ -1,40 +1,41 @@
 ---
-title: Security
-description: Security model, prompt injection defenses, and data handling
+title: Bezpieczeństwo
+description: Model bezpieczeństwa, ochrona przed prompt injection i obsługa danych
 ---
 
-## Security Model
+## Model bezpieczeństwa
 
-SEO Machine fetches and analyzes web content regularly. This document explains how the plugin handles security.
+SEO Machine regularnie pobiera i analizuje treści z web. Ten dokument wyjaśnia jak plugin obsługuje bezpieczeństwo.
 
-### Input Validation
+### Walidacja danych wejściowych
 
-All command inputs are treated as data, not instructions. URLs, keywords, and content files are validated and sanitized before processing.
+Wszystkie inputy komend są traktowane jako dane, nie instrukcje. URL-e, keywords i pliki treści są walidowane i sanityzowane przed przetwarzaniem.
 
-### Prompt Injection Defenses
+### Ochrona przed prompt injection
 
-Web content fetched during analysis is processed as data for scoring and comparison. It is never interpreted as commands.
+Treści webowe pobierane podczas analizy są przetwarzane jako dane do scoringu i porównań. Nigdy nie są interpretowane jako komendy.
 
-The plugin never automatically:
-- Publishes content based on what it finds on the web
-- Modifies files based on web instructions
-- Sends data to URLs found in web content
-- Follows redirect chains without user awareness
+Plugin nigdy automatycznie nie:
 
-### Data Handling
+- Publikuje treści na podstawie tego co znajdzie w web
+- Modyfikuje plików na podstawie instrukcji z web
+- Wysyła danych pod URL-e znalezione w treściach web
+- Podąża za łańcuchami przekierowań bez wiedzy użytkownika
 
-**What SEO Machine reads:** URLs you provide, content files you point to, SERP results, competitor pages.
+### Obsługa danych
 
-**What it does NOT do:** Store API keys, cache competitor data beyond sessions, send your content to third parties, access files you haven't provided.
+**Co SEO Machine czyta:** URL-e które podasz, pliki treści na które wskażesz, wyniki SERP, strony konkurencji.
 
-### MCP Security
+**Czego NIE robi:** Nie przechowuje kluczy API, nie cachuje danych konkurencji poza sesją, nie wysyła Twoich treści do stron trzecich, nie uzyskuje dostępu do plików których nie udostępniłeś.
 
-MCP authentication is handled by the protocol layer. API keys are stored in your platform's secure configuration, not in plugin files. The plugin never has direct access to credentials.
+### Bezpieczeństwo MCP
 
-### Content Generation Safety
+Uwierzytelnianie MCP jest obsługiwane przez warstwę protokołu. Klucze API są przechowywane w bezpiecznej konfiguracji Twojej platformy, nie w plikach pluginu. Plugin nigdy nie ma bezpośredniego dostępu do poświadczeń.
 
-Generated content is original (not copied), includes source attribution for claims, contains no hidden elements, and produces clean schema output.
+### Bezpieczeństwo generowanej treści
 
-## Vulnerability Reporting
+Generowane treści są oryginalne (nie kopiowane), zawierają atrybucję źródeł dla twierdzeń, nie zawierają ukrytych elementów i produkują czysty output schema.
 
-Report security issues via the GitHub repository. Do not disclose publicly before a fix is available. We aim to acknowledge within 48 hours and patch within 7 days.
+## Zgłaszanie podatności
+
+Zgłaszaj problemy bezpieczeństwa przez repozytorium GitHub. Nie ujawniaj publicznie przed dostępnością poprawki. Potwierdzamy zgłoszenia w ciągu 48 godzin, a łatki wdrażamy w ciągu 7 dni.

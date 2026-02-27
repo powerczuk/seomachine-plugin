@@ -1,67 +1,61 @@
 ---
-title: Platform Setup
-description: Detailed platform-specific configuration for Claude Cowork, Claude Code, Cursor, VS Code, Windsurf, and Claude Desktop
+title: Konfiguracja platform
+description: Szczegółowa konfiguracja per platforma — Claude Cowork, Claude Code, Cursor, VS Code, Windsurf i Claude Desktop
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-## Configuration Files
+## Pliki konfiguracyjne
 
-Each platform stores MCP and plugin configuration in different locations:
+Każda platforma przechowuje konfigurację MCP i pluginów w innym miejscu:
 
-| Platform | MCP Config Location | Plugin Storage |
-|----------|-------------------|----------------|
+| Platforma | Lokalizacja konfiguracji MCP | Przechowywanie pluginów |
+|-----------|------------------------------|------------------------|
 | Claude Code CLI | `~/.claude/settings.json` | `~/.claude/plugins/` |
-| Claude Cowork | Managed by app | Managed by app |
-| Cursor | `.cursor/mcp.json` | Via Claude Code extension |
-| VS Code | `.vscode/mcp.json` | Via Claude Code extension |
-| Windsurf | Windsurf MCP settings | Via Claude Code extension |
-| Claude Desktop | `claude_desktop_config.json` | App-managed |
+| Claude Cowork | Zarządzane przez aplikację | Zarządzane przez aplikację |
+| Cursor | `.cursor/mcp.json` | Natywna obsługa pluginów |
+| VS Code | `.vscode/mcp.json` | Przez rozszerzenie Claude Code |
+| Windsurf | Ustawienia MCP Windsurf | Natywna obsługa pluginów |
+| Claude Desktop | `claude_desktop_config.json` | Zarządzane przez aplikację |
 
-## Multi-Platform Setup
+## Konfiguracja wielu platform naraz
 
-Use `add-mcp` to configure MCP servers across all platforms at once:
+Użyj `add-mcp` aby skonfigurować serwery MCP na wszystkich platformach jednocześnie:
 
 ```bash
 npx add-mcp https://api.ahrefs.com/mcp/mcp -a cursor -a claude-code
 npx add-mcp https://mcp.similarweb.com -a cursor -a claude-code
 ```
 
-This automatically detects installed tools and writes the correct configuration files.
+Automatycznie wykrywa zainstalowane narzędzia i zapisuje odpowiednie pliki konfiguracyjne.
 
-## IDE-Specific Notes
+## Uwagi per IDE
 
 ### Cursor
 
-The Claude Code extension for Cursor requires manual installation:
+Cursor ma natywne wsparcie dla pluginów Claude Code. Otwórz panel Claude Code przez `Cmd+Shift+P` → **„Claude Code: Open"** i użyj `/install-plugin seo-machine`.
 
-```bash
-npm pack @anthropic-ai/claude-code
-tar -xzf anthropic-ai-claude-code-*.tgz
-cursor --install-extension package/vendor/claude-code.vsix
-```
-
-After installing, the Claude Code panel is available via `Cmd+Shift+P > Claude Code: Open`.
+Alternatywnie: **Settings → Extensions → Claude Code → Plugins** — dodaj `seo-machine`.
 
 ### VS Code
 
-The Claude Code extension is available directly from the VS Code marketplace. Search for "Claude Code" in the Extensions panel.
+Rozszerzenie Claude Code jest dostępne bezpośrednio z VS Code marketplace. Wyszukaj „Claude Code" w panelu rozszerzeń. Następnie zainstaluj plugin przez terminal: `claude plugin add seo-machine`.
 
 ### Windsurf
 
-Install the Claude Code extension from Windsurf's extension marketplace, then configure MCP servers through Windsurf's MCP settings panel.
+Zainstaluj rozszerzenie Claude Code z marketplace Windsurf, następnie skonfiguruj serwery MCP przez panel ustawień MCP Windsurf.
 
-## Verifying Setup
+## Weryfikacja konfiguracji
 
-After installation, test with:
+Po instalacji przetestuj:
 
+```bash
+/research testowe keyword
 ```
-/research test keyword
-```
 
-If you see structured output, the plugin is active. If not:
+Jeśli widzisz ustrukturyzowany output — plugin jest aktywny. Jeśli nie:
 
-1. Check `claude plugin list` to confirm installation
-2. Verify MCP server URLs are correct
-3. Restart the application/IDE
-4. Check for API credential issues in connected tools
+1. Sprawdź `claude plugin list` aby potwierdzić instalację
+2. Zweryfikuj poprawność URL-i serwerów MCP
+3. Zrestartuj aplikację/IDE
+4. Sprawdź problemy z poświadczeniami API w podłączonych narzędziach

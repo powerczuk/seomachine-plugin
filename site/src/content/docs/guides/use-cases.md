@@ -1,66 +1,66 @@
 ---
-title: Use Cases & Workflows
-description: Real-world SEO Machine workflows with example inputs and outputs
+title: Przypadki użycia i workflow
+description: Realne workflow SEO Machine z przykładowymi danymi wejściowymi i wynikami
 ---
 
-## Workflow 1: Write a New SEO Article
+## Workflow 1 — Napisz nowy artykuł SEO
 
+```bash
+/research "najlepsze narzędzia do zarządzania projektami dla startupów"
+/content-brief "najlepsze narzędzia do zarządzania projektami dla startupów"
+/write-seo "najlepsze narzędzia do zarządzania projektami dla startupów" 2800
+/optimize [plik artykułu]
+/meta-tags [plik artykułu]
+/schema-gen [URL artykułu] Article FAQ
+/internal-links https://twojblog.pl/sitemap.xml [URL artykułu]
 ```
-/research "best project management tools for startups"
-/content-brief "best project management tools for startups"
-/write-seo "best project management tools for startups" 2800
-/optimize [article file]
-/meta-tags [article file]
-/schema-gen [article URL] Article FAQ
-/internal-links https://yourblog.com/sitemap.xml [article URL]
-```
 
-**Timeline:** ~15-20 minutes for a complete, publication-ready article.
+**Czas realizacji:** ~15–20 minut na kompletny artykuł gotowy do publikacji.
 
-## Workflow 2: Full Site Audit
+## Workflow 2 — Pełny audyt strony
 
-```
-/audit https://example.com https://competitor1.com https://competitor2.com
+```bash
+/audit https://example.com https://konkurent1.com https://konkurent2.com
 /low-hanging-fruit https://example.com
-/topic-clusters "core product topic"
+/topic-clusters "kluczowy temat produktu"
 /internal-links https://example.com/sitemap.xml
 ```
 
-**Output:** Complete audit report, quick-win opportunities, topic cluster strategy, and link optimization plan.
+**Output:** Kompletny raport audytu, okazje szybkich wygranych, strategia klastrów tematycznych i plan optymalizacji linków.
 
-## Workflow 3: Content Recovery
+## Workflow 3 — Odzyskiwanie treści
 
-For a page that's dropped from page 1 to page 2-3:
+Dla strony, która spadła ze strony 1 na stronę 2–3:
 
+```bash
+/analyze https://twojblog.pl/spadajacy-artykul
+/rewrite https://twojblog.pl/spadajacy-artykul "docelowe keyword"
+/analyze [przepisana treść]
 ```
-/analyze https://yourblog.com/declining-article
-/rewrite https://yourblog.com/declining-article "target keyword"
-/analyze [rewritten content]
-```
 
-Target 70+ score before republishing.
+Cel: wynik 70+ przed ponowną publikacją.
 
-## Workflow 4: GEO Optimization
+## Workflow 4 — Optymalizacja GEO
 
-```
-/geo-audit https://example.com "Brand Name"
+```bash
+/geo-audit https://example.com "Nazwa Marki"
 /llms-txt https://example.com https://example.com/sitemap.xml
-/schema-gen https://example.com/key-page Article FAQ Organization
+/schema-gen https://example.com/kluczowa-strona Article FAQ Organization
 ```
 
-## Workflow 5: Local Business
+## Workflow 5 — Firma lokalna
 
-```
-/local-seo "Mario's Italian Kitchen" "Austin, TX" https://g.page/marios
-/schema-gen https://marios-italian.com LocalBusiness Restaurant
-/content-brief "best Italian restaurants in Austin"
+```bash
+/local-seo "Pizzeria Roma" "Warszawa, Mokotów" https://g.page/pizzeria-roma
+/schema-gen https://pizzeria-roma.pl LocalBusiness Restaurant
+/content-brief "najlepsza pizzeria w Warszawie"
 ```
 
-## Workflow 6: Competitive Intelligence
+## Workflow 6 — Wywiad konkurencyjny
 
-```
-/competitors https://yoursite.com https://rival1.com https://rival2.com
-/topic-clusters "[core topic]"
-/content-brief "[gap keyword]"
-/write-seo "[gap keyword]"
+```bash
+/competitors https://twojastrona.pl https://rywal1.pl https://rywal2.pl
+/topic-clusters "[kluczowy temat]"
+/content-brief "[keyword z luki]"
+/write-seo "[keyword z luki]"
 ```

@@ -1,69 +1,74 @@
 ---
-title: Installation
-description: Install SEO Machine on Claude Cowork, Claude Code, Cursor, VS Code, Windsurf, or Claude Desktop
+title: Instalacja
+description: Zainstaluj SEO Machine na Claude Cowork, Claude Code, Cursor, VS Code, Windsurf lub Claude Desktop
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-## Choose your platform
+## Wybierz platformę
 
 <Tabs>
   <TabItem label="Claude Cowork">
-    ### From Plugin Marketplace (recommended)
+    ### Z marketplace pluginów (zalecane)
 
-    1. Open the Claude desktop app
-    2. Start or open a Cowork session
-    3. Go to **Settings > Plugins**
-    4. Search for **"SEO Machine"**
-    5. Click **Install**
+    1. Otwórz aplikację Claude Desktop
+    2. Uruchom lub otwórz sesję Cowork
+    3. Przejdź do **Ustawienia → Pluginy**
+    4. Wyszukaj **„SEO Machine"**
+    5. Kliknij **Zainstaluj**
 
-    ### Manual Installation
+    ### Instalacja ręczna
 
-    1. Download the plugin from the [GitHub releases page](https://github.com/TheCraigHewitt/seomachine/releases)
-    2. In Cowork, go to **Settings > Plugins > Install from file**
-    3. Select the downloaded `.zip` file
+    1. Pobierz plugin ze [strony GitHub releases](https://github.com/powerczuk/seomachine-plugin/releases)
+    2. W Cowork przejdź do **Ustawienia → Pluginy → Zainstaluj z pliku**
+    3. Wybierz pobrany plik `.zip`
   </TabItem>
 
   <TabItem label="Claude Code CLI">
-    ### From Plugin Registry
+    ### Z rejestru pluginów
 
     ```bash
     claude plugin add seo-machine
     ```
 
-    ### From GitHub
+    ### Z repozytorium GitHub
 
     ```bash
-    git clone https://github.com/TheCraigHewitt/seomachine.git
-    cd seomachine
+    git clone https://github.com/powerczuk/seomachine-plugin.git
+    cd seomachine-plugin
     claude plugin add .
     ```
 
-    ### Verify
+    ### Weryfikacja instalacji
 
     ```bash
     claude plugin list
+    # Powinno wyświetlić: seo-machine v2.0.0
     ```
   </TabItem>
 
   <TabItem label="Cursor">
-    ### Step 1: Install Claude Code extension
+    Cursor posiada natywne wsparcie dla pluginów Claude Code — nie musisz niczego instalować ręcznie przez CLI.
 
-    ```bash
-    npm pack @anthropic-ai/claude-code
-    tar -xzf anthropic-ai-claude-code-*.tgz
-    cursor --install-extension package/vendor/claude-code.vsix
+    ### Krok 1 — Otwórz panel Claude Code
+
+    Użyj skrótu `Cmd+Shift+P` (Mac) / `Ctrl+Shift+P` (Windows/Linux) i wpisz **„Claude Code: Open"**.
+
+    ### Krok 2 — Zainstaluj plugin
+
+    W panelu Claude Code wpisz:
+
+    ```
+    /install-plugin seo-machine
     ```
 
-    ### Step 2: Install the plugin
+    Alternatywnie możesz dodać plugin ręcznie w ustawieniach Cursor:
+    1. Otwórz **Settings → Extensions → Claude Code**
+    2. W sekcji **Plugins** dodaj `seo-machine`
 
-    ```bash
-    claude plugin add seo-machine
-    ```
+    ### Krok 3 (opcjonalnie) — Dodaj konektory MCP
 
-    ### Step 3: (Optional) Add MCP connectors
-
-    Edit `.cursor/mcp.json`:
+    Cursor natively obsługuje serwery MCP. Dodaj je w `.cursor/mcp.json`:
 
     ```json
     {
@@ -82,43 +87,25 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   </TabItem>
 
   <TabItem label="VS Code">
-    ### Step 1: Install Claude Code extension
+    VS Code posiada natywne wsparcie dla rozszerzenia Claude Code i pluginów.
 
-    Press `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows/Linux), search for "Claude Code", and install.
+    ### Krok 1 — Zainstaluj rozszerzenie Claude Code
 
-    ### Step 2: Install the plugin
+    Naciśnij `Cmd+Shift+X` (Mac) / `Ctrl+Shift+X` (Windows/Linux), wyszukaj **„Claude Code"** i zainstaluj.
 
-    Open the integrated terminal:
+    ### Krok 2 — Zainstaluj plugin
 
-    ```bash
-    claude plugin add seo-machine
-    ```
-
-    ### Step 3: (Optional) Add MCP connectors
-
-    Edit `.vscode/mcp.json` in your workspace.
-  </TabItem>
-
-  <TabItem label="Windsurf">
-    ### Step 1: Install Claude Code extension
-
-    Open Extensions marketplace, search for "Claude Code", install.
-
-    ### Step 2: Install the plugin
+    Otwórz zintegrowany terminal i wpisz:
 
     ```bash
     claude plugin add seo-machine
     ```
-  </TabItem>
 
-  <TabItem label="Claude Desktop">
-    1. Open Claude Desktop
-    2. Go to **Settings > Developer > Plugins**
-    3. Add the plugin directory path or install from marketplace
+    Lub użyj palety poleceń: `Cmd+Shift+P` → **„Claude Code: Install Plugin"** → wpisz `seo-machine`.
 
-    For MCP servers, edit:
+    ### Krok 3 (opcjonalnie) — Dodaj konektory MCP
 
-    **Mac:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+    VS Code natively wspiera pliki `.vscode/mcp.json`. Utwórz plik w katalogu workspace:
 
     ```json
     {
@@ -126,6 +113,63 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
         "ahrefs": {
           "type": "http",
           "url": "https://api.ahrefs.com/mcp/mcp"
+        },
+        "similarweb": {
+          "type": "http",
+          "url": "https://mcp.similarweb.com"
+        }
+      }
+    }
+    ```
+  </TabItem>
+
+  <TabItem label="Windsurf">
+    Windsurf posiada wbudowane wsparcie dla pluginów Claude Code.
+
+    ### Krok 1 — Zainstaluj rozszerzenie Claude Code
+
+    Otwórz marketplace rozszerzeń Windsurf, wyszukaj **„Claude Code"** i zainstaluj.
+
+    ### Krok 2 — Zainstaluj plugin
+
+    W panelu Claude Code wpisz:
+
+    ```
+    /install-plugin seo-machine
+    ```
+
+    Lub przez terminal:
+
+    ```bash
+    claude plugin add seo-machine
+    ```
+  </TabItem>
+
+  <TabItem label="Claude Desktop">
+    ### Z marketplace (zalecane)
+
+    1. Otwórz Claude Desktop
+    2. Przejdź do **Settings → Developer → Plugins**
+    3. Wyszukaj **„SEO Machine"** i zainstaluj
+
+    ### Konfiguracja MCP
+
+    Dla serwerów MCP edytuj plik konfiguracyjny:
+
+    **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+    **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+    ```json
+    {
+      "mcpServers": {
+        "ahrefs": {
+          "type": "http",
+          "url": "https://api.ahrefs.com/mcp/mcp"
+        },
+        "similarweb": {
+          "type": "http",
+          "url": "https://mcp.similarweb.com"
         }
       }
     }
@@ -133,33 +177,33 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   </TabItem>
 </Tabs>
 
-## Multi-platform MCP setup
+## Szybka instalacja MCP na wielu platformach
 
-Use the `add-mcp` CLI to install MCP servers across all your tools at once:
+Użyj `add-mcp` aby skonfigurować serwery MCP na wszystkich platformach jednocześnie:
 
 ```bash
 npx add-mcp https://api.ahrefs.com/mcp/mcp -a cursor -a claude-code
 npx add-mcp https://mcp.similarweb.com -a cursor -a claude-code
 ```
 
-## Verify installation
+## Weryfikacja instalacji
 
-In any Claude conversation, run:
+W dowolnej konwersacji z Claude uruchom:
 
 ```
-/research test keyword
+/research testowe słowo kluczowe
 ```
 
-If you see structured keyword research output, the plugin is active.
+Jeśli widzisz ustrukturyzowany wynik badania keywords — plugin jest aktywny.
 
-## Connect SEO tools (optional)
+## Podłączanie narzędzi SEO (opcjonalne)
 
-| Tool | What it adds | Required? |
-|------|-------------|-----------|
-| Ahrefs | Keyword volumes, difficulty, backlinks | No |
-| Similarweb | Traffic data, competitive intelligence | No |
-| Google Search Console | Your actual search performance data | No |
-| Google Analytics 4 | Traffic, engagement, conversions | No |
-| WordPress | Direct publishing | No |
+| Narzędzie | Co dodaje | Wymagane? |
+|-----------|-----------|-----------|
+| Ahrefs | Wolumeny keywords, difficulty, backlinki | Nie |
+| Similarweb | Dane o ruchu, competitive intelligence | Nie |
+| Google Search Console | Twoje realne dane z wyszukiwarki | Nie |
+| Google Analytics 4 | Ruch, zaangażowanie, konwersje | Nie |
+| WordPress | Bezpośrednie publikowanie | Nie |
 
-The plugin works fully without any connected tools. See [Connectors Guide](/integrations/connectors/) for setup details.
+Plugin działa w pełni bez żadnych podłączonych narzędzi. Zobacz [przewodnik konektorów](/integrations/connectors/) po szczegóły konfiguracji.

@@ -1,49 +1,49 @@
 ---
-title: Contributing
-description: How to contribute to SEO Machine — architecture, adding commands, skills, and agents
+title: Współtworzenie
+description: Jak współtworzyć SEO Machine — architektura, dodawanie komend, skills i agentów
 ---
 
-## Plugin Architecture
+## Architektura pluginu
 
 ```
 seo-machine/
-├── .claude-plugin/plugin.json    # Metadata, version
-├── .mcp.json                     # MCP server configs
-├── commands/                     # Slash commands
-├── skills/                       # Knowledge modules
-│   └── [skill-name]/
-│       ├── SKILL.md              # Skill definition
-│       └── references/           # Supporting guides
-├── agents/                       # Autonomous agents
-└── docs/                         # Documentation
+├── .claude-plugin/plugin.json    # Metadane, wersja
+├── .mcp.json                     # Konfiguracja serwerów MCP
+├── commands/                     # Slash komendy
+├── skills/                       # Moduły wiedzy
+│   └── [nazwa-skill]/
+│       ├── SKILL.md              # Definicja skill
+│       └── references/           # Materiały wspierające
+├── agents/                       # Autonomiczni agenci
+└── docs/                         # Dokumentacja
 ```
 
-## Adding Features
+## Dodawanie funkcji
 
-### New Command
+### Nowa komenda
 
-1. Create `commands/your-command.md` with description, argument hint, allowed tools, process steps, and output format
-2. Update `docs/COMMANDS.md` and `README.md`
-3. Add examples to `docs/USE-CASES.md`
-4. Bump minor version
+1. Utwórz `commands/twoja-komenda.md` z opisem, podpowiedzią argumentów, dozwolonymi narzędziami, krokami procesu i formatem outputu
+2. Zaktualizuj `docs/COMMANDS.md` i `README.md`
+3. Dodaj przykłady do `docs/USE-CASES.md`
+4. Podnieś wersję minor
 
-### New Skill
+### Nowy skill
 
-1. Create `skills/your-skill/SKILL.md` with triggers and knowledge content
-2. Add reference files in `skills/your-skill/references/`
-3. Update `docs/SKILLS.md`
-4. Bump minor version
+1. Utwórz `skills/twoj-skill/SKILL.md` z triggerami i treścią wiedzy
+2. Dodaj pliki referencyjne w `skills/twoj-skill/references/`
+3. Zaktualizuj `docs/SKILLS.md`
+4. Podnieś wersję minor
 
-### New Agent
+### Nowy agent
 
-1. Create `agents/your-agent.md` with model, tools, modules, and output format
-2. Update `docs/AGENTS.md`
-3. Bump minor version
+1. Utwórz `agents/twoj-agent.md` z modelem, narzędziami, modułami i formatem outputu
+2. Zaktualizuj `docs/AGENTS.md`
+3. Podnieś wersję minor
 
-## Pull Request Process
+## Proces Pull Request
 
-1. Fork and create a feature branch
-2. Make changes and update docs
-3. Bump version in `plugin.json`
-4. Add entry to `CHANGELOG.md`
-5. Submit PR with description, example inputs/outputs, and affected components
+1. Fork i utwórz feature branch
+2. Wprowadź zmiany i zaktualizuj dokumentację
+3. Podnieś wersję w `plugin.json`
+4. Dodaj wpis do `CHANGELOG.md`
+5. Złóż PR z opisem, przykładowymi inputami/outputami i listą dotkniętych komponentów

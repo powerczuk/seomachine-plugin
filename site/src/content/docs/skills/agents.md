@@ -1,53 +1,55 @@
 ---
-title: Agents Reference
-description: Autonomous analysis agents that perform specialized SEO tasks
+title: Referencje agentów
+description: Autonomiczni agenci analizy wykonujący specjalistyczne zadania SEO
 ---
 
-Agents are autonomous sub-processes that run specialized analysis. They have their own tool access and return structured results.
+Agenci to autonomiczne podprocesy prowadzące specjalistyczną analizę. Mają własny dostęp do narzędzi i zwracają ustrukturyzowane wyniki.
 
-## Agents Overview
+## Przegląd agentów
 
-| Agent | Purpose | Trigger |
-|-------|---------|---------|
-| seo-analyzer | Content quality scoring (0-100) | After `/write-seo`, on `/analyze` |
-| keyword-mapper | Keyword mapping and cannibalization | `/topic-clusters`, `/audit` |
-| geo-scorer | GEO readiness scoring | `/geo-audit` |
-| local-seo-auditor | Local SEO health assessment | `/local-seo` |
+| Agent | Przeznaczenie | Wyzwalacz |
+|-------|--------------|-----------|
+| seo-analyzer | Scoring jakości treści (0–100) | Po `/write-seo`, przy `/analyze` |
+| keyword-mapper | Mapowanie keywords i kanibalizacja | `/topic-clusters`, `/audit` |
+| geo-scorer | Scoring gotowości GEO | `/geo-audit` |
+| local-seo-auditor | Ocena zdrowia lokalnego SEO | `/local-seo` |
 
 ## seo-analyzer
 
-Multi-module content quality analysis producing a 0-100 scorecard.
+Wielomodułowa analiza jakości treści produkująca scorecard 0–100.
 
-**Runs automatically:** After `/write-seo` completes (as a quality gate) and when `/analyze` is invoked.
+**Uruchamia się automatycznie:** Po zakończeniu `/write-seo` (jako brama jakości) i przy wywołaniu `/analyze`.
 
-**Five analysis modules:**
-1. **Search Intent Classification** — identifies target keyword, classifies intent, measures alignment
-2. **Keyword Density & Distribution** — density (target 1-2%), critical placements, LSI coverage, stuffing risk
-3. **Content Length Comparison** — word count vs competitor median from SERP top 10
-4. **Readability Metrics** — Flesch Reading Ease (60-70), Kincaid Grade (8-10), passive voice, sentence variety
-5. **SEO Quality Rating** — composite score: content quality (20%), keywords (20%), meta (15%), structure (15%), links (15%), readability (15%)
+**Pięć modułów analizy:**
 
-**Additional checks:** AI content indicators, engagement elements, schema opportunities, featured snippet potential.
+1. **Klasyfikacja intencji wyszukiwania** — identyfikuje docelowe keyword, klasyfikuje intencję, mierzy dopasowanie
+2. **Gęstość i dystrybucja keywords** — gęstość (cel 1–2%), krytyczne umiejscowienia, pokrycie LSI, ryzyko stuffingu
+3. **Porównanie długości treści** — liczba słów vs mediana konkurencji z top 10 SERP
+4. **Metryki czytelności** — Flesch Reading Ease (60–70), Kincaid Grade (8–10), passive voice, zróżnicowanie zdań
+5. **Rating jakości SEO** — kompozytowy scoring: jakość treści (20%), keywords (20%), meta (15%), struktura (15%), linki (15%), czytelność (15%)
 
-**Output:** Visual scorecard with publishing verdict (READY / NEEDS WORK / NOT READY).
+**Dodatkowe sprawdzenia:** Wskaźniki AI content, elementy zaangażowania, okazje schema, potencjał featured snippet.
+
+**Output:** Wizualny scorecard z werdyktem publikacji (GOTOWY / WYMAGA PRACY / NIE GOTOWY).
 
 ## keyword-mapper
 
-Keyword-to-page mapping, cannibalization detection, and gap analysis.
+Mapowanie keywords do stron, wykrywanie kanibalizacji i analiza luk.
 
-**Core functions:**
-1. Assign unique primary keyword to each page
-2. Detect cannibalization (multiple pages targeting same keywords)
-3. Recommend resolution: consolidate, differentiate, canonical, redirect, or de-index
-4. Identify keyword gaps (competitor keywords you're missing)
-5. Map keywords to topic clusters
+**Funkcje główne:**
+
+1. Przypisanie unikalnego primary keyword do każdej strony
+2. Wykrywanie kanibalizacji (wiele stron targetujących te same keywords)
+3. Rekomendacja rozwiązania: konsolidacja, zróżnicowanie, canonical, redirect lub de-index
+4. Identyfikacja luk keywords (keywords konkurencji, których brakuje u Ciebie)
+5. Mapowanie keywords do klastrów tematycznych
 
 ## geo-scorer
 
-GEO readiness scoring for AI search visibility.
+Scoring gotowości GEO dla widoczności w AI search.
 
-**Scoring dimensions:** AI crawler access (20%), llms.txt quality (15%), content citability (20%), schema markup (15%), E-E-A-T signals (15%), brand presence (10%), content freshness (5%).
+**Wymiary scoringu:** Dostęp crawlerów AI (20%), jakość llms.txt (15%), cytowalność treści (20%), schema markup (15%), sygnały E-E-A-T (15%), obecność marki (10%), świeżość treści (5%).
 
 ## local-seo-auditor
 
-Local SEO health assessment covering GBP completeness, NAP consistency, citation coverage, local keywords, schema, reviews, and local content.
+Ocena zdrowia lokalnego SEO obejmująca kompletność GBP, spójność NAP, pokrycie cytacji, lokalne keywords, schema, opinie i treści lokalne.

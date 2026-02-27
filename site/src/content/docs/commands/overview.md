@@ -1,63 +1,63 @@
 ---
-title: Commands Overview
-description: All 16 SEO Machine commands at a glance
+title: Przegląd komend
+description: Wszystkie 16 komend SEO Machine w jednym miejscu
 ---
 
-SEO Machine provides 16 slash commands organized into five categories.
+SEO Machine udostępnia 16 slash komend podzielonych na pięć kategorii.
 
-## Content Creation & Optimization
+## Tworzenie i optymalizacja treści
 
-| Command | Description |
-|---------|-------------|
-| `/research <keyword>` | Keyword research, SERP analysis, competitive gap identification |
-| `/write-seo <keyword> [word count]` | Write SEO-optimized long-form content (2,000-3,000+ words) |
-| `/optimize <URL or file>` | Analyze and optimize content with 0-100 scoring |
-| `/analyze <URL or file>` | Deep SEO quality analysis with multi-module scoring |
-| `/content-brief <keyword>` | Generate writer-ready content briefs |
-| `/meta-tags <URL or keyword>` | Generate optimized meta titles, descriptions, and OG tags |
-| `/rewrite <URL or file> [keyword]` | Refresh declining content to recover rankings |
+| Komenda | Opis |
+|---------|------|
+| `/research <keyword>` | Badanie słów kluczowych, analiza SERP, identyfikacja luk konkurencji |
+| `/write-seo <keyword> [liczba słów]` | Pisanie zoptymalizowanego artykułu SEO (2 000–3 000+ słów) |
+| `/optimize <URL lub plik>` | Analiza i optymalizacja treści ze scoringiem 0–100 |
+| `/analyze <URL lub plik>` | Głęboka analiza jakości SEO z wielomodułowym scoringiem |
+| `/content-brief <keyword>` | Generowanie briefu contentowego gotowego dla copywritera |
+| `/meta-tags <URL lub keyword>` | Generowanie zoptymalizowanych meta title, description i OG tags |
+| `/rewrite <URL lub plik> [keyword]` | Odświeżanie spadającej treści w celu odzyskania pozycji |
 
-## Site Architecture & Technical
+## Architektura strony i techniczne SEO
 
-| Command | Description |
-|---------|-------------|
-| `/audit <domain> [competitors]` | Full-site SEO audit — technical, on-page, content, competitive |
-| `/topic-clusters <seed topic>` | Map topic clusters with pillar pages and internal linking |
-| `/internal-links <URL> [focus page]` | Strategic internal linking analysis and suggestions |
-| `/schema-gen <URL or type> [schemas]` | Generate JSON-LD schema markup |
-| `/low-hanging-fruit <domain>` | Find quick-win keywords and pages |
+| Komenda | Opis |
+|---------|------|
+| `/audit <domena> [konkurencja]` | Pełny audyt SEO — techniczny, on-page, content, konkurencja |
+| `/topic-clusters <temat bazowy>` | Mapowanie klastrów tematycznych z pillar pages i linkowaniem |
+| `/internal-links <URL> [strona docelowa]` | Strategiczna analiza linkowania wewnętrznego |
+| `/schema-gen <URL lub typ> [schemas]` | Generowanie JSON-LD schema markup |
+| `/low-hanging-fruit <domena>` | Znajdowanie szybkich wygranych — keywords i strony |
 
-## GEO & AI Search
+## GEO i wyszukiwanie AI
 
-| Command | Description |
-|---------|-------------|
-| `/geo-audit <domain> [brand]` | Audit AI search engine visibility and citability |
-| `/llms-txt <domain> [sitemap]` | Generate llms.txt for AI crawler optimization |
+| Komenda | Opis |
+|---------|------|
+| `/geo-audit <domena> [marka]` | Audyt widoczności w wyszukiwarkach AI |
+| `/llms-txt <domena> [sitemap]` | Generowanie llms.txt dla crawlerów AI |
 
-## Local SEO
+## Lokalne SEO
 
-| Command | Description |
-|---------|-------------|
-| `/local-seo <business> <location> [GBP URL]` | Local SEO audit — GBP, citations, NAP, local keywords |
+| Komenda | Opis |
+|---------|------|
+| `/local-seo <firma> <lokalizacja> [GBP URL]` | Audyt lokalnego SEO — GBP, cytacje, NAP, lokalne keywords |
 
-## Strategy & Analysis
+## Strategia i analiza
 
-| Command | Description |
-|---------|-------------|
-| `/competitors <your domain> <competitor 1> [2] [3]` | Competitive analysis with gap identification and battlecards |
+| Komenda | Opis |
+|---------|------|
+| `/competitors <twoja domena> <konkurent 1> [2] [3]` | Analiza konkurencji z identyfikacją luk i battlecards |
 
-## Scoring System
+## System scoringowy
 
-All content commands score output on five dimensions:
+Wszystkie komendy contentowe oceniają output na pięciu wymiarach:
 
-| Dimension | Weight | Target |
-|-----------|--------|--------|
-| Keyword Optimization | 25% | 1-2% density, critical placements |
-| Readability | 20% | Flesch 60-70, Grade 8-10 |
-| Content Structure | 20% | H2 every 300 words, 2,000+ total |
-| Engagement | 20% | Hooks, 2-3 stories, 2-3 CTAs |
-| Technical SEO | 15% | Meta elements, links, schema |
+| Wymiar | Waga | Cel |
+|--------|------|-----|
+| Optymalizacja keywords | 25% | 1–2% gęstości, krytyczne umiejscowienia |
+| Czytelność | 20% | Flesch 60–70, Grade 8–10 |
+| Struktura treści | 20% | H2 co 300 słów, 2 000+ łącznie |
+| Zaangażowanie | 20% | Hooki, 2–3 stories, 2–3 CTA |
+| Techniczne SEO | 15% | Meta elementy, linki, schema |
 
-**Publishing threshold:** 70/100 minimum.
+**Próg publikacji:** minimum 70/100.
 
-See the detailed pages for each command category for full syntax, examples, and output descriptions.
+Szczegółowe opisy każdej kategorii komend znajdziesz na dedykowanych podstronach.

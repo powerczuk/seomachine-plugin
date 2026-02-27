@@ -1,11 +1,11 @@
 ---
-title: Connectors Guide
-description: Connect Ahrefs, Similarweb, Google Search Console, and more via MCP
+title: Przewodnik konektorów
+description: Podłącz Ahrefs, Similarweb, Google Search Console i więcej przez MCP
 ---
 
-SEO Machine uses MCP (Model Context Protocol) to connect with external SEO tools. The plugin works without any connectors, but connected tools provide more precise data.
+SEO Machine używa MCP (Model Context Protocol) do łączenia z zewnętrznymi narzędziami SEO. Plugin działa bez żadnych konektorów, ale podłączone narzędzia zapewniają bardziej precyzyjne dane.
 
-## Pre-configured Connectors
+## Wstępnie skonfigurowane konektory
 
 ### Ahrefs
 
@@ -18,9 +18,11 @@ SEO Machine uses MCP (Model Context Protocol) to connect with external SEO tools
 }
 ```
 
-**Requires:** Ahrefs account with MCP access.
-**Provides:** Keyword volumes, difficulty scores, backlink profiles, ranking positions, content gap data.
-**Enhances:** `/research`, `/audit`, `/analyze`, `/low-hanging-fruit`, `/competitors`, `/topic-clusters`
+**Wymaga:** Konto Ahrefs z dostępem MCP.
+
+**Dostarcza:** Wolumeny keywords, difficulty scores, profile backlinków, pozycje w rankingu, dane content gap.
+
+**Wzbogaca:** `/research`, `/audit`, `/analyze`, `/low-hanging-fruit`, `/competitors`, `/topic-clusters`
 
 ### Similarweb
 
@@ -33,29 +35,34 @@ SEO Machine uses MCP (Model Context Protocol) to connect with external SEO tools
 }
 ```
 
-**Requires:** Similarweb account with API access.
-**Provides:** Traffic estimates, audience demographics, traffic sources, competitive intelligence.
-**Enhances:** `/audit`, `/competitors`
+**Wymaga:** Konto Similarweb z dostępem API.
 
-## Optional Connectors
+**Dostarcza:** Szacunki ruchu, demografia odbiorców, źródła ruchu, competitive intelligence.
 
-| Tool | What it adds | Commands enhanced |
-|------|-------------|------------------|
-| Google Search Console | Impressions, clicks, CTR, positions | `/audit`, `/low-hanging-fruit`, `/analyze` |
-| Google Analytics 4 | Traffic, engagement, conversions | `/audit`, `/low-hanging-fruit` |
-| Semrush | Alternative to Ahrefs for keyword/backlink data | Same as Ahrefs |
-| WordPress | Direct publishing, content inventory | `/write-seo`, `/meta-tags`, `/internal-links` |
-| DataForSEO | Real-time SERP data, keyword suggestions | `/research`, `/audit` |
+**Wzbogaca:** `/audit`, `/competitors`
 
-## Adding Connectors
+## Opcjonalne konektory
 
-Add MCP servers to your platform's configuration file:
+| Narzędzie | Co dodaje | Wzbogacane komendy |
+|-----------|-----------|-------------------|
+| Google Search Console | Wyświetlenia, kliknięcia, CTR, pozycje | `/audit`, `/low-hanging-fruit`, `/analyze` |
+| Google Analytics 4 | Ruch, zaangażowanie, konwersje | `/audit`, `/low-hanging-fruit` |
+| Semrush | Alternatywa dla Ahrefs — dane keywords/backlinków | Jak Ahrefs |
+| WordPress | Bezpośrednie publikowanie, inwentarz treści | `/write-seo`, `/meta-tags`, `/internal-links` |
+| DataForSEO | Real-time dane SERP, sugestie keywords | `/research`, `/audit` |
 
-**Claude Code / Cowork:** Edit the plugin's `.mcp.json`
-**Cursor:** Edit `.cursor/mcp.json`
-**VS Code:** Edit `.vscode/mcp.json`
-**Claude Desktop:** Edit `claude_desktop_config.json`
+## Dodawanie konektorów
 
-## Without Connectors
+Dodaj serwery MCP do pliku konfiguracyjnego Twojej platformy:
 
-SEO Machine uses web search as a fallback for all data. Connected tools add precision (exact volumes, positions, backlink counts) but the workflows and recommendations work identically.
+**Claude Code / Cowork:** Edytuj `.mcp.json` pluginu
+
+**Cursor:** Edytuj `.cursor/mcp.json`
+
+**VS Code:** Edytuj `.vscode/mcp.json`
+
+**Claude Desktop:** Edytuj `claude_desktop_config.json`
+
+## Bez konektorów
+
+SEO Machine używa web search jako fallbacku dla wszystkich danych. Podłączone narzędzia dodają precyzję (dokładne wolumeny, pozycje, liczby backlinków), ale workflow i rekomendacje działają identycznie.

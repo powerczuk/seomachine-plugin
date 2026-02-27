@@ -1,38 +1,41 @@
 ---
-title: Local SEO Command
-description: Audit and optimize for local search, Google Business Profile, and citations
+title: Komenda lokalnego SEO
+description: Audyt i optymalizacja lokalnego wyszukiwania, Google Business Profile i cytacji
 ---
 
 ## /local-seo
 
-Local SEO audit and optimization for businesses serving local customers.
+Audyt i optymalizacja lokalnego SEO dla firm obsługujących klientów lokalnych.
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/local-seo <nazwa firmy> <lokalizacja> [URL Google Business Profile]
 ```
-/local-seo <business name> <location> [Google Business Profile URL]
-```
 
-**What it covers:**
+**Co obejmuje:**
 
-1. **Google Business Profile Audit** — profile completeness, categories, photos, posts, Q&A, attributes
-2. **NAP Consistency Check** — compares Name, Address, Phone across citations
-3. **Citation Analysis** — presence on key directories (data aggregators, major directories, industry-specific)
-4. **Local Keyword Research** — "near me" keywords, city modifiers, service+location combinations
-5. **Local Schema Markup** — LocalBusiness, GeoCoordinates, OpeningHours
-6. **Review Analysis** — rating distribution, response rate, sentiment
-7. **Local Content Recommendations** — location pages, area guides, local event tie-ins
+1. **Audyt Google Business Profile** — kompletność profilu, kategorie, zdjęcia, posty, Q&A, atrybuty
+2. **Sprawdzanie spójności NAP** — porównuje Name, Address, Phone w cytacjach
+3. **Analiza cytacji** — obecność w kluczowych katalogach (agregatory danych, główne katalogi, branżowe)
+4. **Research lokalnych keywords** — frazy „blisko mnie", modyfikatory miast, kombinacje usługa+lokalizacja
+5. **Lokalne Schema Markup** — LocalBusiness, GeoCoordinates, OpeningHours
+6. **Analiza opinii** — rozkład ocen, wskaźnik odpowiedzi, sentiment
+7. **Rekomendacje treści lokalnych** — strony lokalizacji, przewodniki po okolicy, tie-ins z lokalnymi wydarzeniami
 
 **Output:**
-- Local SEO health score
-- GBP optimization checklist
-- Citation gaps and recommended directories
-- Local keyword opportunities table
-- Copy-paste ready local schema markup
-- Review management recommendations
 
-**Example:**
-```
-/local-seo "Mario's Italian Kitchen" "Austin, TX" https://g.page/marios-italian
+- Health score lokalnego SEO
+- Checklist optymalizacji GBP
+- Luki cytacji i rekomendowane katalogi
+- Tabela okazji lokalnych keywords
+- Gotowy do wklejenia lokalny schema markup
+- Rekomendacje zarządzania opiniami
+
+**Przykład:**
+
+```bash
+/local-seo "Pizzeria Roma" "Warszawa, Mokotów" https://g.page/pizzeria-roma
 ```
 
-See the [Local SEO Guide](/guides/local-seo/) for the full framework.
+Zobacz [przewodnik lokalnego SEO](/guides/local-seo/) po pełny framework.

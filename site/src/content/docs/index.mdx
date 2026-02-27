@@ -1,106 +1,112 @@
 ---
 title: SEO Machine
-description: The most comprehensive SEO plugin for Claude-powered tools. 16 commands, 5 skills, 4 agents — covering keyword research, content optimization, technical audits, GEO, local SEO, and programmatic SEO.
+description: Najlepszy plugin SEO do narzędzi opartych na Claude. 16 komend, 5 skills, 4 agentów — badanie słów kluczowych, optymalizacja treści, audyty techniczne, GEO, lokalne SEO i programmatic SEO.
 template: splash
 hero:
-  tagline: The most comprehensive SEO plugin for Claude-powered tools
+  tagline: Najlepszy plugin SEO do narzędzi opartych na Claude
   image:
     file: ../../assets/logo-dark.svg
   actions:
-    - text: Get Started
+    - text: Zacznij tutaj
       link: /getting-started/introduction/
       icon: right-arrow
       variant: primary
-    - text: View on GitHub
+    - text: GitHub
       link: https://github.com/powerczuk/seomachine-plugin
       icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, Aside } from '@astrojs/starlight/components';
 
-## What is SEO Machine?
+<Aside type="tip" title="„AI nie zastąpi nas — wzmocni nas."">
+  Nie daj się wciągnąć w FOMO. Narzędzia AI to amplifikatory, nie zamienniki. SEO Machine daje Ci supermoc bez chaosu — jeden plugin zamiast dziesiątki zakładek. Pracuj mądrzej, nie ciężej.
 
-SEO Machine is a plugin for Claude-powered tools that turns Claude into a complete SEO workstation. It provides 16 slash commands, 5 knowledge skills, and 4 autonomous agents covering the full SEO lifecycle — from keyword research through content creation, optimization, technical audits, and AI search visibility.
+  — *Pedro Domingos, autor „The Master Algorithm"*
+</Aside>
+
+## Czym jest SEO Machine?
+
+SEO Machine to plugin do narzędzi opartych na Claude, który zamienia Claude w kompletną stację roboczą SEO. Udostępnia 16 slash komend, 5 modułów wiedzy (skills) i 4 autonomicznych agentów obejmujących cały cykl SEO — od badania słów kluczowych przez tworzenie treści, optymalizację, audyty techniczne po widoczność w wyszukiwarkach AI.
 
 <CardGrid stagger>
-  <Card title="16 Commands" icon="terminal">
-    Research keywords, write optimized content, audit sites, generate schema, find quick wins, optimize for AI search, and more — all from slash commands.
+  <Card title="16 komend" icon="terminal">
+    Badaj słowa kluczowe, pisz zoptymalizowane treści, audytuj strony, generuj schema, znajduj szybkie wygrane, optymalizuj pod AI search — wszystko z poziomu slash komend.
   </Card>
-  <Card title="GEO Ready" icon="rocket">
-    First-class support for Generative Engine Optimization. Audit your AI search visibility, generate llms.txt files, and create citation-ready content.
+  <Card title="Gotowy na GEO" icon="rocket">
+    Pełne wsparcie dla Generative Engine Optimization. Audytuj widoczność w AI search, generuj pliki llms.txt i twórz treści gotowe do cytowania.
   </Card>
-  <Card title="5 Knowledge Skills" icon="open-book">
-    Deep expertise modules covering SEO fundamentals, content optimization, programmatic SEO, GEO, and local SEO — loaded automatically when needed.
+  <Card title="5 modułów wiedzy" icon="open-book">
+    Głębokie moduły eksperckie: SEO fundamentals, optymalizacja treści, programmatic SEO, GEO i lokalne SEO — ładowane automatycznie gdy potrzebne.
   </Card>
-  <Card title="Works Everywhere" icon="laptop">
-    Install on Claude Cowork, Claude Code CLI, Cursor, VS Code, Windsurf, or Claude Desktop. One plugin, every platform.
+  <Card title="Działa wszędzie" icon="laptop">
+    Instaluj na Claude Cowork, Claude Code CLI, Cursor, VS Code, Windsurf lub Claude Desktop. Jeden plugin, każda platforma.
   </Card>
 </CardGrid>
 
-## Commands at a Glance
+## Komendy w skrócie
 
-### Content Creation & Optimization
+### Tworzenie i optymalizacja treści
 
-| Command | What it does |
-|---------|-------------|
-| `/research` | Keyword research, SERP analysis, competitive gap identification |
-| `/write-seo` | Write SEO-optimized long-form content (2,000-3,000+ words) |
-| `/optimize` | Analyze and optimize existing content with 0-100 scoring |
-| `/analyze` | Deep SEO quality analysis with multi-module scoring |
-| `/content-brief` | Generate writer-ready content briefs |
-| `/meta-tags` | Generate optimized meta titles, descriptions, and OG tags |
-| `/rewrite` | Refresh declining content to recover rankings |
+| Komenda | Co robi |
+|---------|---------|
+| `/research` | Badanie słów kluczowych, analiza SERP, identyfikacja luk konkurencji |
+| `/write-seo` | Pisanie zoptymalizowanych artykułów SEO (2 000–3 000+ słów) |
+| `/optimize` | Analiza i optymalizacja istniejącej treści ze scoringiem 0–100 |
+| `/analyze` | Głęboka analiza jakości SEO z wielomodułowym scoringiem |
+| `/content-brief` | Generowanie briefów contentowych gotowych dla copywriterów |
+| `/meta-tags` | Generowanie zoptymalizowanych meta title, description i OG tags |
+| `/rewrite` | Odświeżanie spadających treści w celu odzyskania pozycji |
 
-### Site Architecture & Technical
+### Architektura strony i techniczne SEO
 
-| Command | What it does |
-|---------|-------------|
-| `/audit` | Full-site SEO audit — technical, on-page, content, competitive |
-| `/topic-clusters` | Map topic clusters with pillar pages and internal linking |
-| `/internal-links` | Strategic internal linking analysis and recommendations |
-| `/schema-gen` | Generate JSON-LD schema markup for any page type |
-| `/low-hanging-fruit` | Find quick-win keywords and pages for immediate gains |
+| Komenda | Co robi |
+|---------|---------|
+| `/audit` | Pełny audyt SEO — techniczny, on-page, content, konkurencja |
+| `/topic-clusters` | Mapowanie klastrów tematycznych z pillar pages i linkowaniem wewnętrznym |
+| `/internal-links` | Strategiczna analiza i rekomendacje linkowania wewnętrznego |
+| `/schema-gen` | Generowanie JSON-LD schema markup dla dowolnego typu strony |
+| `/low-hanging-fruit` | Znajdowanie szybkich wygranych — keywords i strony do natychmiastowego wzrostu |
 
-### GEO & AI Search
+### GEO i wyszukiwanie AI
 
-| Command | What it does |
-|---------|-------------|
-| `/geo-audit` | Audit visibility in AI search engines (ChatGPT, Perplexity, Gemini) |
-| `/llms-txt` | Generate an llms.txt file for AI crawler optimization |
+| Komenda | Co robi |
+|---------|---------|
+| `/geo-audit` | Audyt widoczności w wyszukiwarkach AI (ChatGPT, Perplexity, Gemini) |
+| `/llms-txt` | Generowanie pliku llms.txt do optymalizacji crawlerów AI |
 
-### Local SEO
+### Lokalne SEO
 
-| Command | What it does |
-|---------|-------------|
-| `/local-seo` | Local SEO audit — GBP, citations, NAP, local keywords |
+| Komenda | Co robi |
+|---------|---------|
+| `/local-seo` | Audyt lokalnego SEO — GBP, cytacje, NAP, lokalne keywords |
 
-### Strategy
+### Strategia
 
-| Command | What it does |
-|---------|-------------|
-| `/competitors` | Deep competitive analysis with battlecards |
+| Komenda | Co robi |
+|---------|---------|
+| `/competitors` | Głęboka analiza konkurencji z battlecards |
 
-## Integrations
+## Integracje
 
-SEO Machine connects with external tools via MCP (Model Context Protocol) for enhanced data precision:
+SEO Machine łączy się z zewnętrznymi narzędziami przez MCP (Model Context Protocol) zapewniając większą precyzję danych:
 
 <CardGrid>
-  <Card title="Ahrefs" icon="magnifier">
-    Keyword volumes, difficulty scores, backlink data, ranking positions
+  <Card title="🔍 Ahrefs" icon="magnifier">
+    Wolumeny słów kluczowych, difficulty scores, dane o backlinkach, pozycje w rankingu
   </Card>
-  <Card title="Similarweb" icon="bars">
-    Traffic estimates, audience data, competitive intelligence
+  <Card title="📊 Similarweb" icon="bars">
+    Szacunki ruchu, dane o odbiorcach, competitive intelligence
   </Card>
-  <Card title="Google Search Console" icon="document">
-    Your actual impressions, clicks, CTR, and positions
+  <Card title="🔎 Google Search Console" icon="document">
+    Twoje realne wyświetlenia, kliknięcia, CTR i pozycje
   </Card>
-  <Card title="Google Analytics" icon="graph">
-    Traffic, engagement, conversions for content prioritization
+  <Card title="📈 Google Analytics" icon="graph">
+    Ruch, zaangażowanie, konwersje do priorytetyzacji treści
   </Card>
 </CardGrid>
 
-The plugin works fully without any connected tools — web search provides fallback data for all commands. Connected tools add precision.
+Plugin działa w pełni bez żadnych podłączonych narzędzi — web search zapewnia dane zastępcze dla wszystkich komend. Podłączone narzędzia dodają precyzję.
 
-## Version 2.0
+## Wersja 2.0
 
-The latest release adds 6 new commands, 2 new skills, 2 new agents, and comprehensive documentation. See the [changelog](/reference/changelog/) for full details.
+Najnowsza wersja dodaje 6 nowych komend, 2 nowe skills, 2 nowych agentów i kompleksową dokumentację po polsku. Zobacz [changelog](/reference/changelog/) po szczegóły.

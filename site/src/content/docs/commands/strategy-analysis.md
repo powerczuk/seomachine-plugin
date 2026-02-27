@@ -1,42 +1,45 @@
 ---
-title: Strategy & Analysis Commands
-description: Competitive analysis with gap identification and battlecards
+title: Komendy strategii i analizy
+description: Analiza konkurencji z identyfikacją luk i battlecards
 ---
 
 ## /competitors
 
-Deep competitive analysis with gap identification and battlecards.
+Głęboka analiza konkurencji z identyfikacją luk i battlecards.
 
-**Syntax:**
+**Składnia:**
+
+```bash
+/competitors <twoja domena> <konkurent 1> [konkurent 2] [konkurent 3]
 ```
-/competitors <your domain> <competitor 1> [competitor 2] [competitor 3]
-```
 
-**What it analyzes:**
+**Co analizuje:**
 
-1. **Content Gap Analysis** — topics competitors cover that you don't
-2. **Keyword Overlap & Gaps** — shared keywords, unique advantages, missed opportunities
-3. **Technical Comparison** — site speed, mobile usability, schema, Core Web Vitals
-4. **Backlink Profile Comparison** — domain authority, referring domains, link velocity
-5. **Content Strategy Comparison** — publishing frequency, content types, topic focus
-6. **SERP Feature Ownership** — featured snippets, PAA, local packs
+1. **Analiza luk contentowych** — tematy pokrywane przez konkurencję, których u Ciebie brak
+2. **Overlap i luki keywords** — wspólne keywords, unikalne przewagi, niewykorzystane szanse
+3. **Porównanie techniczne** — szybkość strony, mobile usability, schema, Core Web Vitals
+4. **Porównanie profili backlinków** — domain authority, referring domains, link velocity
+5. **Porównanie strategii contentowej** — częstotliwość publikacji, typy treści, focus tematyczny
+6. **Ownership SERP features** — featured snippets, PAA, local packs
 
 **Output:**
-- Competitive landscape overview
-- Gap analysis with prioritized opportunities
-- Competitor battlecards (one per competitor)
-- Strategic recommendations
 
-**Example:**
+- Przegląd krajobrazu konkurencyjnego
+- Analiza luk z priorytetyzowanymi okazjami
+- Battlecards konkurentów (jedna per konkurent)
+- Strategiczne rekomendacje
+
+**Przykład:**
+
+```bash
+/competitors https://mojastrona.pl https://rywal1.pl https://rywal2.pl
 ```
-/competitors https://mysite.com https://rival1.com https://rival2.com
-```
 
-### How to use battlecards
+### Jak korzystać z battlecards
 
-Each battlecard summarizes a competitor's strengths, weaknesses, content strategy, and key differentiators. Use them to:
+Każda battlecard podsumowuje mocne i słabe strony konkurenta, jego strategię contentową i kluczowe wyróżniki. Użyj ich do:
 
-- Identify content you should create to fill gaps
-- Find weaknesses to exploit in your positioning
-- Understand what's working for competitors so you can adapt
-- Brief writers on competitive context before content creation
+- Identyfikacji treści do stworzenia w celu wypełnienia luk
+- Znalezienia słabości do wykorzystania w swoim pozycjonowaniu
+- Zrozumienia co działa u konkurencji aby zaadaptować
+- Briefowania copywriterów na temat kontekstu konkurencyjnego przed tworzeniem treści

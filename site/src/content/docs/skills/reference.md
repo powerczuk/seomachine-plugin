@@ -1,70 +1,72 @@
 ---
-title: Skills Reference
-description: Deep knowledge modules that power SEO Machine's analysis and recommendations
+title: Referencje skills
+description: Głębokie moduły wiedzy napędzające analizy i rekomendacje SEO Machine
 ---
 
-Skills are knowledge modules that Claude loads automatically when relevant. They provide the frameworks, scoring systems, and best practices behind the commands.
+Skills to moduły wiedzy, które Claude ładuje automatycznie gdy są potrzebne. Dostarczają frameworki, systemy scoringowe i najlepsze praktyki stojące za komendami.
 
-## Skills Overview
+## Przegląd skills
 
-| Skill | Purpose | Loaded by |
-|-------|---------|-----------|
-| SEO Fundamentals | Core SEO knowledge | `/research`, `/audit`, `/internal-links`, `/schema-gen` |
-| Content Optimizer | Content scoring and optimization | `/write-seo`, `/optimize`, `/analyze`, `/content-brief` |
-| Programmatic SEO | Scaling content production | `/topic-clusters`, `/audit`, `/low-hanging-fruit` |
-| GEO Fundamentals | AI search optimization | `/geo-audit`, `/llms-txt` |
-| Local SEO | Local search optimization | `/local-seo` |
+| Skill | Przeznaczenie | Ładowany przez |
+|-------|--------------|----------------|
+| SEO Fundamentals | Podstawowa wiedza SEO | `/research`, `/audit`, `/internal-links`, `/schema-gen` |
+| Content Optimizer | Scoring i optymalizacja treści | `/write-seo`, `/optimize`, `/analyze`, `/content-brief` |
+| Programmatic SEO | Skalowanie produkcji treści | `/topic-clusters`, `/audit`, `/low-hanging-fruit` |
+| GEO Fundamentals | Optymalizacja pod AI search | `/geo-audit`, `/llms-txt` |
+| Local SEO | Optymalizacja wyszukiwania lokalnego | `/local-seo` |
 
 ## SEO Fundamentals
 
-Core knowledge covering on-page optimization, technical SEO, keyword strategy, and ranking factors.
+Podstawowa wiedza obejmująca on-page optimization, techniczne SEO, strategię keywords i czynniki rankingowe.
 
-**Key modules:**
-- **Search Intent Classification** — informational, navigational, commercial, transactional
-- **On-Page SEO Elements** — title tags, meta descriptions, headings, URL structure, keyword placement
-- **Technical SEO Checklist** — crawlability, Core Web Vitals (LCP <2.5s, INP <200ms, CLS <0.1), security, structured data
-- **E-E-A-T Signals** — experience, expertise, authoritativeness, trustworthiness
-- **Internal Linking Strategy** — 3-5+ links per article, descriptive anchors, cluster support
+**Kluczowe moduły:**
+
+- **Klasyfikacja intencji wyszukiwania** — informacyjna, nawigacyjna, komercyjna, transakcyjna
+- **Elementy On-Page SEO** — title tags, meta descriptions, nagłówki, struktura URL, umiejscowienie keywords
+- **Checklist technicznego SEO** — crawlability, Core Web Vitals (LCP <2.5s, INP <200ms, CLS <0.1), bezpieczeństwo, structured data
+- **Sygnały E-E-A-T** — doświadczenie, ekspertyza, autorytatywność, wiarygodność
+- **Strategia linkowania wewnętrznego** — 3–5+ linków per artykuł, opisowe anchory, wsparcie klastrów
 
 ## Content Optimizer
 
-Systematic content scoring and optimization framework.
+Systematyczny framework scoringu i optymalizacji treści.
 
-**Scoring System (0-100):**
+**System scoringowy (0–100):**
 
-| Dimension | Weight | Target Metrics |
-|-----------|--------|---------------|
-| Keyword Optimization | 25% | 1-2% density, critical placements, LSI terms |
-| Readability | 20% | Flesch 60-70, Grade 8-10, passive <20% |
-| Content Structure | 20% | H2 every 300 words, 2,000+ words total |
-| Engagement | 20% | Hook intro, 2-3 stories, 2-3 CTAs |
-| Technical SEO | 15% | Meta elements, links, schema |
+| Wymiar | Waga | Docelowe metryki |
+|--------|------|-----------------|
+| Optymalizacja keywords | 25% | 1–2% gęstości, krytyczne umiejscowienia, terminy LSI |
+| Czytelność | 20% | Flesch 60–70, Grade 8–10, passive <20% |
+| Struktura treści | 20% | H2 co 300 słów, 2 000+ słów łącznie |
+| Zaangażowanie | 20% | Hook we wstępie, 2–3 stories, 2–3 CTA |
+| Techniczne SEO | 15% | Elementy meta, linki, schema |
 
-**AI Content Scrubbing:** Detects formulaic patterns, uniform structure, and lack of specificity typical of AI-generated content. Applies natural voice, varied sentence lengths, specific examples, and conversational asides.
+**AI Content Scrubbing:** Wykrywa formuliczne wzorce, jednolitą strukturę i brak specyfiki typowy dla treści generowanych przez AI. Stosuje naturalny głos, zróżnicowaną długość zdań, konkretne przykłady i konwersacyjne wtręty.
 
 ## Programmatic SEO
 
-Frameworks for scaling content and finding opportunities.
+Frameworki do skalowania treści i znajdowania okazji.
 
-**Topic Cluster Architecture:**
-- Pillar Page (3,000-5,000+ words)
-- Cluster Pages (1,500-2,500 words)
-- Supporting Content (FAQs, glossaries, case studies)
+**Architektura klastrów tematycznych:**
 
-**8-Factor Opportunity Scoring:** Search volume (20%), keyword difficulty (15%), current position (15%), content gap (15%), business relevance (15%), conversion potential (10%), freshness need (5%), trending momentum (5%).
+- Pillar Page (3 000–5 000+ słów)
+- Strony klastra (1 500–2 500 słów)
+- Treści wspierające (FAQ, glosariusze, case studies)
 
-**Quick Wins:** Position 11-20 keywords, high-impression low-CTR pages, missing meta descriptions, thin ranking content.
+**8-czynnikowy scoring okazji:** Wolumen wyszukiwania (20%), keyword difficulty (15%), obecna pozycja (15%), content gap (15%), relevancja biznesowa (15%), potencjał konwersji (10%), potrzeba odświeżenia (5%), trending momentum (5%).
+
+**Szybkie wygrane:** Keywords pozycje 11–20, strony z dużymi wyświetleniami i niskim CTR, brakujące meta descriptions, thin ranking content.
 
 ## GEO Fundamentals
 
-AI search optimization knowledge base.
+Baza wiedzy o optymalizacji pod AI search.
 
-**GEO Scoring Dimensions:** AI crawler access, llms.txt quality, content citability, schema markup, E-E-A-T signals, brand presence, content freshness.
+**Wymiary scoringu GEO:** Dostęp crawlerów AI, jakość llms.txt, cytowalność treści, schema markup, sygnały E-E-A-T, obecność marki, świeżość treści.
 
-**Key Techniques:** Standalone passages (~800 tokens), statistics with sources, expert quotes with attribution, brand presence across 10+ platforms, llms.txt implementation.
+**Kluczowe techniki:** Samodzielne fragmenty (~800 tokenów), statystyki ze źródłami, cytaty ekspertów z atrybucją, obecność marki na 10+ platformach, implementacja llms.txt.
 
 ## Local SEO
 
-Local search optimization covering GBP, citations, and local schema.
+Optymalizacja wyszukiwania lokalnego obejmująca GBP, cytacje i lokalne schema.
 
-**Coverage:** Google Business Profile optimization, NAP consistency, citation building (data aggregators, major directories, industry-specific), local keyword patterns, LocalBusiness schema, review management.
+**Zakres:** Optymalizacja Google Business Profile, spójność NAP, budowanie cytacji (agregatory danych, główne katalogi, branżowe), wzorce lokalnych keywords, schema LocalBusiness, zarządzanie opiniami.

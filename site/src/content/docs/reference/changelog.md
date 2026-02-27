@@ -1,44 +1,44 @@
 ---
 title: Changelog
-description: Version history and release notes
+description: Historia wersji i notatki wydań
 ---
 
 ## [2.0.0] — 2026-02-27
 
-### Added
+### Dodano
 
-**New Commands:** `/rewrite`, `/low-hanging-fruit`, `/geo-audit`, `/llms-txt`, `/local-seo`, `/competitors`
+**Nowe komendy:** `/rewrite`, `/low-hanging-fruit`, `/geo-audit`, `/llms-txt`, `/local-seo`, `/competitors`
 
-**New Skills:** GEO Fundamentals, Local SEO
+**Nowe skills:** GEO Fundamentals, Local SEO
 
-**New Agents:** geo-scorer, local-seo-auditor
+**Nowi agenci:** geo-scorer, local-seo-auditor
 
-**Documentation:** Complete documentation suite (12 MD files), Astro-based docs website, multi-platform installation guides
+**Dokumentacja:** Kompletna dokumentacja (12 plików MD), strona docs oparta na Astro, przewodniki instalacji per platforma, tłumaczenie na język polski
 
-**Infrastructure:** Semantic versioning, security model, multi-platform support
+**Infrastruktura:** Semantic versioning, model bezpieczeństwa, wsparcie wieloplatformowe
 
-### Changed
+### Zmienione
 
-Plugin version bumped from 1.0.0 to 2.0.0. No breaking changes to existing commands.
+Wersja pluginu podniesiona z 1.0.0 do 2.0.0. Brak breaking changes w istniejących komendach.
 
 ---
 
 ## [1.0.0] — 2025-10-29
 
-### Initial Release
+### Wydanie początkowe
 
-**Commands:** `/research`, `/write-seo`, `/optimize`, `/audit`, `/analyze`, `/content-brief`, `/meta-tags`, `/topic-clusters`, `/internal-links`, `/schema-gen`
+**Komendy:** `/research`, `/write-seo`, `/optimize`, `/audit`, `/analyze`, `/content-brief`, `/meta-tags`, `/topic-clusters`, `/internal-links`, `/schema-gen`
 
 **Skills:** SEO Fundamentals, Content Optimizer, Programmatic SEO
 
-**Agents:** seo-analyzer, keyword-mapper
+**Agenci:** seo-analyzer, keyword-mapper
 
-**Connectors:** Ahrefs (MCP), Similarweb (MCP)
+**Konektory:** Ahrefs (MCP), Similarweb (MCP)
 
 ---
 
-## Versioning Policy
+## Polityka wersjonowania
 
 - **MAJOR** (X.0.0) — Breaking changes
-- **MINOR** (0.X.0) — New features (backward compatible)
-- **PATCH** (0.0.X) — Bug fixes and documentation
+- **MINOR** (0.X.0) — Nowe funkcje (wstecznie kompatybilne)
+- **PATCH** (0.0.X) — Poprawki błędów i dokumentacja
