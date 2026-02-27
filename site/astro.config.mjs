@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [
@@ -22,9 +23,15 @@ export default defineConfig({
       expressiveCode: {
         themes: ['starlight-dark', 'starlight-light'],
         styleOverrides: {
-          borderRadius: '0.75rem',
-          codePaddingBlock: '1rem',
-          codePaddingInline: '1.25rem',
+          borderRadius: '0.875rem',
+          codePaddingBlock: '0.75rem',
+          codePaddingInline: '1rem',
+          codeFontSize: '0.85rem',
+          codeLineHeight: '1.55',
+          uiFontSize: '0.7rem',
+          frames: {
+            shadowColor: 'rgba(0, 0, 0, 0.08)',
+          },
         },
       },
       sidebar: [
@@ -89,5 +96,6 @@ export default defineConfig({
         },
       ],
     }),
+    tailwind({ applyBaseStyles: false }),
   ],
 });

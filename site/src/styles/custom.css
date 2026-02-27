@@ -1,16 +1,16 @@
-/* === Color Theme === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   SEO Machine — Custom Styles (Tailwind + Starlight)
+   ============================================= */
+
+/* --- Accent Colors --- */
 :root {
-  --sl-color-accent-low: #1a2744;
+  --sl-color-accent-low: #1e3a5f;
   --sl-color-accent: #3b82f6;
   --sl-color-accent-high: #93c5fd;
-  --sl-color-white: #ffffff;
-  --sl-color-gray-1: #eceef2;
-  --sl-color-gray-2: #c0c2c7;
-  --sl-color-gray-3: #888b96;
-  --sl-color-gray-4: #545861;
-  --sl-color-gray-5: #353841;
-  --sl-color-gray-6: #24272f;
-  --sl-color-black: #17181c;
 }
 
 :root[data-theme='light'] {
@@ -19,156 +19,208 @@
   --sl-color-accent-high: #1e3a5f;
 }
 
-/* === Code Blocks — improved preview === */
-.expressive-code pre {
-  border-radius: 0.75rem !important;
-  padding: 1.25rem !important;
-  font-size: 0.9rem !important;
-  line-height: 1.6 !important;
-}
+
+/* --- Code Blocks: compact, rounded, clean --- */
 
 .expressive-code .frame {
-  border-radius: 0.75rem !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+  @apply !rounded-xl;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06) !important;
 }
 
-.expressive-code .frame .header {
-  border-radius: 0.75rem 0.75rem 0 0 !important;
-  padding: 0.5rem 1rem !important;
+:root[data-theme='light'] .expressive-code .frame {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Bash/terminal code blocks — terminal-style look */
+.expressive-code pre {
+  @apply !rounded-xl !text-[0.84rem] !leading-relaxed;
+  padding: 0.7rem 1rem !important;
+}
+
+/* Terminal-style accent border for bash blocks */
 .expressive-code[data-language="bash"] .frame,
 .expressive-code[data-language="sh"] .frame {
-  border-left: 3px solid var(--sl-color-accent) !important;
+  border-left: 2.5px solid var(--sl-color-accent) !important;
 }
 
-/* JSON config blocks */
+/* Config accent border for JSON blocks */
 .expressive-code[data-language="json"] .frame {
-  border-left: 3px solid #22c55e !important;
+  border-left: 2.5px solid #22c55e !important;
 }
 
-/* Inline code in tables and paragraphs */
+/* --- Copy Button: smaller, subtler --- */
+
+.expressive-code .copy button {
+  @apply !w-7 !h-7 !rounded-lg;
+  padding: 4px !important;
+  opacity: 0.35 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.expressive-code .copy button:hover {
+  opacity: 0.85 !important;
+}
+
+.expressive-code .copy button svg {
+  @apply !w-3.5 !h-3.5;
+}
+
+/* Only show copy on hover for cleaner look */
+.expressive-code .copy {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.expressive-code:hover .copy {
+  opacity: 1;
+}
+
+/* --- Frame header (language label) --- */
+
+.expressive-code .frame .header {
+  @apply !rounded-t-xl;
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.7rem !important;
+}
+
+
+/* --- Inline code --- */
+
 :not(pre) > code {
-  background: var(--sl-color-gray-5) !important;
-  padding: 0.15rem 0.4rem !important;
-  border-radius: 0.3rem !important;
-  font-size: 0.875em !important;
-  font-weight: 500 !important;
+  @apply !rounded-md !text-[0.85em] !font-medium;
+  background: var(--sl-color-gray-5, #353841) !important;
+  padding: 0.1rem 0.35rem !important;
 }
 
 :root[data-theme='light'] :not(pre) > code {
-  background: var(--sl-color-gray-1) !important;
+  background: #f1f5f9 !important;
+  color: #334155 !important;
 }
 
-/* === Hero Badge === */
+
+/* --- Hero Badge --- */
+
 .hero-badge {
-  display: inline-block;
+  @apply inline-block rounded-full text-sm font-semibold mb-4;
   background: var(--sl-color-accent);
-  color: var(--sl-color-white);
+  color: white;
   padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
 }
 
-/* === Feature Grid & Cards === */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
+
+/* --- Feature Cards --- */
 
 .feature-card {
-  background: var(--sl-color-gray-6);
-  border: 1px solid var(--sl-color-gray-5);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  @apply rounded-xl p-6 transition-all duration-200;
+  background: var(--sl-color-gray-6, #24272f);
+  border: 1px solid var(--sl-color-gray-5, #353841);
 }
 
 .feature-card:hover {
   border-color: var(--sl-color-accent);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 :root[data-theme='light'] .feature-card {
-  background: var(--sl-color-white);
-  border-color: var(--sl-color-gray-1);
+  @apply bg-white;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .feature-card:hover {
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
 }
 
 .feature-card h3 {
-  margin-top: 0;
+  @apply mt-0;
   color: var(--sl-color-accent);
 }
 
-/* === Command Tables === */
-.command-table code {
-  background: var(--sl-color-gray-5);
-  padding: 0.125rem 0.375rem;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-}
 
-/* === Badges === */
+/* --- Badge "New" --- */
+
 .badge-new {
-  display: inline-block;
+  @apply inline-block rounded-full text-xs font-semibold ml-2 align-middle;
   background: #22c55e;
   color: white;
-  padding: 0.125rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-left: 0.5rem;
-  vertical-align: middle;
+  padding: 0.1rem 0.45rem;
 }
 
-/* === Motto / Testimonial Block === */
+
+/* --- Motto / Testimonial --- */
+
 .motto-block {
-  margin: 2.5rem 0;
-  padding: 2rem 2.5rem;
-  border-left: 4px solid var(--sl-color-accent);
-  background: var(--sl-color-gray-6);
-  border-radius: 0 0.75rem 0.75rem 0;
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
+  padding: 1.75rem 2rem;
+  border-left: 3px solid var(--sl-color-accent);
+  background: var(--sl-color-gray-6, #24272f);
 }
 
 :root[data-theme='light'] .motto-block {
-  background: var(--sl-color-accent-low);
+  background: #eff6ff;
 }
 
 .motto-block .motto-author {
-  display: block;
-  margin-top: 1rem;
-  font-style: normal;
-  font-size: 0.875rem;
-  color: var(--sl-color-gray-3);
-  font-weight: 600;
+  @apply block mt-4 not-italic text-sm font-semibold;
+  color: var(--sl-color-gray-3, #888b96);
 }
 
-/* === Integration Icons (service logos in cards) === */
+
+/* --- Tables — cleaner --- */
+
+table {
+  @apply text-sm;
+}
+
+table code {
+  @apply whitespace-nowrap;
+}
+
+table th {
+  @apply font-semibold;
+}
+
+
+/* --- Link Cards --- */
+
 .sl-link-card {
-  transition: border-color 0.2s ease;
+  @apply transition-colors duration-200;
 }
 
 .sl-link-card:hover {
   border-color: var(--sl-color-accent);
 }
 
-/* === Table Improvements === */
-table {
-  font-size: 0.925rem;
+
+/* --- Light Mode Polish --- */
+
+:root[data-theme='light'] {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-sidebar: #f8fafc;
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.92);
+  --sl-color-hairline-light: #e2e8f0;
+  --sl-color-hairline: #cbd5e1;
+  --sl-color-text: #1e293b;
+  --sl-color-text-accent: #1d4ed8;
 }
 
-table code {
-  white-space: nowrap;
+:root[data-theme='light'] .sidebar-pane {
+  background: var(--sl-color-bg-sidebar);
 }
 
-/* === Smooth scrolling === */
+:root[data-theme='light'] header.header {
+  backdrop-filter: blur(8px);
+}
+
+
+/* --- Smooth Scrolling --- */
+
 html {
-  scroll-behavior: smooth;
+  @apply scroll-smooth;
+}
+
+
+/* --- Utility: Starlight Card Grid spacing --- */
+
+.card-grid {
+  @apply gap-4;
 }
