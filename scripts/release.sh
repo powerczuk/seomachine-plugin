@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+# NOTE: This script uses macOS BSD sed syntax (sed -i ''). Not compatible with GNU/Linux sed.
 
 # ─────────────────────────────────────────────────────────────
 # SEO Machine — Release Script
@@ -19,6 +20,11 @@ info()    { printf "${BLUE}[info]${NC}  %s\n" "$1"; }
 success() { printf "${GREEN}[ok]${NC}    %s\n" "$1"; }
 warn()    { printf "${YELLOW}[warn]${NC}  %s\n" "$1"; }
 die()     { printf "${RED}[error]${NC} %s\n" "$1" >&2; exit 1; }
+
+# Temp file cleanup
+_CLEANUP_FILES=()
+cleanup() { rm -f "${_CLEANUP_FILES[@]}" 2>/dev/null; }
+trap cleanup EXIT
 
 # ── Resolve repo root ──────────────────────────────────────
 REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" \
@@ -46,7 +52,7 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   die "Working tree is dirty. Commit or stash your changes first."
 fi
 
-if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+if [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
   die "Untracked files present. Commit or remove them first."
 fi
 
@@ -54,7 +60,7 @@ fi
 CURRENT_BRANCH="$(git symbolic-ref --short HEAD 2>/dev/null)" \
   || die "Detached HEAD state. Switch to main first."
 
-if [ "$CURRENT_BRANCH" != "main" ]; then
+if [[ "$CURRENT_BRANCH" != "main" ]]; then
   die "You must be on the main branch (currently on: $CURRENT_BRANCH)."
 fi
 
@@ -63,7 +69,7 @@ success "All prerequisites met."
 # ════════════════════════════════════════════════════════════
 # 2. Read current version
 # ════════════════════════════════════════════════════════════
-[ -f "$PACKAGE_JSON" ] \
+[[ -f "$PACKAGE_JSON" ]] \
   || die "$PACKAGE_JSON not found."
 
 CURRENT_VERSION="$(grep -o '"version": *"[^"]*"' "$PACKAGE_JSON" | head -1 | grep -o '[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*')" \
@@ -111,11 +117,12 @@ info "Generating changelog..."
 
 # Find last tag — try both v-prefixed and bare formats
 LAST_TAG=""
-if git describe --tags --abbrev=0 HEAD 2>/dev/null | grep -qE '^v?[0-9]'; then
-  LAST_TAG="$(git describe --tags --abbrev=0 HEAD 2>/dev/null)"
+_tag="$(git describe --tags --abbrev=0 HEAD 2>/dev/null || true)"
+if [[ "$_tag" =~ ^v?[0-9] ]]; then
+  LAST_TAG="$_tag"
 fi
 
-if [ -n "$LAST_TAG" ]; then
+if [[ -n "$LAST_TAG" ]]; then
   info "Commits since tag: $LAST_TAG"
   COMMITS="$(git log "${LAST_TAG}..HEAD" --pretty=format:"%s" 2>/dev/null || true)"
 else
@@ -124,7 +131,7 @@ else
 fi
 
 # If no new commits, allow an empty changelog section
-if [ -z "$COMMITS" ]; then
+if [[ -z "$COMMITS" ]]; then
   warn "No new commits since last tag."
 fi
 
@@ -135,7 +142,7 @@ CHANGED=""
 OTHER=""
 
 while IFS= read -r msg; do
-  [ -z "$msg" ] && continue
+  [[ -z "$msg" ]] && continue
   case "$msg" in
     feat:*|feat\(*) ADDED="${ADDED}- ${msg}\n" ;;
     fix:*|fix\(*)   FIXED="${FIXED}- ${msg}\n" ;;
@@ -148,10 +155,10 @@ done <<< "$COMMITS"
 TODAY="$(date +%Y-%m-%d)"
 CHANGELOG_ENTRY="## [${NEW_VERSION}] — ${TODAY}"
 
-[ -n "$ADDED" ]  && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Added\n\n${ADDED}"
-[ -n "$FIXED" ]  && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Fixed\n\n${FIXED}"
-[ -n "$CHANGED" ] && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Changed\n\n${CHANGED}"
-[ -n "$OTHER" ]  && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Other\n\n${OTHER}"
+[[ -n "$ADDED" ]]  && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Added\n\n${ADDED}"
+[[ -n "$FIXED" ]]  && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Fixed\n\n${FIXED}"
+[[ -n "$CHANGED" ]] && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Changed\n\n${CHANGED}"
+[[ -n "$OTHER" ]]  && CHANGELOG_ENTRY="${CHANGELOG_ENTRY}\n\n### Other\n\n${OTHER}"
 
 # Strip trailing whitespace/newlines from entry
 CHANGELOG_ENTRY="$(printf '%b' "$CHANGELOG_ENTRY" | sed -e 's/[[:space:]]*$//')"
@@ -175,9 +182,11 @@ info "Updating $CHANGELOG..."
 # Uses a temp-file approach for BSD compatibility (BSD awk does not support
 # multiline strings in -v assignments, nor the !var syntax)
 ENTRY_FILE="$(mktemp)"
+_CLEANUP_FILES+=("$ENTRY_FILE")
 printf '%b' "$CHANGELOG_ENTRY" > "$ENTRY_FILE"
 
 TEMP_CHANGELOG="$(mktemp)"
+_CLEANUP_FILES+=("$TEMP_CHANGELOG")
 INSERTED=false
 while IFS= read -r line; do
   echo "$line" >> "$TEMP_CHANGELOG"
@@ -189,7 +198,10 @@ while IFS= read -r line; do
   fi
 done < "$CHANGELOG"
 mv "$TEMP_CHANGELOG" "$CHANGELOG"
-rm -f "$ENTRY_FILE"
+
+if [[ "$INSERTED" == false ]]; then
+  die "Could not find --- separator in $CHANGELOG to insert new entry."
+fi
 success "$CHANGELOG updated"
 
 info "Updating $README..."
@@ -225,10 +237,14 @@ success "Git operations complete."
 # 7. Create GitHub Release
 # ════════════════════════════════════════════════════════════
 info "Creating GitHub Release..."
-
-RELEASE_URL="$(gh release create "$TAG_NAME" \
-  --title "Release ${TAG_NAME}" \
-  --notes "$CHANGELOG_ENTRY")"
+if ! RELEASE_URL="$(gh release create "${TAG_NAME}" \
+  --title "${TAG_NAME}" \
+  --notes "$CHANGELOG_ENTRY" 2>&1)"; then
+  warn "GitHub Release creation failed. Tag and commit are already pushed."
+  warn "To create the release manually, run:"
+  warn "  gh release create ${TAG_NAME} --title '${TAG_NAME}' --notes-file <changelog-file>"
+  exit 1
+fi
 
 echo ""
 success "Release ${TAG_NAME} published!"
