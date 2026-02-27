@@ -1,0 +1,64 @@
+---
+title: Podłączanie narzędzi SEO
+description: Podłącz Ahrefs, Similarweb, Google Search Console i więcej aby uzyskać dokładniejsze dane
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import ConfigWizard from '../../../components/ConfigWizard.tsx';
+
+<Aside type="tip" title="To jest opcjonalne">
+SEO Machine działa w pełni bez żadnych podłączonych narzędzi — korzysta z wyszukiwania
+internetowego jako źródła danych. Podłączenie narzędzi jak Ahrefs czy Similarweb daje Ci
+**dokładniejsze dane**: precyzyjne wolumeny wyszukiwań, pozycje w rankingu, profile backlinków.
+</Aside>
+
+## Co dają poszczególne narzędzia?
+
+| Narzędzie | Co dodaje | Wzbogacane komendy |
+|-----------|-----------|-------------------|
+| Ahrefs | Wolumeny keywords, difficulty scores, profile backlinków | `/research`, `/audit`, `/analyze`, `/competitors` |
+| Similarweb | Szacunki ruchu, demografia odbiorców, źródła ruchu | `/audit`, `/competitors` |
+| Google Search Console | Twoje realne wyświetlenia, kliknięcia, CTR, pozycje | `/audit`, `/low-hanging-fruit`, `/analyze` |
+| Google Analytics 4 | Ruch na stronie, zaangażowanie, konwersje | `/audit`, `/low-hanging-fruit` |
+| Semrush | Alternatywa dla Ahrefs — dane keywords i backlinków | Jak Ahrefs |
+| WordPress | Bezpośrednie publikowanie treści | `/write-seo`, `/meta-tags`, `/internal-links` |
+| DataForSEO | Real-time dane SERP, sugestie keywords | `/research`, `/audit` |
+
+## Konfigurator
+
+Zaznacz narzędzia które chcesz podłączyć, wklej klucze API, wybierz platformę — otrzymasz gotową konfigurację do skopiowania.
+
+<ConfigWizard client:load />
+
+## Ręczna konfiguracja
+
+Jeżeli wolisz skonfigurować ręcznie, dodaj serwery MCP do pliku konfiguracyjnego Twojej platformy:
+
+- **Claude Code / Cowork:** `.mcp.json` w katalogu pluginu
+- **Cursor:** `.cursor/mcp.json` w katalogu projektu
+- **VS Code:** `.vscode/mcp.json` w katalogu projektu
+- **Windsurf:** Panel ustawień MCP Windsurf
+- **Claude Desktop:** `claude_desktop_config.json`
+  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+### Przykład konfiguracji (Ahrefs + Similarweb)
+
+```json
+{
+  "mcpServers": {
+    "ahrefs": {
+      "type": "http",
+      "url": "https://api.ahrefs.com/mcp/mcp"
+    },
+    "similarweb": {
+      "type": "http",
+      "url": "https://mcp.similarweb.com"
+    }
+  }
+}
+```
+
+<Aside type="caution" title="Bezpieczeństwo kluczy API">
+Nigdy nie udostępniaj kluczy API publicznie. Nie dodawaj ich do repozytoriów Git. Traktuj je jak hasła.
+</Aside>
