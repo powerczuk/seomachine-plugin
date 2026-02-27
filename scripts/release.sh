@@ -23,7 +23,7 @@ die()     { printf "${RED}[error]${NC} %s\n" "$1" >&2; exit 1; }
 
 # Temp file cleanup
 _CLEANUP_FILES=()
-cleanup() { rm -f "${_CLEANUP_FILES[@]}" 2>/dev/null; }
+cleanup() { [[ ${#_CLEANUP_FILES[@]} -gt 0 ]] && rm -f "${_CLEANUP_FILES[@]}" 2>/dev/null; }
 trap cleanup EXIT
 
 # ── Resolve repo root ──────────────────────────────────────
