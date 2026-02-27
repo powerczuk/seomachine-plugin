@@ -60,6 +60,10 @@ Treści oceniane 0–100: keywords (25%), czytelność (20%), struktura (20%), z
 
 **v2.0.0** — 6 nowych komend, 2 nowe skills, 2 nowych agentów, dokumentacja PL.
 
+## Pochodzenie
+
+Fork projektu [SEO Machine](https://github.com/TheCraigHewitt/seomachine) autorstwa Craiga Hewitta.
+
 ## Licencja
 
 MIT
