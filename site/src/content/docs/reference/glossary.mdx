@@ -1,0 +1,479 @@
+---
+title: "Slownik pojec"
+description: "Przystepne wyjasnienia kluczowych pojec technicznych — dla osob nietechnicznych"
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="Dla kogo ten slownik?">
+Nie musisz byc programista, zeby korzystac z SEO Machine. Ten slownik wyjasnia najwazniejsze pojecia prostym jezykiem, pogrupowane tematycznie. Kliknij sekcje ponizej, aby szybko przejsc do interesujacego Cie tematu.
+</Aside>
+
+<div class="glossary-nav">
+  <a href="#ai-i-modele-jezykowe">AI i modele</a>
+  <a href="#seo--podstawy">SEO podstawy</a>
+  <a href="#seo--techniczne">SEO techniczne</a>
+  <a href="#linkowanie">Linkowanie</a>
+  <a href="#tresci-i-content-marketing">Tresci</a>
+  <a href="#lokalne-seo">Lokalne SEO</a>
+  <a href="#technologia-i-konfiguracja">Technologia</a>
+  <a href="#metryki-i-scoring">Metryki</a>
+</div>
+
+## AI i modele jezykowe
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="ai">
+
+### AI (Artificial Intelligence)
+
+Sztuczna inteligencja. Systemy komputerowe nasladujace ludzkie myslenie: rozumienie tekstu, generowanie odpowiedzi, analiza danych. Claude to przyklad AI.
+
+<div class="glossary-related">Powiazane: <a href="#llm">LLM</a>, <a href="#prompt">Prompt</a>, <a href="#token">Token</a></div>
+</div>
+
+<div class="glossary-term" id="llm">
+
+### LLM (Large Language Model)
+
+Duzy model jezykowy. Typ AI wyszkolony na ogromnych ilosciach tekstu, ktory potrafi rozumiec i generowac jezyk naturalny. ChatGPT, Claude, Gemini — to wszystko LLM-y.
+
+<div class="glossary-related">Powiazane: <a href="#ai">AI</a>, <a href="#geo">GEO</a>, <a href="#token">Token</a></div>
+</div>
+
+<div class="glossary-term" id="geo">
+
+### GEO (Generative Engine Optimization)
+
+Optymalizacja pod wyszukiwarki AI. Nowa dyscyplina polegajaca na tym, zeby Twoje tresci pojawialy sie w odpowiedziach ChatGPT, Perplexity czy Google AI Overviews. Rozszerzenie tradycyjnego SEO na ere AI.
+
+<div class="glossary-related">Powiazane: <a href="#seo">SEO</a>, <a href="#rag">RAG</a>, <a href="#llm">LLM</a></div>
+</div>
+
+<div class="glossary-term" id="rag">
+
+### RAG (Retrieval-Augmented Generation)
+
+Generowanie wspomagane wyszukiwaniem. Technika, w ktorej AI najpierw wyszukuje istotne informacje (np. z Twojej strony), a dopiero potem generuje odpowiedz. Dzieki temu odpowiedzi sa precyzyjniejsze i aktualne.
+
+<div class="glossary-related">Powiazane: <a href="#geo">GEO</a>, <a href="#llm">LLM</a></div>
+</div>
+
+<div class="glossary-term" id="prompt">
+
+### Prompt
+
+Zapytanie lub instrukcja, ktora podajesz AI. Np. "napisz artykul o email marketingu" to prompt. Im lepszy prompt, tym lepszy wynik.
+
+<div class="glossary-related">Powiazane: <a href="#ai">AI</a>, <a href="#llm">LLM</a></div>
+</div>
+
+<div class="glossary-term" id="token">
+
+### Token
+
+Jednostka tekstu dla AI. Mniej wiecej 1 token = 0,75 slowa. Modele AI maja limit tokenow (okno kontekstu), dlatego llms.txt pomaga im efektywnie przetwarzac strony.
+
+<div class="glossary-related">Powiazane: <a href="#llm">LLM</a>, <a href="#ai">AI</a></div>
+</div>
+
+</div>
+
+## SEO — podstawy
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="seo">
+
+### SEO (Search Engine Optimization)
+
+Optymalizacja pod wyszukiwarki. Zbior praktyk sprawiajacych, ze Twoja strona pojawia sie wyzej w Google i innych wyszukiwarkach.
+
+<div class="glossary-related">Powiazane: <a href="#geo">GEO</a>, <a href="#serp">SERP</a>, <a href="#keywords">Keywords</a></div>
+</div>
+
+<div class="glossary-term" id="serp">
+
+### SERP (Search Engine Results Page)
+
+Strona wynikow wyszukiwania. To co widzisz po wpisaniu czegos w Google — lista linkow, snippety, reklamy.
+
+<div class="glossary-related">Powiazane: <a href="#seo">SEO</a>, <a href="#featured-snippet">Featured snippet</a></div>
+</div>
+
+<div class="glossary-term" id="keywords">
+
+### Keywords (slowa kluczowe)
+
+Frazy, ktore ludzie wpisuja w wyszukiwarke. Np. "najlepszy CRM dla malych firm". SEO polega m.in. na optymalizacji tresci pod te frazy.
+
+<div class="glossary-related">Powiazane: <a href="#long-tail-keywords">Long-tail</a>, <a href="#lsi">LSI</a>, <a href="#keyword-difficulty">Keyword difficulty</a>, <a href="#search-intent">Search intent</a></div>
+</div>
+
+<div class="glossary-term" id="long-tail-keywords">
+
+### Long-tail keywords
+
+Dlugie frazy kluczowe. Np. zamiast "CRM" to "najlepszy darmowy CRM dla jednoosobowej dzialalnosci". Mniej wyszukiwan, ale latwiej sie pozycjonowac i wyzsza konwersja.
+
+<div class="glossary-related">Powiazane: <a href="#keywords">Keywords</a>, <a href="#search-intent">Search intent</a></div>
+</div>
+
+<div class="glossary-term" id="lsi">
+
+### LSI (Latent Semantic Indexing)
+
+Semantycznie powiazane terminy. Google rozumie kontekst — jesli piszesz o "kawie", oczekuje tez slow jak "espresso", "parzenie", "ziarna". Plugin automatycznie je identyfikuje.
+
+<div class="glossary-related">Powiazane: <a href="#keywords">Keywords</a>, <a href="#seo">SEO</a></div>
+</div>
+
+<div class="glossary-term" id="keyword-difficulty">
+
+### Keyword difficulty
+
+Trudnosc slowa kluczowego. Skala 0-100 pokazujaca jak trudno jest zdobyc wysoka pozycje na dana fraze. Im wyzej, tym trudniej.
+
+<div class="glossary-related">Powiazane: <a href="#keywords">Keywords</a>, <a href="#domain-authority">Domain Authority</a></div>
+</div>
+
+<div class="glossary-term" id="search-intent">
+
+### Search intent (intencja wyszukiwania)
+
+Czego szuka uzytkownik: informacji (informacyjna), konkretnej strony (nawigacyjna), porownania produktow (komercyjna), zakupu (transakcyjna).
+
+<div class="glossary-related">Powiazane: <a href="#keywords">Keywords</a>, <a href="#long-tail-keywords">Long-tail</a></div>
+</div>
+
+</div>
+
+## SEO — techniczne
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="on-page-seo">
+
+### On-page SEO
+
+Optymalizacja na stronie. Wszystko co mozesz zmienic bezposrednio na swojej stronie: tytuly, naglowki, tresci, meta tagi, linki wewnetrzne.
+
+<div class="glossary-related">Powiazane: <a href="#meta-tags">Meta tags</a>, <a href="#schema-markup">Schema markup</a></div>
+</div>
+
+<div class="glossary-term" id="schema-markup">
+
+### Schema markup / Structured data
+
+Dane strukturalne. Specjalny kod (JSON-LD) dodawany do strony, ktory mowi Google i AI czym jest tresc — artykul, produkt, FAQ, firma lokalna itp. Pomaga pojawiac sie w rich snippets.
+
+<div class="glossary-related">Powiazane: <a href="#json">JSON</a>, <a href="#meta-tags">Meta tags</a>, <a href="#featured-snippet">Featured snippet</a></div>
+</div>
+
+<div class="glossary-term" id="core-web-vitals">
+
+### Core Web Vitals
+
+Metryki wydajnosci strony mierzone przez Google: LCP (jak szybko laduje sie glowna tresc), INP (jak szybko strona reaguje na klikniecia), CLS (czy elementy nie przeskakuja podczas ladowania).
+
+</div>
+
+<div class="glossary-term" id="meta-tags">
+
+### Meta tags
+
+Ukryte tagi HTML opisujace strone. Najwazniejsze: meta title (tytul w Google), meta description (opis pod tytulem). Nie widac ich na stronie, ale widzisz je w wynikach wyszukiwania.
+
+<div class="glossary-related">Powiazane: <a href="#on-page-seo">On-page SEO</a>, <a href="#schema-markup">Schema markup</a></div>
+</div>
+
+<div class="glossary-term" id="sitemap">
+
+### Sitemap
+
+Mapa strony w formacie XML. Lista wszystkich URL-i na Twojej stronie, ktora podajesz Google zeby wiedzial co zaindeksowac.
+
+<div class="glossary-related">Powiazane: <a href="#robots-txt">robots.txt</a></div>
+</div>
+
+<div class="glossary-term" id="robots-txt">
+
+### robots.txt
+
+Plik tekstowy mowiacy wyszukiwarkom i crawlerom AI, ktore czesci strony moga odwiedzac, a ktore nie.
+
+<div class="glossary-related">Powiazane: <a href="#sitemap">Sitemap</a></div>
+</div>
+
+<div class="glossary-term" id="canonical-url">
+
+### Canonical URL
+
+Adres kanoniczny. Gdy masz kilka stron z podobna trescia, canonical mowi Google "ta wersja jest oficjalna".
+
+</div>
+
+<div class="glossary-term" id="eeat">
+
+### E-E-A-T
+
+Experience, Expertise, Authoritativeness, Trustworthiness. Framework Google do oceny jakosci tresci. Chodzi o to, zeby tresc byla pisana przez kogos z doswiadczeniem i wiedza, na wiarygodnej stronie.
+
+<div class="glossary-related">Powiazane: <a href="#seo">SEO</a>, <a href="#content-brief">Content brief</a></div>
+</div>
+
+</div>
+
+## Linkowanie
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="backlinks">
+
+### Backlinks
+
+Linki z innych stron prowadzace do Twojej. Im wiecej wartosciowych backlinkow, tym wyzsza pozycja. To jak rekomendacje od innych stron.
+
+<div class="glossary-related">Powiazane: <a href="#domain-authority">Domain Authority</a>, <a href="#anchor-text">Anchor text</a></div>
+</div>
+
+<div class="glossary-term" id="internal-links">
+
+### Internal links (linki wewnetrzne)
+
+Linki miedzy stronami w ramach Twojej witryny. Pomagaja Google zrozumiec strukture i przekazuja "moc SEO" miedzy stronami.
+
+<div class="glossary-related">Powiazane: <a href="#pillar-page">Pillar page</a>, <a href="#anchor-text">Anchor text</a></div>
+</div>
+
+<div class="glossary-term" id="domain-authority">
+
+### Domain Authority (DA)
+
+Autorytet domeny. Metryka (0-100) pokazujaca sile SEO calej domeny. Im wyzszy, tym latwiej rankujesz na nowe frazy.
+
+<div class="glossary-related">Powiazane: <a href="#backlinks">Backlinks</a>, <a href="#keyword-difficulty">Keyword difficulty</a></div>
+</div>
+
+<div class="glossary-term" id="anchor-text">
+
+### Anchor text
+
+Tekst klikalnego linka. Zamiast "kliknij tutaj" lepiej napisac "najlepsze narzedzia email marketing" — mowi Google o czym jest strona docelowa.
+
+<div class="glossary-related">Powiazane: <a href="#backlinks">Backlinks</a>, <a href="#internal-links">Internal links</a></div>
+</div>
+
+</div>
+
+## Tresci i content marketing
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="content-brief">
+
+### Content brief
+
+Brief contentowy. Dokument opisujacy copywriterowi co i jak napisac: docelowe keywords, strukture artykulu, dlugosc, konkurencje do przescigniecia.
+
+<div class="glossary-related">Powiazane: <a href="#keywords">Keywords</a>, <a href="#pillar-page">Pillar page</a></div>
+</div>
+
+<div class="glossary-term" id="pillar-page">
+
+### Pillar page
+
+Strona filarowa. Dlugi, kompleksowy artykul (3 000-5 000 slow) na glowny temat, do ktorego linkuja mniejsze artykuly klastrowe.
+
+<div class="glossary-related">Powiazane: <a href="#topic-cluster">Topic cluster</a>, <a href="#internal-links">Internal links</a></div>
+</div>
+
+<div class="glossary-term" id="topic-cluster">
+
+### Topic cluster
+
+Klaster tematyczny. Grupa powiazanych artykulow linkujacych do pillar page i miedzy soba. Np. pillar: "email marketing" to klastry: "automatyzacja emaili", "segmentacja listy", "A/B testy mailow".
+
+<div class="glossary-related">Powiazane: <a href="#pillar-page">Pillar page</a>, <a href="#internal-links">Internal links</a></div>
+</div>
+
+<div class="glossary-term" id="thin-content">
+
+### Thin content
+
+Cienka tresc. Strony z bardzo mala iloscia wartosciowej tresci. Google je penalizuje.
+
+<div class="glossary-related">Powiazane: <a href="#eeat">E-E-A-T</a>, <a href="#content-brief">Content brief</a></div>
+</div>
+
+<div class="glossary-term" id="featured-snippet">
+
+### Featured snippet
+
+Wyrozniony fragment. Blok tekstu wyswietlany na samej gorze Google (pozycja 0). Plugin pomaga optymalizowac tresc, zeby go zdobyc.
+
+<div class="glossary-related">Powiazane: <a href="#serp">SERP</a>, <a href="#schema-markup">Schema markup</a></div>
+</div>
+
+</div>
+
+## Lokalne SEO
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="gbp">
+
+### GBP (Google Business Profile)
+
+Profil firmy w Google. Wizytowka Twojej firmy pojawiajaca sie w Google Maps i w wynikach lokalnych. Dawniej Google My Business.
+
+<div class="glossary-related">Powiazane: <a href="#nap">NAP</a>, <a href="#local-pack">Local pack</a></div>
+</div>
+
+<div class="glossary-term" id="nap">
+
+### NAP
+
+Name, Address, Phone. Trzy podstawowe dane firmy, ktore musza byc identyczne wszedzie w internecie — na stronie, w katalogach, na mapach.
+
+<div class="glossary-related">Powiazane: <a href="#gbp">GBP</a>, <a href="#citation">Citation</a></div>
+</div>
+
+<div class="glossary-term" id="citation">
+
+### Citation (cytacja)
+
+Wzmianka o Twojej firmie w internecie zawierajaca NAP. Katalogi jak Yelp, Facebook, branzowe katalogi — kazdy to osobna cytacja.
+
+<div class="glossary-related">Powiazane: <a href="#nap">NAP</a>, <a href="#gbp">GBP</a></div>
+</div>
+
+<div class="glossary-term" id="local-pack">
+
+### Local pack
+
+Pakiet lokalny. Blok 3 firm z mapa wyswietlany w Google przy wyszukiwaniach lokalnych (np. "pizzeria Warszawa").
+
+<div class="glossary-related">Powiazane: <a href="#gbp">GBP</a>, <a href="#seo">SEO</a></div>
+</div>
+
+</div>
+
+## Technologia i konfiguracja
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="mcp">
+
+### MCP (Model Context Protocol)
+
+Protokol komunikacji miedzy narzedziami AI a zewnetrznymi serwisami. Dzieki MCP plugin SEO Machine moze pobierac dane z Ahrefs czy Similarweb. Pomysl o tym jak o "wtyczce do wtyczki".
+
+<div class="glossary-related">Powiazane: <a href="#api">API</a>, <a href="#plugin">Plugin</a></div>
+</div>
+
+<div class="glossary-term" id="api">
+
+### API (Application Programming Interface)
+
+Interfejs programistyczny. Sposob komunikacji miedzy programami. Gdy SEO Machine pobiera dane z Ahrefs — robi to przez API Ahrefs.
+
+<div class="glossary-related">Powiazane: <a href="#rest-api">REST API</a>, <a href="#json">JSON</a>, <a href="#mcp">MCP</a></div>
+</div>
+
+<div class="glossary-term" id="rest-api">
+
+### REST API
+
+Najpopularniejszy styl API. Uzywa standardowych adresow URL do wysylania i odbierania danych. Np. `GET https://api.ahrefs.com/keywords` — pobiera dane keywords.
+
+<div class="glossary-related">Powiazane: <a href="#api">API</a>, <a href="#json">JSON</a></div>
+</div>
+
+<div class="glossary-term" id="json">
+
+### JSON (JavaScript Object Notation)
+
+Format danych czytelny dla ludzi i maszyn. Wyglada tak: `{"name": "SEO Machine", "version": "2.0.0"}`. Uzywany w konfiguracjach MCP, schema markup i odpowiedziach API.
+
+<div class="glossary-related">Powiazane: <a href="#api">API</a>, <a href="#schema-markup">Schema markup</a></div>
+</div>
+
+<div class="glossary-term" id="env">
+
+### Plik .env / ENV variables
+
+Zmienne srodowiskowe. Plik `.env` przechowuje poufne dane (klucze API, hasla) poza kodem. Zamiast wpisywac klucz Ahrefs w kodzie, trzymasz go w `.env` i odwolujesz sie jako `AHREFS_API_KEY`.
+
+</div>
+
+<div class="glossary-term" id="cli">
+
+### CLI (Command Line Interface)
+
+Interfejs wiersza polecen. Terminal/konsola, w ktorej wpisujesz komendy tekstowe zamiast klikac. Claude Code CLI to wersja Claude dzialajaca w terminalu.
+
+<div class="glossary-related">Powiazane: <a href="#ide">IDE</a>, <a href="#plugin">Plugin</a></div>
+</div>
+
+<div class="glossary-term" id="plugin">
+
+### Plugin
+
+Dodatek rozszerzajacy funkcjonalnosc programu. SEO Machine to plugin do Claude — dodaje 16 komend SEO, ktorych Claude domyslnie nie ma.
+
+<div class="glossary-related">Powiazane: <a href="#mcp">MCP</a>, <a href="#ide">IDE</a></div>
+</div>
+
+<div class="glossary-term" id="ide">
+
+### IDE (Integrated Development Environment)
+
+Zintegrowane srodowisko programistyczne. Edytor kodu z dodatkowymi narzedziami. Cursor, VS Code, Windsurf — to IDE, w ktorych mozesz zainstalowac SEO Machine.
+
+<div class="glossary-related">Powiazane: <a href="#cli">CLI</a>, <a href="#plugin">Plugin</a></div>
+</div>
+
+</div>
+
+## Metryki i scoring
+
+<div class="glossary-list">
+
+<div class="glossary-term" id="ctr">
+
+### CTR (Click-Through Rate)
+
+Wspolczynnik klikalnosci. Procent osob, ktore kliknely Twoj link po zobaczeniu go w wynikach. CTR 5% = na 100 wyswietlen, 5 klikniec.
+
+<div class="glossary-related">Powiazane: <a href="#serp">SERP</a>, <a href="#seo">SEO</a></div>
+</div>
+
+<div class="glossary-term" id="flesch-reading-ease">
+
+### Flesch Reading Ease
+
+Wskaznik czytelnosci tekstu (0-100). 60-70 to optymalny zakres dla tresci SEO — zrozumialy dla szerokiej publicznosci, ale nie infantylny.
+
+</div>
+
+<div class="glossary-term" id="bounce-rate">
+
+### Bounce rate
+
+Wspolczynnik odrzucen. Procent osob, ktore odwiedzily strone i wyszly bez zadnej interakcji. Nizszy = lepszy.
+
+<div class="glossary-related">Powiazane: <a href="#ctr">CTR</a>, <a href="#conversion-rate">Conversion rate</a></div>
+</div>
+
+<div class="glossary-term" id="conversion-rate">
+
+### Conversion rate
+
+Wspolczynnik konwersji. Procent odwiedzajacych, ktorzy wykonali pozadana akcje (zakup, zapis na newsletter, pobranie pliku).
+
+<div class="glossary-related">Powiazane: <a href="#bounce-rate">Bounce rate</a>, <a href="#ctr">CTR</a></div>
+</div>
+
+</div>

@@ -11,12 +11,43 @@
   --sl-color-accent-low: #1e3a5f;
   --sl-color-accent: #3b82f6;
   --sl-color-accent-high: #93c5fd;
+
+  /* --- shadcn Design Tokens (dark) --- */
+  --radius: 0.75rem;
+  --background: 222 16% 10%;
+  --foreground: 220 14% 88%;
+  --card: 222 13% 16%;
+  --card-foreground: 220 14% 88%;
+  --muted: 220 10% 20%;
+  --muted-foreground: 222 7% 56%;
+  --border: 220 10% 24%;
+  --input: 220 10% 24%;
+  --ring: 217 91% 60%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 10% 20%;
+  --secondary-foreground: 220 14% 88%;
 }
 
 :root[data-theme='light'] {
   --sl-color-accent-low: #dbeafe;
   --sl-color-accent: #2563eb;
   --sl-color-accent-high: #1e3a5f;
+
+  /* --- shadcn Design Tokens (light) --- */
+  --background: 0 0% 100%;
+  --foreground: 215 25% 17%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 25% 17%;
+  --muted: 210 40% 97%;
+  --muted-foreground: 215 16% 47%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 221 83% 53%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 97%;
+  --secondary-foreground: 215 25% 17%;
 }
 
 
@@ -36,15 +67,16 @@
   padding: 0.7rem 1rem !important;
 }
 
-/* Terminal-style accent border for bash blocks */
-.expressive-code[data-language="bash"] .frame,
-.expressive-code[data-language="sh"] .frame {
-  border-left: 2.5px solid var(--sl-color-accent) !important;
+/* Hide frame header (●●● Terminal window bar) */
+.expressive-code .frame .header {
+  display: none !important;
 }
 
-/* Config accent border for JSON blocks */
+/* Subtle grey left border for all code blocks */
+.expressive-code[data-language="bash"] .frame,
+.expressive-code[data-language="sh"] .frame,
 .expressive-code[data-language="json"] .frame {
-  border-left: 2.5px solid #22c55e !important;
+  border-left: 2.5px solid hsl(var(--border)) !important;
 }
 
 /* --- Copy Button: smaller, subtler --- */
@@ -74,26 +106,16 @@
   opacity: 1;
 }
 
-/* --- Frame header (language label) --- */
-
-.expressive-code .frame .header {
-  @apply !rounded-t-xl;
-  padding: 0.35rem 0.75rem !important;
-  font-size: 0.7rem !important;
-}
+/* --- Frame header (language label) — hidden above, keep rounded for edge cases --- */
 
 
 /* --- Inline code --- */
 
 :not(pre) > code {
   @apply !rounded-md !text-[0.85em] !font-medium;
-  background: var(--sl-color-gray-5, #353841) !important;
+  background: hsl(var(--muted)) !important;
+  color: hsl(var(--foreground)) !important;
   padding: 0.1rem 0.35rem !important;
-}
-
-:root[data-theme='light'] :not(pre) > code {
-  background: #f1f5f9 !important;
-  color: #334155 !important;
 }
 
 
@@ -101,8 +123,8 @@
 
 .hero-badge {
   @apply inline-block rounded-full text-sm font-semibold mb-4;
-  background: var(--sl-color-accent);
-  color: white;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
   padding: 0.25rem 0.75rem;
 }
 
@@ -111,28 +133,19 @@
 
 .feature-card {
   @apply rounded-xl p-6 transition-all duration-200;
-  background: var(--sl-color-gray-6, #24272f);
-  border: 1px solid var(--sl-color-gray-5, #353841);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
 }
 
 .feature-card:hover {
-  border-color: var(--sl-color-accent);
+  border-color: hsl(var(--ring));
   transform: translateY(-1px);
-}
-
-:root[data-theme='light'] .feature-card {
-  @apply bg-white;
-  border-color: #e2e8f0;
-}
-
-:root[data-theme='light'] .feature-card:hover {
-  border-color: var(--sl-color-accent);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 2px 8px hsl(var(--ring) / 0.08);
 }
 
 .feature-card h3 {
   @apply mt-0;
-  color: var(--sl-color-accent);
+  color: hsl(var(--primary));
 }
 
 
@@ -151,17 +164,13 @@
 .motto-block {
   @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
   padding: 1.75rem 2rem;
-  border-left: 3px solid var(--sl-color-accent);
-  background: var(--sl-color-gray-6, #24272f);
-}
-
-:root[data-theme='light'] .motto-block {
-  background: #eff6ff;
+  border-left: 3px solid hsl(var(--primary));
+  background: hsl(var(--muted));
 }
 
 .motto-block .motto-author {
   @apply block mt-4 not-italic text-sm font-semibold;
-  color: var(--sl-color-gray-3, #888b96);
+  color: hsl(var(--muted-foreground));
 }
 
 
@@ -187,16 +196,47 @@ table th {
 }
 
 .sl-link-card:hover {
-  border-color: var(--sl-color-accent);
+  border-color: hsl(var(--ring));
 }
 
+
+/* --- Header: glassmorphism + gradient border --- */
+
+header.header {
+  backdrop-filter: blur(12px) saturate(1.2) !important;
+  background: rgba(17, 18, 20, 0.82) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+:root[data-theme='light'] header.header {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* --- Theme Toggle: icon-only --- */
+
+starlight-theme-select label {
+  --sl-select-width: 1.5em !important;
+  gap: 0 !important;
+}
+
+starlight-theme-select select {
+  color: transparent !important;
+  width: 1.25em !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+
+starlight-theme-select .caret {
+  display: none !important;
+}
 
 /* --- Light Mode Polish --- */
 
 :root[data-theme='light'] {
   --sl-color-bg: #ffffff;
   --sl-color-bg-sidebar: #f8fafc;
-  --sl-color-bg-nav: rgba(255, 255, 255, 0.92);
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
   --sl-color-hairline-light: #e2e8f0;
   --sl-color-hairline: #cbd5e1;
   --sl-color-text: #1e293b;
@@ -205,10 +245,6 @@ table th {
 
 :root[data-theme='light'] .sidebar-pane {
   background: var(--sl-color-bg-sidebar);
-}
-
-:root[data-theme='light'] header.header {
-  backdrop-filter: blur(8px);
 }
 
 
@@ -223,4 +259,62 @@ html {
 
 .card-grid {
   @apply gap-4;
+}
+
+
+/* --- Glossary --- */
+
+.glossary-nav {
+  @apply flex flex-wrap gap-2 pb-4 mb-6;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.glossary-nav a {
+  @apply inline-block text-sm font-medium no-underline rounded-full;
+  padding: 0.25rem 0.75rem;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.glossary-nav a:hover {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.glossary-list {
+  @apply space-y-0;
+}
+
+.glossary-term {
+  @apply py-4;
+  border-bottom: 1px solid hsl(var(--border));
+  scroll-margin-top: 5rem;
+}
+
+.glossary-term:last-child {
+  border-bottom: none;
+}
+
+.glossary-term h3 {
+  @apply mt-0 mb-1 text-base font-semibold;
+}
+
+.glossary-term p {
+  @apply my-1 text-sm leading-relaxed;
+  color: hsl(var(--muted-foreground));
+}
+
+.glossary-term .glossary-related {
+  @apply mt-2 text-xs;
+  color: hsl(var(--muted-foreground));
+}
+
+.glossary-term .glossary-related a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+
+.glossary-term .glossary-related a:hover {
+  text-decoration: underline;
 }
