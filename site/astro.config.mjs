@@ -6,9 +6,9 @@ export default defineConfig({
     starlight({
       title: 'SEO Machine',
       description: 'The most comprehensive SEO plugin for Claude-powered tools. Keyword research, content optimization, technical audits, GEO, local SEO, and more.',
-      social: {
-        github: 'https://github.com/TheCraigHewitt/seomachine',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/powerczuk/seomachine-plugin' },
+      ],
       logo: {
         light: './src/assets/logo-light.svg',
         dark: './src/assets/logo-dark.svg',
@@ -16,7 +16,7 @@ export default defineConfig({
       },
       customCss: ['./src/styles/custom.css'],
       editLink: {
-        baseUrl: 'https://github.com/TheCraigHewitt/seomachine/edit/main/site/',
+        baseUrl: 'https://github.com/powerczuk/seomachine-plugin/edit/main/site/',
       },
       sidebar: [
         {
