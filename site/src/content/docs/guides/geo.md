@@ -7,9 +7,9 @@ Generative Engine Optimization (GEO) to praktyka zwiększania widoczności i cyt
 
 ## Dlaczego GEO ma znaczenie
 
-AI search zmienia sposób odkrywania treści. ChatGPT ma 400M+ tygodniowych użytkowników, Perplexity obsługuje 780M+ miesięcznych wyszukiwań, a Google AI Overviews zmienia wygląd wyników. Tradycyjny wolumen wyszukiwania ma spaść o 25% do 2026 roku.
+AI search zmienia sposób odkrywania treści. ChatGPT ma 400M+ tygodniowych użytkowników, Perplexity obsługuje 780M+ miesięcznych wyszukiwań, a Google AI Overviews zmienia wygląd wyników. Tradycyjny wolumen wyszukiwania już spada — szacunki wskazują na 25% redukcję w porównaniu do lat poprzednich.
 
-Kluczowa zmiana: wyszukiwarki AI cytują tylko 2–7 domen per odpowiedź vs 10 niebieskich linków w tradycyjnym search. Konkurencja jest ostrzejsza, ale zysk większy — odwiedzający z LLM konwertują 4,4x lepiej niż organiczny search.
+Kluczowa zmiana: wyszukiwarki AI cytują tylko 2–7 domen per odpowiedź vs 10 niebieskich linków w tradycyjnym search. Konkurencja jest ostrzejsza, ale zysk większy — wczesne dane wskazują, że odwiedzający z wyszukiwarek AI konwertują znacznie lepiej niż organiczny search.
 
 ## GEO i SEO współdziałają
 
