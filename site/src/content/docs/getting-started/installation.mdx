@@ -9,7 +9,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 <Tabs>
   <TabItem label="Claude Cowork">
-    ### Z marketplace pluginów (zalecane)
+    **Z marketplace pluginów (zalecane)**
 
     1. Otwórz aplikację Claude Desktop
     2. Uruchom lub otwórz sesję Cowork
@@ -17,7 +17,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
     4. Wyszukaj **„SEO Machine"**
     5. Kliknij **Zainstaluj**
 
-    ### Instalacja ręczna
+    **Instalacja ręczna**
 
     1. Pobierz plugin ze [strony GitHub releases](https://github.com/powerczuk/seomachine-plugin/releases)
     2. W Cowork przejdź do **Ustawienia → Pluginy → Zainstaluj z pliku**
@@ -25,13 +25,13 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   </TabItem>
 
   <TabItem label="Claude Code CLI">
-    ### Z rejestru pluginów
+    **Z rejestru pluginów**
 
     ```bash
     claude plugin add seo-machine
     ```
 
-    ### Z repozytorium GitHub
+    **Z repozytorium GitHub**
 
     ```bash
     git clone https://github.com/powerczuk/seomachine-plugin.git
@@ -39,7 +39,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
     claude plugin add .
     ```
 
-    ### Weryfikacja instalacji
+    **Weryfikacja instalacji**
 
     ```bash
     claude plugin list
@@ -50,11 +50,11 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   <TabItem label="Cursor">
     Cursor posiada natywne wsparcie dla pluginów Claude Code — nie musisz niczego instalować ręcznie przez CLI.
 
-    ### Krok 1 — Otwórz panel Claude Code
+    **Krok 1 — Otwórz panel Claude Code**
 
     Użyj skrótu `Cmd+Shift+P` (Mac) / `Ctrl+Shift+P` (Windows/Linux) i wpisz **„Claude Code: Open"**.
 
-    ### Krok 2 — Zainstaluj plugin
+    **Krok 2 — Zainstaluj plugin**
 
     W panelu Claude Code wpisz:
 
@@ -66,7 +66,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
     1. Otwórz **Settings → Extensions → Claude Code**
     2. W sekcji **Plugins** dodaj `seo-machine`
 
-    ### Krok 3 (opcjonalnie) — Dodaj konektory MCP
+    **Krok 3 (opcjonalnie) — Dodaj konektory MCP**
 
     Cursor natively obsługuje serwery MCP. Dodaj je w `.cursor/mcp.json`:
 
@@ -89,11 +89,11 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   <TabItem label="VS Code">
     VS Code posiada natywne wsparcie dla rozszerzenia Claude Code i pluginów.
 
-    ### Krok 1 — Zainstaluj rozszerzenie Claude Code
+    **Krok 1 — Zainstaluj rozszerzenie Claude Code**
 
     Naciśnij `Cmd+Shift+X` (Mac) / `Ctrl+Shift+X` (Windows/Linux), wyszukaj **„Claude Code"** i zainstaluj.
 
-    ### Krok 2 — Zainstaluj plugin
+    **Krok 2 — Zainstaluj plugin**
 
     Otwórz zintegrowany terminal i wpisz:
 
@@ -103,7 +103,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
     Lub użyj palety poleceń: `Cmd+Shift+P` → **„Claude Code: Install Plugin"** → wpisz `seo-machine`.
 
-    ### Krok 3 (opcjonalnie) — Dodaj konektory MCP
+    **Krok 3 (opcjonalnie) — Dodaj konektory MCP**
 
     VS Code natively wspiera pliki `.vscode/mcp.json`. Utwórz plik w katalogu workspace:
 
@@ -126,11 +126,11 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   <TabItem label="Windsurf">
     Windsurf posiada wbudowane wsparcie dla pluginów Claude Code.
 
-    ### Krok 1 — Zainstaluj rozszerzenie Claude Code
+    **Krok 1 — Zainstaluj rozszerzenie Claude Code**
 
     Otwórz marketplace rozszerzeń Windsurf, wyszukaj **„Claude Code"** i zainstaluj.
 
-    ### Krok 2 — Zainstaluj plugin
+    **Krok 2 — Zainstaluj plugin**
 
     W panelu Claude Code wpisz:
 
@@ -146,13 +146,13 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   </TabItem>
 
   <TabItem label="Claude Desktop">
-    ### Z marketplace (zalecane)
+    **Z marketplace (zalecane)**
 
     1. Otwórz Claude Desktop
     2. Przejdź do **Settings → Developer → Plugins**
     3. Wyszukaj **„SEO Machine"** i zainstaluj
 
-    ### Konfiguracja MCP
+    **Konfiguracja MCP**
 
     Dla serwerów MCP edytuj plik konfiguracyjny:
 
