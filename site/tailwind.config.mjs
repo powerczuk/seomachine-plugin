@@ -6,12 +6,14 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        xl: 'calc(var(--radius) + 4px)',
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        '2xl': '1rem',
+        xl: '0.75rem',
+        lg: '0.5rem',
+        md: '0.375rem',
+        sm: '0.25rem',
       },
       colors: {
+        /* Accent palette — warm amber matching Claude brand feel */
         accent: {
           DEFAULT: '#c96442',
           50: '#fef3ee',
@@ -26,16 +28,19 @@ export default {
           900: '#4a221a',
           950: '#2a1210',
         },
+        /* Gray scale — matching Claude Code docs Tailwind grays */
         gray: {
-          100: '#f5f4ee',
-          200: '#dad9d4',
-          300: '#b7b5a9',
-          400: '#83827d',
-          500: '#52514a',
-          600: '#3e3e38',
-          700: '#30302e',
-          800: '#262624',
-          900: '#1b1b19',
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+          950: '#030712',
         },
         border: 'var(--border)',
         input: 'var(--input)',
@@ -75,13 +80,6 @@ export default {
           'accent-foreground': 'var(--sidebar-accent-foreground)',
           border: 'var(--sidebar-border)',
           ring: 'var(--sidebar-ring)',
-        },
-        chart: {
-          1: 'var(--chart-1)',
-          2: 'var(--chart-2)',
-          3: 'var(--chart-3)',
-          4: 'var(--chart-4)',
-          5: 'var(--chart-5)',
         },
       },
     },

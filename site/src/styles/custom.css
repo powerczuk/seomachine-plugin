@@ -4,68 +4,53 @@
 
 /* =============================================
    SEO Machine — Custom Styles (Tailwind + Starlight)
-   Design system adapted from owerczuk.dev
+   Adapted from Claude Code documentation design
    ============================================= */
 
 /* --- Design Tokens (dark default for Starlight) --- */
 :root {
+  /* Starlight accent overrides — warm amber to match Claude brand feel */
   --sl-color-accent-low: #3a1e12;
   --sl-color-accent: #d97757;
   --sl-color-accent-high: #f0b89e;
 
   --radius: 1rem;
-  --background: oklch(0.2679 0.0036 106.6427);
-  --foreground: oklch(0.9576 0.0027 106.4494);
-  --card: oklch(0.2928 0.0018 106.5092);
-  --card-foreground: oklch(0.9818 0.0054 95.0986);
-  --popover: oklch(0.3085 0.0035 106.6039);
-  --popover-foreground: oklch(0.9211 0.0040 106.4781);
-  --primary: oklch(0.6724 0.1308 38.7559);
-  --primary-foreground: oklch(0.1908 0.0020 106.5859);
-  --secondary: oklch(0.9818 0.0054 95.0986);
-  --secondary-foreground: oklch(0.3085 0.0035 106.6039);
-  --muted: oklch(0.2213 0.0038 106.7070);
-  --muted-foreground: oklch(0.7713 0.0169 99.0657);
-  --accent: oklch(0.2130 0.0078 95.4245);
-  --accent-foreground: oklch(0.9663 0.0080 98.8792);
-  --destructive: oklch(0.6368 0.2078 25.3313);
-  --destructive-foreground: oklch(1.0000 0 0);
-  --success: oklch(0.6000 0.1500 145);
-  --border: oklch(0.3618 0.0101 106.8928);
-  --input: oklch(0.4336 0.0113 100.2195);
-  --ring: oklch(0.6724 0.1308 38.7559);
-  --chart-1: oklch(0.5583 0.1276 42.9956);
-  --chart-2: oklch(0.6898 0.1581 290.4107);
-  --chart-3: oklch(0.2130 0.0078 95.4245);
-  --chart-4: oklch(0.3074 0.0516 289.3230);
-  --chart-5: oklch(0.5608 0.1348 42.0584);
-  --sidebar: oklch(0.2357 0.0024 67.7077);
-  --sidebar-foreground: oklch(0.8074 0.0142 93.0137);
-  --sidebar-primary: oklch(0.3250 0 0);
-  --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.1680 0.0020 106.6177);
-  --sidebar-accent-foreground: oklch(0.8074 0.0142 93.0137);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0.7731 0 0);
 
-  /* Shadow system */
-  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
-  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  /* Base colors — dark mode (default) */
+  --background: #0f1117;
+  --foreground: #d4d4d8;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #d4d4d8;
+  --primary: #d97757;
+  --primary-foreground: #0f1117;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #1c1c21;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #22c55e;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #27272a;
+  --ring: #d97757;
 
-  /* Gradient tokens — warm amber palette (dark) */
-  --gradient-from: oklch(0.6724 0.1308 38.7559);
-  --gradient-via: oklch(0.5500 0.0900 55);
-  --gradient-to: oklch(0.5800 0.0700 75);
-  --gradient-warm: oklch(0.5800 0.1200 30);
-  --glow-color: oklch(0.6724 0.1308 38.7559 / 0.08);
-  --glow-color-accent: oklch(0.5500 0.0900 55 / 0.06);
-  --glow-color-warm: oklch(0.5800 0.1200 30 / 0.05);
+  /* Sidebar — clean dark */
+  --sidebar: #0f1117;
+  --sidebar-foreground: #a1a1aa;
+  --sidebar-primary: #d97757;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.05);
+  --sidebar-accent-foreground: #d4d4d8;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #d97757;
+
+  /* Code block backgrounds */
+  --codeblock-bg: #0B0C0E;
+  --codeblock-border: rgba(255, 255, 255, 0.1);
 }
 
 /* --- Design Tokens (light) --- */
@@ -74,58 +59,40 @@
   --sl-color-accent: #c96442;
   --sl-color-accent-high: #5c2c1a;
 
-  --background: oklch(0.9818 0.0054 95.0986);
-  --foreground: oklch(0.3438 0.0269 95.7226);
-  --card: oklch(0.9665 0.0067 97.3521);
-  --card-foreground: oklch(0.1908 0.0020 106.5859);
-  --popover: oklch(1.0000 0 0);
-  --popover-foreground: oklch(0.2671 0.0196 98.9390);
-  --primary: oklch(0.6171 0.1375 39.0427);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.9245 0.0138 92.9892);
-  --secondary-foreground: oklch(0.4334 0.0177 98.6048);
-  --muted: oklch(0.9341 0.0153 90.2390);
-  --muted-foreground: oklch(0.5341 0.0078 97.4503);
-  --accent: oklch(0.9245 0.0138 92.9892);
-  --accent-foreground: oklch(0.2671 0.0196 98.9390);
-  --destructive: oklch(0.1908 0.0020 106.5859);
-  --destructive-foreground: oklch(1.0000 0 0);
-  --success: oklch(0.5500 0.1500 145);
-  --border: oklch(0.8847 0.0069 97.3627);
-  --input: oklch(0.7621 0.0156 98.3528);
-  --ring: oklch(0.6171 0.1375 39.0427);
-  --chart-1: oklch(0.5583 0.1276 42.9956);
-  --chart-2: oklch(0.6898 0.1581 290.4107);
-  --chart-3: oklch(0.8816 0.0276 93.1280);
-  --chart-4: oklch(0.8822 0.0403 298.1792);
-  --chart-5: oklch(0.5608 0.1348 42.0584);
-  --sidebar: oklch(0.9663 0.0080 98.8792);
-  --sidebar-foreground: oklch(0.3590 0.0051 106.6524);
-  --sidebar-primary: oklch(0.6171 0.1375 39.0427);
-  --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.9245 0.0138 92.9892);
-  --sidebar-accent-foreground: oklch(0.3250 0 0);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0.7731 0 0);
+  --background: #ffffff;
+  --foreground: #374151;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #374151;
+  --primary: #c96442;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #374151;
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  --accent: #f3f4f6;
+  --accent-foreground: #111827;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #22c55e;
+  --border: rgba(3, 7, 18, 0.1);
+  --input: #e5e7eb;
+  --ring: #c96442;
 
-  /* Shadow system - light */
-  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
-  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  /* Sidebar — clean light */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #c96442;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(0, 0, 0, 0.03);
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: rgba(0, 0, 0, 0.06);
+  --sidebar-ring: #c96442;
 
-  /* Gradient tokens — warm amber palette (light) */
-  --gradient-from: oklch(0.5583 0.1276 42.9956);
-  --gradient-via: oklch(0.4800 0.0800 55);
-  --gradient-to: oklch(0.5200 0.0600 75);
-  --gradient-warm: oklch(0.5000 0.1100 30);
-  --glow-color: oklch(0.5583 0.1276 42.9956 / 0.10);
-  --glow-color-accent: oklch(0.4800 0.0800 55 / 0.07);
-  --glow-color-warm: oklch(0.5000 0.1100 30 / 0.06);
+  /* Code block backgrounds — white in light mode like Claude Code docs */
+  --codeblock-bg: #ffffff;
+  --codeblock-border: rgba(3, 7, 18, 0.1);
 }
 
 
@@ -164,209 +131,38 @@
 }
 
 
-/* --- Utility Classes (owerczuk.dev design system) --- */
-
-@layer utilities {
-  /* Text gradient — apply to text for gradient color effect */
-  .text-gradient {
-    background: linear-gradient(
-      135deg,
-      var(--gradient-from) 0%,
-      var(--gradient-via) 50%,
-      var(--gradient-to) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Ambient glow orb — position with absolute + top/left */
-  .glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-    will-change: transform;
-  }
-
-  .glow-orb-primary {
-    background: radial-gradient(
-      circle,
-      var(--glow-color) 0%,
-      transparent 70%
-    );
-  }
-
-  .glow-orb-accent {
-    background: radial-gradient(
-      circle,
-      var(--glow-color-accent) 0%,
-      transparent 70%
-    );
-  }
-
-  /* Subtle noise overlay for sections */
-  .noise-overlay::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.4;
-  }
-
-  /* Gradient border glow on cards */
-  .card-glow {
-    position: relative;
-  }
-
-  .card-glow::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      var(--gradient-from),
-      var(--gradient-via),
-      var(--gradient-to)
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    padding: 1px;
-  }
-
-  .card-glow:hover::before {
-    opacity: 0.35;
-  }
-
-  /* Section gradient washes */
-  .section-gradient-subtle {
-    background: linear-gradient(
-      180deg,
-      var(--background) 0%,
-      color-mix(in oklch, var(--muted) 50%, transparent) 50%,
-      var(--background) 100%
-    );
-  }
-
-  .section-gradient-primary {
-    background: linear-gradient(
-      135deg,
-      color-mix(in oklch, var(--gradient-from) 4%, var(--background)) 0%,
-      var(--background) 50%,
-      color-mix(in oklch, var(--gradient-to) 4%, var(--background)) 100%
-    );
-  }
-
-  /* Mesh gradient — layered radial stops for organic depth */
-  .section-mesh {
-    background:
-      radial-gradient(ellipse 80% 60% at 10% 20%, color-mix(in oklch, var(--gradient-from) 7%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 85% 70%, color-mix(in oklch, var(--gradient-to) 6%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 50% 50%, color-mix(in oklch, var(--gradient-via) 4%, transparent) 0%, transparent 60%),
-      var(--background);
-  }
-
-  /* Warm tonal gradient — amber undertone for visual rhythm */
-  .section-gradient-warm {
-    background:
-      radial-gradient(ellipse 70% 50% at 80% 30%, color-mix(in oklch, var(--gradient-warm) 4%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 20% 70%, color-mix(in oklch, var(--gradient-from) 3%, transparent) 0%, transparent 70%),
-      var(--background);
-  }
-
-  /* Cool directional gradient — left-to-right sweep */
-  .section-gradient-sweep {
-    background: linear-gradient(
-      105deg,
-      color-mix(in oklch, var(--gradient-from) 3%, var(--background)) 0%,
-      var(--background) 40%,
-      var(--background) 60%,
-      color-mix(in oklch, var(--gradient-to) 3%, var(--background)) 100%
-    );
-  }
-
-  /* Dramatic CTA gradient — bolder mesh */
-  .section-gradient-cta {
-    background:
-      radial-gradient(ellipse 80% 50% at 20% 50%, color-mix(in oklch, var(--gradient-from) 10%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 60% at 80% 50%, color-mix(in oklch, var(--gradient-via) 8%, transparent) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 50% 80%, color-mix(in oklch, var(--gradient-to) 5%, transparent) 0%, transparent 60%),
-      var(--background);
-  }
-
-  /* Top fade — subtle section separator */
-  .section-fade-top {
-    background: linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--muted) 60%, transparent) 0%,
-      transparent 30%
-    );
-  }
-
-  /* Bottom fade — subtle section separator */
-  .section-fade-bottom {
-    background: linear-gradient(
-      0deg,
-      color-mix(in oklch, var(--muted) 60%, transparent) 0%,
-      transparent 30%
-    );
-  }
-
-  /* CSS-only fade-in-up — for above-the-fold content */
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out both;
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-
-/* --- Content Width: wider for tab-heavy pages --- */
+/* --- Content Width --- */
 
 :root {
-  --sl-content-width: 65rem;
+  --sl-content-width: 52rem;
 }
 
 
-/* --- Code Blocks: compact, rounded, clean --- */
+/* --- Code Blocks: White in light mode, dark in dark mode (Claude Code style) --- */
 
-/* Override Expressive Code background — neutral grey (dark) */
+/* Dark mode code blocks */
 .expressive-code .frame {
-  @apply !rounded-xl;
-  box-shadow: var(--shadow-sm) !important;
-  --ec-codeBg: oklch(0.22 0 0) !important;
-}
-
-/* Override Expressive Code background — near-black (light) */
-:root[data-theme='light'] .expressive-code .frame {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
-  --ec-codeBg: oklch(0.18 0 0) !important;
-}
-
-:root[data-theme='light'] .expressive-code pre {
-  background: oklch(0.18 0 0) !important;
+  @apply !rounded-2xl;
+  border: 1px solid var(--codeblock-border) !important;
+  box-shadow: none !important;
+  --ec-codeBg: var(--codeblock-bg) !important;
 }
 
 .expressive-code pre {
-  @apply !rounded-xl !text-[0.84rem] !leading-relaxed;
-  padding: 0.7rem 1rem !important;
-  background: oklch(0.22 0 0) !important;
+  @apply !rounded-2xl !text-[0.84rem] !leading-relaxed;
+  padding: 0.875rem 1rem !important;
+  background: var(--codeblock-bg) !important;
+}
+
+/* Light mode code blocks — white background like Claude Code docs */
+:root[data-theme='light'] .expressive-code .frame {
+  border: 1px solid rgba(3, 7, 18, 0.1) !important;
+  box-shadow: none !important;
+  --ec-codeBg: #ffffff !important;
+}
+
+:root[data-theme='light'] .expressive-code pre {
+  background: #ffffff !important;
 }
 
 /* Hide frame header (Terminal window bar) */
@@ -374,14 +170,15 @@
   display: none !important;
 }
 
-/* Subtle left border for shell/json code blocks */
+/* Remove the left border accent — Claude Code docs don't use it */
 .expressive-code[data-language="bash"] .frame,
 .expressive-code[data-language="sh"] .frame,
 .expressive-code[data-language="json"] .frame {
-  border-left: 2.5px solid var(--border) !important;
+  border-left: 1px solid var(--codeblock-border) !important;
 }
 
-/* --- Copy Button: smaller, subtler --- */
+
+/* --- Copy Button: minimal, on-hover like Claude Code docs --- */
 
 .expressive-code .copy button {
   @apply !w-7 !h-7 !rounded-lg;
@@ -389,10 +186,14 @@
   align-items: center !important;
   justify-content: center !important;
   padding: 4px !important;
-  opacity: 0.35 !important;
+  opacity: 0 !important;
   transition: opacity 0.15s ease !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.expressive-code:hover .copy button {
+  opacity: 0.5 !important;
 }
 
 .expressive-code .copy button:hover {
@@ -403,7 +204,6 @@
   @apply !w-3.5 !h-3.5;
 }
 
-/* Only show copy on hover for cleaner look */
 .expressive-code .copy {
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -418,13 +218,14 @@
 }
 
 
-/* --- Inline code --- */
+/* --- Inline code: subtle, matching Claude Code docs --- */
 
 :not(pre) > code {
   @apply !rounded-md !text-[0.85em] !font-medium;
   background: var(--muted) !important;
   color: var(--foreground) !important;
-  padding: 0.1rem 0.35rem !important;
+  padding: 0.15rem 0.4rem !important;
+  border: 1px solid var(--border) !important;
 }
 
 
@@ -438,19 +239,16 @@
 }
 
 
-/* --- Feature Cards --- */
+/* --- Feature Cards: Clean, minimal borders like Claude Code docs --- */
 
 .feature-card {
-  @apply rounded-xl p-6 transition-all duration-300;
+  @apply rounded-2xl p-6 transition-all duration-200;
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
 }
 
 .feature-card:hover {
-  border-color: var(--ring);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
 }
 
 .feature-card h3 {
@@ -472,19 +270,19 @@
 /* --- Motto / Testimonial --- */
 
 .motto-block {
-  @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
-  padding: 1.75rem 2rem;
-  border-left: 3px solid var(--primary);
+  @apply my-10 rounded-2xl text-base leading-relaxed;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
   background: var(--muted);
 }
 
 .motto-block .motto-author {
-  @apply block mt-4 not-italic text-sm font-semibold;
+  @apply block mt-3 not-italic text-sm font-semibold;
   color: var(--muted-foreground);
 }
 
 
-/* --- Tables --- */
+/* --- Tables: clean, minimal --- */
 
 table {
   @apply text-sm;
@@ -499,31 +297,43 @@ table th {
 }
 
 
-/* --- Link Cards --- */
+/* --- Link Cards: rounded-2xl, subtle hover like Claude Code docs --- */
 
 .sl-link-card {
-  @apply transition-all duration-300;
+  @apply transition-all duration-200;
   border-radius: var(--radius);
 }
 
 .sl-link-card:hover {
-  border-color: var(--ring);
-  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
 }
 
 
-/* --- Header: glassmorphism + gradient border --- */
+/* --- Starlight Card Overrides: match Claude Code card style --- */
+
+starlight-card {
+  @apply !rounded-2xl;
+}
+
+.card-grid .sl-link-card,
+.card-grid starlight-card {
+  border-radius: 1rem;
+}
+
+
+/* --- Header: clean backdrop-blur like Claude Code docs --- */
 
 header.header {
-  backdrop-filter: blur(12px) saturate(1.2) !important;
-  background: rgba(38, 38, 36, 0.82) !important;
+  backdrop-filter: blur(12px) saturate(1.1) !important;
+  background: rgba(15, 17, 23, 0.75) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
 :root[data-theme='light'] header.header {
-  background: rgba(250, 249, 245, 0.85) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(3, 7, 18, 0.05) !important;
 }
+
 
 /* --- Theme Toggle: icon-only --- */
 
@@ -543,20 +353,125 @@ starlight-theme-select .caret {
   display: none !important;
 }
 
-/* --- Light Mode Polish --- */
+
+/* --- Light Mode: clean whites and grays like Claude Code docs --- */
 
 :root[data-theme='light'] {
-  --sl-color-bg: #faf9f5;
-  --sl-color-bg-sidebar: #f5f4ee;
-  --sl-color-bg-nav: rgba(250, 249, 245, 0.85);
-  --sl-color-hairline-light: #dad9d4;
-  --sl-color-hairline: #b4b2a7;
-  --sl-color-text: #3d3929;
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
+  --sl-color-hairline-light: #e5e7eb;
+  --sl-color-hairline: #d1d5db;
+  --sl-color-text: #374151;
   --sl-color-text-accent: #c96442;
 }
 
-:root[data-theme='light'] .sidebar-pane {
-  background: var(--sl-color-bg-sidebar);
+/* Dark mode base overrides */
+:root:not([data-theme='light']) {
+  --sl-color-bg: #0f1117;
+  --sl-color-bg-sidebar: #0f1117;
+  --sl-color-bg-nav: rgba(15, 17, 23, 0.75);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.06);
+  --sl-color-hairline: rgba(255, 255, 255, 0.1);
+  --sl-color-text: #d4d4d8;
+  --sl-color-text-accent: #d97757;
+}
+
+
+/* --- Sidebar: clean, minimal items like Claude Code docs --- */
+
+.sidebar-pane {
+  background: var(--sl-color-bg-sidebar) !important;
+}
+
+/* Sidebar links — match Claude Code's rounded-xl items */
+nav.sidebar a,
+nav.sidebar details > summary {
+  border-radius: 0.75rem !important;
+}
+
+nav.sidebar a:hover,
+nav.sidebar details > summary:hover {
+  background: rgba(128, 128, 128, 0.05) !important;
+}
+
+nav.sidebar a[aria-current="page"] {
+  background: color-mix(in srgb, var(--primary) 10%, transparent) !important;
+}
+
+
+/* --- Aside / Callout Overrides: match Claude Code callout colors --- */
+
+.starlight-aside {
+  border-radius: 1rem !important;
+  border-width: 1px !important;
+  border-left-width: 1px !important;
+}
+
+/* Note callout — blue */
+.starlight-aside--note {
+  border-color: #bfdbfe !important;
+  background: #eff6ff !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--note {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Tip callout — green */
+.starlight-aside--tip {
+  border-color: #bbf7d0 !important;
+  background: #f0fdf4 !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--tip {
+  border-color: rgba(34, 197, 94, 0.3) !important;
+  background: rgba(34, 197, 94, 0.1) !important;
+}
+
+/* Caution callout — amber */
+.starlight-aside--caution {
+  border-color: #fed7aa !important;
+  background: #fffbeb !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--caution {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Danger callout — red */
+.starlight-aside--danger {
+  border-color: #fecaca !important;
+  background: #fef2f2 !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--danger {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Aside icon color matches border */
+.starlight-aside--note .starlight-aside__icon {
+  color: #3b82f6 !important;
+}
+
+.starlight-aside--tip .starlight-aside__icon {
+  color: #22c55e !important;
+}
+
+.starlight-aside--caution .starlight-aside__icon {
+  color: #f59e0b !important;
+}
+
+.starlight-aside--danger .starlight-aside__icon {
+  color: #ef4444 !important;
+}
+
+/* Aside title styling */
+.starlight-aside__title {
+  font-weight: 600 !important;
 }
 
 
@@ -629,4 +544,97 @@ html {
 
 .glossary-term .glossary-related a:hover {
   text-decoration: underline;
+}
+
+
+/* --- Content area typography: match Claude Code docs prose --- */
+
+.sl-markdown-content h1 {
+  @apply text-3xl font-bold tracking-tight;
+  color: var(--foreground);
+}
+
+.sl-markdown-content h2 {
+  @apply text-xl font-semibold tracking-tight mt-10 mb-4;
+}
+
+.sl-markdown-content h3 {
+  @apply text-lg font-semibold mt-8 mb-3;
+}
+
+/* Links in content — primary color with underline on hover */
+.sl-markdown-content a:not(.sl-link-card):not(.card) {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.sl-markdown-content a:not(.sl-link-card):not(.card):hover {
+  text-decoration: underline;
+}
+
+
+/* --- Steps (ordered lists in guides): match Claude Code step styling --- */
+
+.sl-markdown-content > ol {
+  counter-reset: step;
+}
+
+.sl-markdown-content > ol > li {
+  position: relative;
+}
+
+
+/* --- Starlight Tabs: match Claude Code tab styling --- */
+
+starlight-tabs [role="tablist"] {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+starlight-tabs [role="tab"] {
+  @apply text-sm font-semibold;
+  border-bottom: 2px solid transparent !important;
+  padding: 0.75rem 0 0.625rem !important;
+  color: var(--muted-foreground) !important;
+}
+
+starlight-tabs [role="tab"][aria-selected="true"] {
+  color: var(--primary) !important;
+  border-bottom-color: currentColor !important;
+}
+
+starlight-tabs [role="tab"]:hover:not([aria-selected="true"]) {
+  color: var(--foreground) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+
+/* --- Page footer: clean, minimal --- */
+
+.pagination-links a {
+  @apply !rounded-2xl;
+  border: 1px solid var(--border) !important;
+}
+
+.pagination-links a:hover {
+  border-color: var(--primary) !important;
+}
+
+
+/* --- Search modal: match rounded style --- */
+
+dialog.pagefind-ui {
+  border-radius: 1rem !important;
+}
+
+
+/* --- General layout tweaks --- */
+
+/* Remove any glow/gradient remnants */
+body {
+  background: var(--sl-color-bg) !important;
+}
+
+/* Ensure main content has proper max width */
+.main-frame {
+  background: var(--sl-color-bg) !important;
 }
