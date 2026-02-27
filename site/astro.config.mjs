@@ -19,6 +19,14 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/powerczuk/seomachine-plugin/edit/main/site/',
       },
+      expressiveCode: {
+        themes: ['starlight-dark', 'starlight-light'],
+        styleOverrides: {
+          borderRadius: '0.75rem',
+          codePaddingBlock: '1rem',
+          codePaddingInline: '1.25rem',
+        },
+      },
       sidebar: [
         {
           label: 'Pierwsze kroki',
@@ -64,6 +72,7 @@ export default defineConfig({
         {
           label: 'Referencje',
           items: [
+            { label: 'Słownik pojęć', slug: 'reference/glossary' },
             { label: 'Bezpieczeństwo', slug: 'reference/security' },
             { label: 'Changelog', slug: 'reference/changelog' },
             { label: 'Współtworzenie', slug: 'reference/contributing' },
