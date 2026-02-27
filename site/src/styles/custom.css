@@ -4,19 +4,23 @@
 
 /* =============================================
    SEO Machine — Custom Styles (Tailwind + Starlight)
-   Adapted from Claude Code documentation design
+   1:1 adapted from Claude Code documentation
+   (code.claude.com/docs)
    ============================================= */
 
-/* --- Design Tokens (dark default for Starlight) --- */
+
+/* ===========================================================
+   1. DESIGN TOKENS
+   =========================================================== */
+
+/* --- Dark mode (default) --- */
 :root {
-  /* Starlight accent overrides — warm amber to match Claude brand feel */
   --sl-color-accent-low: #3a1e12;
   --sl-color-accent: #d97757;
   --sl-color-accent-high: #f0b89e;
 
   --radius: 1rem;
 
-  /* Base colors — dark mode (default) */
   --background: #0f1117;
   --foreground: #d4d4d8;
   --card: #18181b;
@@ -25,6 +29,7 @@
   --popover-foreground: #d4d4d8;
   --primary: #d97757;
   --primary-foreground: #0f1117;
+  --primary-light: #f0b89e;
   --secondary: #27272a;
   --secondary-foreground: #fafafa;
   --muted: #1c1c21;
@@ -38,7 +43,6 @@
   --input: #27272a;
   --ring: #d97757;
 
-  /* Sidebar — clean dark */
   --sidebar: #0f1117;
   --sidebar-foreground: #a1a1aa;
   --sidebar-primary: #d97757;
@@ -48,12 +52,25 @@
   --sidebar-border: rgba(255, 255, 255, 0.06);
   --sidebar-ring: #d97757;
 
-  /* Code block backgrounds */
   --codeblock-bg: #0B0C0E;
   --codeblock-border: rgba(255, 255, 255, 0.1);
+
+  /* Starlight core overrides */
+  --sl-color-bg: #0f1117;
+  --sl-color-bg-sidebar: #0f1117;
+  --sl-color-bg-nav: rgba(15, 17, 23, 0.75);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.06);
+  --sl-color-hairline: rgba(255, 255, 255, 0.1);
+  --sl-color-text: #d4d4d8;
+  --sl-color-text-accent: #d97757;
+  --sl-content-width: 52rem;
+
+  /* Font — match Claude Code docs system stack */
+  --sl-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --sl-font-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
-/* --- Design Tokens (light) --- */
+/* --- Light mode --- */
 :root[data-theme='light'] {
   --sl-color-accent-low: #fde8df;
   --sl-color-accent: #c96442;
@@ -67,6 +84,7 @@
   --popover-foreground: #374151;
   --primary: #c96442;
   --primary-foreground: #ffffff;
+  --primary-light: #d97757;
   --secondary: #f3f4f6;
   --secondary-foreground: #374151;
   --muted: #f9fafb;
@@ -80,7 +98,6 @@
   --input: #e5e7eb;
   --ring: #c96442;
 
-  /* Sidebar — clean light */
   --sidebar: #ffffff;
   --sidebar-foreground: #374151;
   --sidebar-primary: #c96442;
@@ -90,17 +107,37 @@
   --sidebar-border: rgba(0, 0, 0, 0.06);
   --sidebar-ring: #c96442;
 
-  /* Code block backgrounds — white in light mode like Claude Code docs */
   --codeblock-bg: #ffffff;
   --codeblock-border: rgba(3, 7, 18, 0.1);
+
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
+  --sl-color-hairline-light: #e5e7eb;
+  --sl-color-hairline: #d1d5db;
+  --sl-color-text: #374151;
+  --sl-color-text-accent: #c96442;
 }
 
 
-/* --- Base Layer --- */
+/* ===========================================================
+   2. BASE LAYER
+   =========================================================== */
 
 @layer base {
   * {
     border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
   }
 
   .skip-to-content {
@@ -110,7 +147,7 @@
     padding: 0.5rem 1rem;
     background: var(--primary);
     color: var(--primary-foreground);
-    border-radius: calc(var(--radius) - 2px);
+    border-radius: 0.375rem;
   }
 
   .skip-to-content:focus {
@@ -131,212 +168,42 @@
 }
 
 
-/* --- Content Width --- */
-
-:root {
-  --sl-content-width: 52rem;
-}
-
-
-/* --- Code Blocks: White in light mode, dark in dark mode (Claude Code style) --- */
-
-/* Dark mode code blocks */
-.expressive-code .frame {
-  @apply !rounded-2xl;
-  border: 1px solid var(--codeblock-border) !important;
-  box-shadow: none !important;
-  --ec-codeBg: var(--codeblock-bg) !important;
-}
-
-.expressive-code pre {
-  @apply !rounded-2xl !text-[0.84rem] !leading-relaxed;
-  padding: 0.875rem 1rem !important;
-  background: var(--codeblock-bg) !important;
-}
-
-/* Light mode code blocks — white background like Claude Code docs */
-:root[data-theme='light'] .expressive-code .frame {
-  border: 1px solid rgba(3, 7, 18, 0.1) !important;
-  box-shadow: none !important;
-  --ec-codeBg: #ffffff !important;
-}
-
-:root[data-theme='light'] .expressive-code pre {
-  background: #ffffff !important;
-}
-
-/* Hide frame header (Terminal window bar) */
-.expressive-code .frame .header {
-  display: none !important;
-}
-
-/* Remove the left border accent — Claude Code docs don't use it */
-.expressive-code[data-language="bash"] .frame,
-.expressive-code[data-language="sh"] .frame,
-.expressive-code[data-language="json"] .frame {
-  border-left: 1px solid var(--codeblock-border) !important;
-}
-
-
-/* --- Copy Button: minimal, on-hover like Claude Code docs --- */
-
-.expressive-code .copy button {
-  @apply !w-7 !h-7 !rounded-lg;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 4px !important;
-  opacity: 0 !important;
-  transition: opacity 0.15s ease !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.expressive-code:hover .copy button {
-  opacity: 0.5 !important;
-}
-
-.expressive-code .copy button:hover {
-  opacity: 0.85 !important;
-}
-
-.expressive-code .copy button svg {
-  @apply !w-3.5 !h-3.5;
-}
-
-.expressive-code .copy {
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  display: flex !important;
-  align-items: center !important;
-  top: 0.5rem !important;
-  right: 0.5rem !important;
-}
-
-.expressive-code:hover .copy {
-  opacity: 1;
-}
-
-
-/* --- Inline code: subtle, matching Claude Code docs --- */
-
-:not(pre) > code {
-  @apply !rounded-md !text-[0.85em] !font-medium;
-  background: var(--muted) !important;
-  color: var(--foreground) !important;
-  padding: 0.15rem 0.4rem !important;
-  border: 1px solid var(--border) !important;
-}
-
-
-/* --- Hero Badge --- */
-
-.hero-badge {
-  @apply inline-block rounded-full text-sm font-semibold mb-4;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  padding: 0.25rem 0.75rem;
-}
-
-
-/* --- Feature Cards: Clean, minimal borders like Claude Code docs --- */
-
-.feature-card {
-  @apply rounded-2xl p-6 transition-all duration-200;
-  background: var(--card);
-  border: 1px solid var(--border);
-}
-
-.feature-card:hover {
-  border-color: var(--primary);
-}
-
-.feature-card h3 {
-  @apply mt-0;
-  color: var(--primary);
-}
-
-
-/* --- Badge "New" --- */
-
-.badge-new {
-  @apply inline-block rounded-full text-xs font-semibold ml-2 align-middle;
-  background: #22c55e;
-  color: white;
-  padding: 0.1rem 0.45rem;
-}
-
-
-/* --- Motto / Testimonial --- */
-
-.motto-block {
-  @apply my-10 rounded-2xl text-base leading-relaxed;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--border);
-  background: var(--muted);
-}
-
-.motto-block .motto-author {
-  @apply block mt-3 not-italic text-sm font-semibold;
-  color: var(--muted-foreground);
-}
-
-
-/* --- Tables: clean, minimal --- */
-
-table {
-  @apply text-sm;
-}
-
-table code {
-  @apply whitespace-nowrap;
-}
-
-table th {
-  @apply font-semibold;
-}
-
-
-/* --- Link Cards: rounded-2xl, subtle hover like Claude Code docs --- */
-
-.sl-link-card {
-  @apply transition-all duration-200;
-  border-radius: var(--radius);
-}
-
-.sl-link-card:hover {
-  border-color: var(--primary);
-}
-
-
-/* --- Starlight Card Overrides: match Claude Code card style --- */
-
-starlight-card {
-  @apply !rounded-2xl;
-}
-
-.card-grid .sl-link-card,
-.card-grid starlight-card {
-  border-radius: 1rem;
-}
-
-
-/* --- Header: clean backdrop-blur like Claude Code docs --- */
+/* ===========================================================
+   3. HEADER / NAVBAR
+   Claude Code: z-30 fixed, h-16, backdrop-blur, border-b
+   border-gray-500/5, transition-colors duration-500
+   =========================================================== */
 
 header.header {
-  backdrop-filter: blur(12px) saturate(1.1) !important;
-  background: rgba(15, 17, 23, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  transition: background-color 0.5s, border-color 0.5s !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(15, 17, 23, 0.75) !important;
 }
 
 :root[data-theme='light'] header.header {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-bottom: 1px solid rgba(3, 7, 18, 0.05) !important;
+  background: rgba(255, 255, 255, 0.60) !important;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.05) !important;
 }
 
+/* Support backdrop-blur */
+@supports (backdrop-filter: blur(1px)) {
+  :root[data-theme='light'] header.header {
+    background: rgba(255, 255, 255, 0.60) !important;
+  }
+}
 
-/* --- Theme Toggle: icon-only --- */
+/* Site title — match Claude Code nav logo sizing */
+.site-title a {
+  gap: 0.5rem;
+}
 
+.site-title img {
+  height: 1.75rem !important;
+  width: auto !important;
+}
+
+/* Theme Toggle: icon-only (clean, no dropdown caret) */
 starlight-theme-select label {
   --sl-select-width: 1.5em !important;
   gap: 0 !important;
@@ -354,150 +221,670 @@ starlight-theme-select .caret {
 }
 
 
-/* --- Light Mode: clean whites and grays like Claude Code docs --- */
-
-:root[data-theme='light'] {
-  --sl-color-bg: #ffffff;
-  --sl-color-bg-sidebar: #ffffff;
-  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
-  --sl-color-hairline-light: #e5e7eb;
-  --sl-color-hairline: #d1d5db;
-  --sl-color-text: #374151;
-  --sl-color-text-accent: #c96442;
-}
-
-/* Dark mode base overrides */
-:root:not([data-theme='light']) {
-  --sl-color-bg: #0f1117;
-  --sl-color-bg-sidebar: #0f1117;
-  --sl-color-bg-nav: rgba(15, 17, 23, 0.75);
-  --sl-color-hairline-light: rgba(255, 255, 255, 0.06);
-  --sl-color-hairline: rgba(255, 255, 255, 0.1);
-  --sl-color-text: #d4d4d8;
-  --sl-color-text-accent: #d97757;
-}
-
-
-/* --- Sidebar: clean, minimal items like Claude Code docs --- */
+/* ===========================================================
+   4. SIDEBAR
+   Claude Code: w-[18rem], rounded-xl items, py-1.5 pr-3,
+   hover:bg-gray-600/5, active: bg-primary/10 text-primary
+   with text-shadow
+   =========================================================== */
 
 .sidebar-pane {
   background: var(--sl-color-bg-sidebar) !important;
 }
 
-/* Sidebar links — match Claude Code's rounded-xl items */
+/* Sidebar links — rounded-xl with smooth color transitions */
 nav.sidebar a,
 nav.sidebar details > summary {
   border-radius: 0.75rem !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
 }
 
+/* Hover state — subtle background like Claude Code */
 nav.sidebar a:hover,
 nav.sidebar details > summary:hover {
-  background: rgba(128, 128, 128, 0.05) !important;
+  background: rgba(107, 114, 128, 0.05) !important;
 }
 
+:root[data-theme='light'] nav.sidebar a:hover,
+:root[data-theme='light'] nav.sidebar details > summary:hover {
+  background: rgba(107, 114, 128, 0.05) !important;
+}
+
+/* Active page — bg-primary/10 with bold text-shadow like Claude Code */
 nav.sidebar a[aria-current="page"] {
   background: color-mix(in srgb, var(--primary) 10%, transparent) !important;
+  color: var(--primary) !important;
+  text-shadow: -0.2px 0 0 currentColor, 0.2px 0 0 currentColor !important;
+}
+
+/* Sidebar group labels — match Claude Code's eyebrow: text-primary text-sm font-semibold */
+.group-label span {
+  color: var(--primary) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em !important;
 }
 
 
-/* --- Aside / Callout Overrides: match Claude Code callout colors --- */
+/* ===========================================================
+   5. CONTENT AREA TYPOGRAPHY
+   Claude Code: prose prose-gray dark:prose-invert
+   mt-8 mb-14, [contain:inline-size] isolate
+   h1: text-2xl sm:text-3xl font-bold tracking-tight
+   h2: flex font-semibold
+   =========================================================== */
+
+/* Page title (h1) — match Claude Code exactly */
+.content-panel h1 {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.2 !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (min-width: 640px) {
+  .content-panel h1 {
+    font-size: 1.875rem !important;
+  }
+}
+
+/* Content headings */
+.sl-markdown-content h2 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  white-space: pre-wrap !important;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.sl-markdown-content h4 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Paragraph spacing to match Claude Code prose */
+.sl-markdown-content p {
+  line-height: 1.75 !important;
+}
+
+/* Content links — primary color, underline on hover */
+.sl-markdown-content a:not([class]) {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+.sl-markdown-content a:not([class]):hover {
+  text-decoration: underline !important;
+}
+
+/* Lists — comfortable spacing */
+.sl-markdown-content ul,
+.sl-markdown-content ol {
+  padding-left: 1.5rem !important;
+}
+
+.sl-markdown-content li {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Horizontal rules */
+.sl-markdown-content hr {
+  border-color: var(--border) !important;
+  margin: 2rem 0 !important;
+}
+
+/* Strong text — slightly darker in light mode */
+:root[data-theme='light'] .sl-markdown-content strong {
+  color: #111827 !important;
+}
+
+
+/* ===========================================================
+   6. CODE BLOCKS
+   Claude Code: rounded-2xl, border border-gray-950/10
+   dark:border-white/10, bg-white (light), #0B0C0E (dark)
+   mt-5 mb-8, font-variant-ligatures: none
+   scrollbar-thin scrollbar-thumb-rounded
+   =========================================================== */
+
+.expressive-code {
+  margin-top: 1.25rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.expressive-code .frame {
+  border-radius: 1rem !important;
+  border: 1px solid var(--codeblock-border) !important;
+  box-shadow: none !important;
+  --ec-codeBg: var(--codeblock-bg) !important;
+  overflow: hidden !important;
+}
+
+.expressive-code pre {
+  border-radius: 1rem !important;
+  font-size: 0.84rem !important;
+  line-height: 1.6 !important;
+  padding: 0.875rem 1rem !important;
+  background: var(--codeblock-bg) !important;
+  font-variant-ligatures: none !important;
+  overflow-x: auto !important;
+}
+
+/* Scrollbar styling on code blocks — match Claude Code */
+.expressive-code pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.expressive-code pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.expressive-code pre::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+.expressive-code pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.20);
+}
+
+:root:not([data-theme='light']) .expressive-code pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.20);
+}
+
+:root:not([data-theme='light']) .expressive-code pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Light mode code blocks — white background */
+:root[data-theme='light'] .expressive-code .frame {
+  border: 1px solid rgba(3, 7, 18, 0.1) !important;
+  --ec-codeBg: #ffffff !important;
+}
+
+:root[data-theme='light'] .expressive-code pre {
+  background: #ffffff !important;
+}
+
+/* Hide frame header (Terminal window bar) */
+.expressive-code .frame .header {
+  display: none !important;
+}
+
+/* No special left border on any language */
+.expressive-code[data-language="bash"] .frame,
+.expressive-code[data-language="sh"] .frame,
+.expressive-code[data-language="json"] .frame {
+  border-left-width: 1px !important;
+}
+
+/* Copy button — hidden by default, appear on hover */
+.expressive-code .copy {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  display: flex !important;
+  align-items: center !important;
+  top: 0.75rem !important;
+  right: 1rem !important;
+}
+
+.expressive-code:hover .copy {
+  opacity: 1;
+}
+
+.expressive-code .copy button {
+  width: 1.625rem !important;
+  height: 1.625rem !important;
+  border-radius: 0.375rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.15s ease !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.expressive-code .copy button:hover {
+  opacity: 0.85 !important;
+}
+
+.expressive-code .copy button svg {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+}
+
+
+/* ===========================================================
+   7. INLINE CODE
+   Claude Code: subtle background, border, rounded-md
+   =========================================================== */
+
+:not(pre) > code {
+  font-size: 0.85em !important;
+  font-weight: 500 !important;
+  border-radius: 0.375rem !important;
+  background: var(--muted) !important;
+  color: var(--foreground) !important;
+  padding: 0.125rem 0.375rem !important;
+  border: 1px solid var(--border) !important;
+}
+
+
+/* ===========================================================
+   8. CALLOUTS / ASIDES
+   Claude Code: my-4 px-5 py-4 rounded-2xl flex gap-3 border
+   Colored text content: text-blue-800 dark:text-blue-300 etc.
+   =========================================================== */
 
 .starlight-aside {
   border-radius: 1rem !important;
   border-width: 1px !important;
   border-left-width: 1px !important;
+  border-style: solid !important;
+  padding: 1rem 1.25rem !important;
+  margin: 1rem 0 !important;
+  display: flex !important;
+  gap: 0.75rem !important;
 }
 
-/* Note callout — blue */
+/* --- Note: blue --- */
 .starlight-aside--note {
   border-color: #bfdbfe !important;
   background: #eff6ff !important;
 }
 
+.starlight-aside--note .starlight-aside__title,
+.starlight-aside--note .starlight-aside__content,
+.starlight-aside--note .starlight-aside__content p,
+.starlight-aside--note .starlight-aside__content a {
+  color: #1e40af !important;
+}
+
+.starlight-aside--note .starlight-aside__icon {
+  color: #1e40af !important;
+}
+
 :root:not([data-theme='light']) .starlight-aside--note {
-  border-color: rgba(59, 130, 246, 0.3) !important;
+  border-color: rgba(30, 58, 138, 0.4) !important;
   background: rgba(59, 130, 246, 0.1) !important;
 }
 
-/* Tip callout — green */
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--note .starlight-aside__icon {
+  color: #93c5fd !important;
+}
+
+/* --- Tip: green --- */
 .starlight-aside--tip {
   border-color: #bbf7d0 !important;
   background: #f0fdf4 !important;
 }
 
+.starlight-aside--tip .starlight-aside__title,
+.starlight-aside--tip .starlight-aside__content,
+.starlight-aside--tip .starlight-aside__content p,
+.starlight-aside--tip .starlight-aside__content a {
+  color: #166534 !important;
+}
+
+.starlight-aside--tip .starlight-aside__icon {
+  color: #166534 !important;
+}
+
 :root:not([data-theme='light']) .starlight-aside--tip {
-  border-color: rgba(34, 197, 94, 0.3) !important;
+  border-color: rgba(22, 101, 52, 0.4) !important;
   background: rgba(34, 197, 94, 0.1) !important;
 }
 
-/* Caution callout — amber */
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--tip .starlight-aside__icon {
+  color: #86efac !important;
+}
+
+/* --- Caution: amber --- */
 .starlight-aside--caution {
   border-color: #fed7aa !important;
   background: #fffbeb !important;
 }
 
+.starlight-aside--caution .starlight-aside__title,
+.starlight-aside--caution .starlight-aside__content,
+.starlight-aside--caution .starlight-aside__content p,
+.starlight-aside--caution .starlight-aside__content a {
+  color: #92400e !important;
+}
+
+.starlight-aside--caution .starlight-aside__icon {
+  color: #92400e !important;
+}
+
 :root:not([data-theme='light']) .starlight-aside--caution {
-  border-color: rgba(245, 158, 11, 0.3) !important;
+  border-color: rgba(146, 64, 14, 0.4) !important;
   background: rgba(245, 158, 11, 0.1) !important;
 }
 
-/* Danger callout — red */
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--caution .starlight-aside__icon {
+  color: #fcd34d !important;
+}
+
+/* --- Danger: red --- */
 .starlight-aside--danger {
   border-color: #fecaca !important;
   background: #fef2f2 !important;
 }
 
-:root:not([data-theme='light']) .starlight-aside--danger {
-  border-color: rgba(239, 68, 68, 0.3) !important;
-  background: rgba(239, 68, 68, 0.1) !important;
-}
-
-/* Aside icon color matches border */
-.starlight-aside--note .starlight-aside__icon {
-  color: #3b82f6 !important;
-}
-
-.starlight-aside--tip .starlight-aside__icon {
-  color: #22c55e !important;
-}
-
-.starlight-aside--caution .starlight-aside__icon {
-  color: #f59e0b !important;
+.starlight-aside--danger .starlight-aside__title,
+.starlight-aside--danger .starlight-aside__content,
+.starlight-aside--danger .starlight-aside__content p,
+.starlight-aside--danger .starlight-aside__content a {
+  color: #991b1b !important;
 }
 
 .starlight-aside--danger .starlight-aside__icon {
-  color: #ef4444 !important;
+  color: #991b1b !important;
 }
 
-/* Aside title styling */
+:root:not([data-theme='light']) .starlight-aside--danger {
+  border-color: rgba(153, 27, 27, 0.4) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__title,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__content,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__content p,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__content a,
+:root:not([data-theme='light']) .starlight-aside--danger .starlight-aside__icon {
+  color: #fca5a5 !important;
+}
+
+/* Aside text sizing — match Claude Code's text-sm prose */
+.starlight-aside__content {
+  font-size: 0.875rem !important;
+  line-height: 1.625 !important;
+}
+
 .starlight-aside__title {
   font-weight: 600 !important;
+  font-size: 0.875rem !important;
 }
 
 
-/* --- Smooth Scrolling --- */
+/* ===========================================================
+   9. TABS
+   Claude Code: border-b border-gray-200, gap-x-6
+   Active: text-primary border-current font-semibold
+   Inactive: text-gray-900 border-transparent hover:border-gray-300
+   =========================================================== */
 
-html {
-  @apply scroll-smooth;
+starlight-tabs [role="tablist"] {
+  border-bottom: 1px solid var(--border) !important;
+  gap: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 1px !important;
+}
+
+starlight-tabs [role="tab"] {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.625rem !important;
+  margin-bottom: -1px !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--foreground) !important;
+  cursor: pointer !important;
+  transition: color 0.15s ease, border-color 0.15s ease !important;
+}
+
+starlight-tabs [role="tab"][aria-selected="true"] {
+  color: var(--primary) !important;
+  border-bottom-color: currentColor !important;
+}
+
+starlight-tabs [role="tab"]:hover:not([aria-selected="true"]) {
+  border-bottom-color: var(--sl-color-hairline) !important;
 }
 
 
-/* --- Utility: Starlight Card Grid spacing --- */
+/* ===========================================================
+   10. TABLES
+   Claude Code: m-0 min-w-full w-full, td min-w-[150px],
+   th text-left, td[data-numeric] tabular-nums
+   =========================================================== */
 
+table {
+  font-size: 0.875rem !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+table th {
+  font-weight: 600 !important;
+  text-align: left !important;
+}
+
+table code {
+  white-space: nowrap !important;
+}
+
+table td {
+  min-width: 150px !important;
+}
+
+
+/* ===========================================================
+   11. CARDS
+   Claude Code: rounded-2xl bg-white dark:bg-background-dark
+   border border-gray-950/10 dark:border-white/10
+   hover:!border-primary, cursor-pointer
+   =========================================================== */
+
+/* Starlight Card component */
+.card {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
+  transition: border-color 0.2s ease !important;
+  overflow: hidden !important;
+}
+
+.card:hover {
+  border-color: var(--primary) !important;
+}
+
+/* Card title — icon color */
+.card .title .icon {
+  color: var(--primary) !important;
+  fill: var(--primary) !important;
+}
+
+/* Card grid */
 .card-grid {
-  @apply gap-4;
+  gap: 1rem !important;
+}
+
+/* Link cards */
+.sl-link-card {
+  border-radius: 1rem !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.sl-link-card:hover {
+  border-color: var(--primary) !important;
 }
 
 
-/* --- Glossary --- */
+/* ===========================================================
+   12. PAGINATION (prev/next links)
+   Claude Code: rounded-2xl, border, hover:border-primary
+   =========================================================== */
+
+.pagination-links a {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.pagination-links a:hover {
+  border-color: var(--primary) !important;
+}
+
+
+/* ===========================================================
+   13. SEARCH
+   =========================================================== */
+
+dialog.pagefind-ui {
+  border-radius: 1rem !important;
+}
+
+
+/* ===========================================================
+   14. RIGHT SIDEBAR / TABLE OF CONTENTS
+   Claude Code: active item text-primary font-medium
+   border-primary, inactive hover:text-gray-900 dark:text-gray-400
+   =========================================================== */
+
+/* TOC active link */
+starlight-toc a[aria-current="true"] {
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+  border-color: var(--primary) !important;
+}
+
+/* TOC hover */
+starlight-toc a:hover {
+  color: var(--foreground) !important;
+}
+
+
+/* ===========================================================
+   15. DETAILS / ACCORDIONS
+   Claude Code: border-standard rounded-2xl mb-3
+   bg-background-light dark:bg-codeblock
+   hover:bg-gray-100 dark:bg-gray-800 rounded-t-xl
+   =========================================================== */
+
+.sl-markdown-content details {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  margin-bottom: 0.75rem !important;
+  overflow: hidden !important;
+  background: var(--card) !important;
+}
+
+.sl-markdown-content details summary {
+  padding: 1rem 1.25rem !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.sl-markdown-content details summary:hover {
+  background: rgba(107, 114, 128, 0.05) !important;
+}
+
+.sl-markdown-content details[open] summary {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+
+/* ===========================================================
+   16. HERO / SPLASH PAGE
+   =========================================================== */
+
+.hero-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.25rem 0.75rem;
+}
+
+.badge-new {
+  display: inline-block;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  background: #22c55e;
+  color: white;
+  padding: 0.1rem 0.45rem;
+}
+
+
+/* ===========================================================
+   17. BLOCKQUOTE / MOTTO
+   =========================================================== */
+
+.motto-block {
+  margin: 2.5rem 0;
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--muted);
+}
+
+.motto-block .motto-author {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+
+/* ===========================================================
+   18. GLOSSARY
+   =========================================================== */
 
 .glossary-nav {
-  @apply flex flex-wrap gap-2 pb-4 mb-6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
 }
 
 .glossary-nav a {
-  @apply inline-block text-sm font-medium no-underline rounded-full;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   background: var(--muted);
   color: var(--foreground);
@@ -510,11 +897,12 @@ html {
 }
 
 .glossary-list {
-  @apply space-y-0;
+  display: flex;
+  flex-direction: column;
 }
 
 .glossary-term {
-  @apply py-4;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--border);
   scroll-margin-top: 5rem;
 }
@@ -524,16 +912,22 @@ html {
 }
 
 .glossary-term h3 {
-  @apply mt-0 mb-1 text-base font-semibold;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .glossary-term p {
-  @apply my-1 text-sm leading-relaxed;
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.625;
   color: var(--muted-foreground);
 }
 
 .glossary-term .glossary-related {
-  @apply mt-2 text-xs;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 
@@ -547,94 +941,28 @@ html {
 }
 
 
-/* --- Content area typography: match Claude Code docs prose --- */
+/* ===========================================================
+   19. FOOTER
+   Claude Code: border-t border-gray-100 dark:border-gray-800/50
+   py-16 md:py-20 max-w-[984px]
+   Link color: text-gray-950/50 hover:text-gray-950/70
+   =========================================================== */
 
-.sl-markdown-content h1 {
-  @apply text-3xl font-bold tracking-tight;
-  color: var(--foreground);
-}
-
-.sl-markdown-content h2 {
-  @apply text-xl font-semibold tracking-tight mt-10 mb-4;
-}
-
-.sl-markdown-content h3 {
-  @apply text-lg font-semibold mt-8 mb-3;
-}
-
-/* Links in content — primary color with underline on hover */
-.sl-markdown-content a:not(.sl-link-card):not(.card) {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.sl-markdown-content a:not(.sl-link-card):not(.card):hover {
-  text-decoration: underline;
+footer {
+  border-top: 1px solid var(--border) !important;
 }
 
 
-/* --- Steps (ordered lists in guides): match Claude Code step styling --- */
+/* ===========================================================
+   20. GLOBAL LAYOUT
+   =========================================================== */
 
-.sl-markdown-content > ol {
-  counter-reset: step;
-}
-
-.sl-markdown-content > ol > li {
-  position: relative;
-}
-
-
-/* --- Starlight Tabs: match Claude Code tab styling --- */
-
-starlight-tabs [role="tablist"] {
-  border-bottom: 1px solid var(--border) !important;
-}
-
-starlight-tabs [role="tab"] {
-  @apply text-sm font-semibold;
-  border-bottom: 2px solid transparent !important;
-  padding: 0.75rem 0 0.625rem !important;
-  color: var(--muted-foreground) !important;
-}
-
-starlight-tabs [role="tab"][aria-selected="true"] {
-  color: var(--primary) !important;
-  border-bottom-color: currentColor !important;
-}
-
-starlight-tabs [role="tab"]:hover:not([aria-selected="true"]) {
-  color: var(--foreground) !important;
-  border-bottom-color: var(--border) !important;
-}
-
-
-/* --- Page footer: clean, minimal --- */
-
-.pagination-links a {
-  @apply !rounded-2xl;
-  border: 1px solid var(--border) !important;
-}
-
-.pagination-links a:hover {
-  border-color: var(--primary) !important;
-}
-
-
-/* --- Search modal: match rounded style --- */
-
-dialog.pagefind-ui {
-  border-radius: 1rem !important;
-}
-
-
-/* --- General layout tweaks --- */
-
-/* Remove any glow/gradient remnants */
-body {
-  background: var(--sl-color-bg) !important;
-}
-
-/* Ensure main content has proper max width */
 .main-frame {
   background: var(--sl-color-bg) !important;
+}
+
+/* Ensure proper content spacing — match Claude Code mt-8 mb-14 */
+.content-panel {
+  padding-top: 0.5rem !important;
+  padding-bottom: 3.5rem !important;
 }
