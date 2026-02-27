@@ -8,53 +8,65 @@
 
 /* --- Accent Colors --- */
 :root {
-  --sl-color-accent-low: #1e3a5f;
-  --sl-color-accent: #3b82f6;
-  --sl-color-accent-high: #93c5fd;
+  --sl-color-accent-low: #3a1e12;
+  --sl-color-accent: #d97757;
+  --sl-color-accent-high: #f0b89e;
 
   /* --- shadcn Design Tokens (dark) --- */
-  --radius: 0.75rem;
-  --background: 222 16% 10%;
-  --foreground: 220 14% 88%;
-  --card: 222 13% 16%;
-  --card-foreground: 220 14% 88%;
-  --muted: 220 10% 20%;
-  --muted-foreground: 222 7% 56%;
-  --border: 220 10% 24%;
-  --input: 220 10% 24%;
-  --ring: 217 91% 60%;
-  --primary: 217 91% 60%;
+  --radius: 0.5rem;
+  --background: 60 3% 15%;
+  --foreground: 46 10% 74%;
+  --card: 60 3% 15%;
+  --card-foreground: 48 33% 97%;
+  --popover: 60 2% 18%;
+  --popover-foreground: 60 5% 89%;
+  --muted: 60 4% 10%;
+  --muted-foreground: 51 9% 69%;
+  --accent: 48 11% 9%;
+  --accent-foreground: 51 26% 95%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 60 5% 23%;
+  --input: 52 5% 31%;
+  --ring: 15 63% 60%;
+  --primary: 15 63% 60%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 220 10% 20%;
-  --secondary-foreground: 220 14% 88%;
+  --secondary: 48 33% 97%;
+  --secondary-foreground: 60 2% 18%;
 }
 
 :root[data-theme='light'] {
-  --sl-color-accent-low: #dbeafe;
-  --sl-color-accent: #2563eb;
-  --sl-color-accent-high: #1e3a5f;
+  --sl-color-accent-low: #fde8df;
+  --sl-color-accent: #c96442;
+  --sl-color-accent-high: #5c2c1a;
 
   /* --- shadcn Design Tokens (light) --- */
-  --background: 0 0% 100%;
-  --foreground: 215 25% 17%;
-  --card: 0 0% 100%;
-  --card-foreground: 215 25% 17%;
-  --muted: 210 40% 97%;
-  --muted-foreground: 215 16% 47%;
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 221 83% 53%;
-  --primary: 221 83% 53%;
+  --background: 48 33% 97%;
+  --foreground: 48 20% 20%;
+  --card: 48 33% 97%;
+  --card-foreground: 60 3% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 51 19% 13%;
+  --muted: 44 29% 90%;
+  --muted-foreground: 50 2% 50%;
+  --accent: 46 23% 89%;
+  --accent-foreground: 51 19% 13%;
+  --destructive: 60 3% 8%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 50 7% 84%;
+  --input: 51 8% 68%;
+  --ring: 15 56% 52%;
+  --primary: 15 56% 52%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 210 40% 97%;
-  --secondary-foreground: 215 25% 17%;
+  --secondary: 46 23% 89%;
+  --secondary-foreground: 51 8% 30%;
 }
 
 
 /* --- Code Blocks: compact, rounded, clean --- */
 
 .expressive-code .frame {
-  @apply !rounded-xl;
+  @apply !rounded-lg;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -63,7 +75,7 @@
 }
 
 .expressive-code pre {
-  @apply !rounded-xl !text-[0.84rem] !leading-relaxed;
+  @apply !rounded-lg !text-[0.84rem] !leading-relaxed;
   padding: 0.7rem 1rem !important;
 }
 
@@ -83,6 +95,9 @@
 
 .expressive-code .copy button {
   @apply !w-7 !h-7 !rounded-lg;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 4px !important;
   opacity: 0.35 !important;
   transition: opacity 0.15s ease !important;
@@ -132,7 +147,7 @@
 /* --- Feature Cards --- */
 
 .feature-card {
-  @apply rounded-xl p-6 transition-all duration-200;
+  @apply rounded-lg p-6 transition-all duration-200;
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
 }
@@ -162,7 +177,7 @@
 /* --- Motto / Testimonial --- */
 
 .motto-block {
-  @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
+  @apply my-10 rounded-r-lg italic text-lg leading-relaxed;
   padding: 1.75rem 2rem;
   border-left: 3px solid hsl(var(--primary));
   background: hsl(var(--muted));
@@ -204,12 +219,12 @@ table th {
 
 header.header {
   backdrop-filter: blur(12px) saturate(1.2) !important;
-  background: rgba(17, 18, 20, 0.82) !important;
+  background: rgba(38, 38, 36, 0.82) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
 :root[data-theme='light'] header.header {
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(250, 249, 245, 0.85) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -234,13 +249,13 @@ starlight-theme-select .caret {
 /* --- Light Mode Polish --- */
 
 :root[data-theme='light'] {
-  --sl-color-bg: #ffffff;
-  --sl-color-bg-sidebar: #f8fafc;
-  --sl-color-bg-nav: rgba(255, 255, 255, 0.85);
-  --sl-color-hairline-light: #e2e8f0;
-  --sl-color-hairline: #cbd5e1;
-  --sl-color-text: #1e293b;
-  --sl-color-text-accent: #1d4ed8;
+  --sl-color-bg: #faf9f5;
+  --sl-color-bg-sidebar: #f5f4ee;
+  --sl-color-bg-nav: rgba(250, 249, 245, 0.85);
+  --sl-color-hairline-light: #dad9d4;
+  --sl-color-hairline: #b4b2a7;
+  --sl-color-text: #3d3929;
+  --sl-color-text-accent: #c96442;
 }
 
 :root[data-theme='light'] .sidebar-pane {

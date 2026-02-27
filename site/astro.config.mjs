@@ -23,7 +23,7 @@ export default defineConfig({
       expressiveCode: {
         themes: ['starlight-dark', 'starlight-light'],
         styleOverrides: {
-          borderRadius: '0.875rem',
+          borderRadius: '0.5rem',
           codePaddingBlock: '0.75rem',
           codePaddingInline: '1rem',
           codeFontSize: '0.85rem',
