@@ -136,6 +136,8 @@ if [[ -z "$COMMITS" ]]; then
 fi
 
 # Group commits by conventional-commit prefix
+# NOTE: Category vars use literal \n sequences, converted to real newlines
+# by printf '%b' on the CHANGELOG_ENTRY assignment below.
 ADDED=""
 FIXED=""
 CHANGED=""
@@ -144,8 +146,8 @@ OTHER=""
 while IFS= read -r msg; do
   [[ -z "$msg" ]] && continue
   case "$msg" in
-    feat:*|feat\(*) ADDED="${ADDED}- ${msg}\n" ;;
-    fix:*|fix\(*)   FIXED="${FIXED}- ${msg}\n" ;;
+    feat:*|feat\(*|feat!:*) ADDED="${ADDED}- ${msg}\n" ;;
+    fix:*|fix\(*|fix!:*)    FIXED="${FIXED}- ${msg}\n" ;;
     docs:*|docs\(*|style:*|style\(*|refactor:*|refactor\(*|chore:*|chore\(*|build:*|build\(*|ci:*|ci\(*|perf:*|perf\(*)
                      CHANGED="${CHANGED}- ${msg}\n" ;;
     *)               OTHER="${OTHER}- ${msg}\n" ;;
