@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
+import preact from '@astrojs/preact';
 
 export default defineConfig({
   integrations: [
@@ -97,5 +98,6 @@ export default defineConfig({
       ],
     }),
     tailwind({ applyBaseStyles: false }),
+    preact(),
   ],
 });
