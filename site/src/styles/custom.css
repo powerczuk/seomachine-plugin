@@ -4,23 +4,24 @@
 
 /* =============================================
    SEO Machine — Custom Styles (Tailwind + Starlight)
+   Design system adapted from owerczuk.dev
    ============================================= */
 
-/* --- shadcn Design Tokens (dark default for Starlight) --- */
+/* --- Design Tokens (dark default for Starlight) --- */
 :root {
   --sl-color-accent-low: #3a1e12;
   --sl-color-accent: #d97757;
   --sl-color-accent-high: #f0b89e;
 
-  --radius: 0.5rem;
+  --radius: 1rem;
   --background: oklch(0.2679 0.0036 106.6427);
-  --foreground: oklch(0.8074 0.0142 93.0137);
-  --card: oklch(0.2679 0.0036 106.6427);
+  --foreground: oklch(0.9576 0.0027 106.4494);
+  --card: oklch(0.2928 0.0018 106.5092);
   --card-foreground: oklch(0.9818 0.0054 95.0986);
   --popover: oklch(0.3085 0.0035 106.6039);
   --popover-foreground: oklch(0.9211 0.0040 106.4781);
   --primary: oklch(0.6724 0.1308 38.7559);
-  --primary-foreground: oklch(1.0000 0 0);
+  --primary-foreground: oklch(0.1908 0.0020 106.5859);
   --secondary: oklch(0.9818 0.0054 95.0986);
   --secondary-foreground: oklch(0.3085 0.0035 106.6039);
   --muted: oklch(0.2213 0.0038 106.7070);
@@ -29,6 +30,7 @@
   --accent-foreground: oklch(0.9663 0.0080 98.8792);
   --destructive: oklch(0.6368 0.2078 25.3313);
   --destructive-foreground: oklch(1.0000 0 0);
+  --success: oklch(0.6000 0.1500 145);
   --border: oklch(0.3618 0.0101 106.8928);
   --input: oklch(0.4336 0.0113 100.2195);
   --ring: oklch(0.6724 0.1308 38.7559);
@@ -45,9 +47,28 @@
   --sidebar-accent-foreground: oklch(0.8074 0.0142 93.0137);
   --sidebar-border: oklch(0.9401 0 0);
   --sidebar-ring: oklch(0.7731 0 0);
+
+  /* Shadow system */
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+  /* Gradient tokens — warm amber palette (dark) */
+  --gradient-from: oklch(0.6724 0.1308 38.7559);
+  --gradient-via: oklch(0.5500 0.0900 55);
+  --gradient-to: oklch(0.5800 0.0700 75);
+  --gradient-warm: oklch(0.5800 0.1200 30);
+  --glow-color: oklch(0.6724 0.1308 38.7559 / 0.08);
+  --glow-color-accent: oklch(0.5500 0.0900 55 / 0.06);
+  --glow-color-warm: oklch(0.5800 0.1200 30 / 0.05);
 }
 
-/* --- shadcn Design Tokens (light) --- */
+/* --- Design Tokens (light) --- */
 :root[data-theme='light'] {
   --sl-color-accent-low: #fde8df;
   --sl-color-accent: #c96442;
@@ -55,7 +76,7 @@
 
   --background: oklch(0.9818 0.0054 95.0986);
   --foreground: oklch(0.3438 0.0269 95.7226);
-  --card: oklch(0.9818 0.0054 95.0986);
+  --card: oklch(0.9665 0.0067 97.3521);
   --card-foreground: oklch(0.1908 0.0020 106.5859);
   --popover: oklch(1.0000 0 0);
   --popover-foreground: oklch(0.2671 0.0196 98.9390);
@@ -64,11 +85,12 @@
   --secondary: oklch(0.9245 0.0138 92.9892);
   --secondary-foreground: oklch(0.4334 0.0177 98.6048);
   --muted: oklch(0.9341 0.0153 90.2390);
-  --muted-foreground: oklch(0.6059 0.0075 97.4233);
+  --muted-foreground: oklch(0.5341 0.0078 97.4503);
   --accent: oklch(0.9245 0.0138 92.9892);
   --accent-foreground: oklch(0.2671 0.0196 98.9390);
   --destructive: oklch(0.1908 0.0020 106.5859);
   --destructive-foreground: oklch(1.0000 0 0);
+  --success: oklch(0.5500 0.1500 145);
   --border: oklch(0.8847 0.0069 97.3627);
   --input: oklch(0.7621 0.0156 98.3528);
   --ring: oklch(0.6171 0.1375 39.0427);
@@ -85,14 +107,241 @@
   --sidebar-accent-foreground: oklch(0.3250 0 0);
   --sidebar-border: oklch(0.9401 0 0);
   --sidebar-ring: oklch(0.7731 0 0);
+
+  /* Shadow system - light */
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+  /* Gradient tokens — warm amber palette (light) */
+  --gradient-from: oklch(0.5583 0.1276 42.9956);
+  --gradient-via: oklch(0.4800 0.0800 55);
+  --gradient-to: oklch(0.5200 0.0600 75);
+  --gradient-warm: oklch(0.5000 0.1100 30);
+  --glow-color: oklch(0.5583 0.1276 42.9956 / 0.10);
+  --glow-color-accent: oklch(0.4800 0.0800 55 / 0.07);
+  --glow-color-warm: oklch(0.5000 0.1100 30 / 0.06);
+}
+
+
+/* --- Base Layer --- */
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  .skip-to-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: calc(var(--radius) - 2px);
+  }
+
+  .skip-to-content:focus {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+
+/* --- Utility Classes (owerczuk.dev design system) --- */
+
+@layer utilities {
+  /* Text gradient — apply to text for gradient color effect */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-from) 0%,
+      var(--gradient-via) 50%,
+      var(--gradient-to) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Ambient glow orb — position with absolute + top/left */
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .glow-orb-primary {
+    background: radial-gradient(
+      circle,
+      var(--glow-color) 0%,
+      transparent 70%
+    );
+  }
+
+  .glow-orb-accent {
+    background: radial-gradient(
+      circle,
+      var(--glow-color-accent) 0%,
+      transparent 70%
+    );
+  }
+
+  /* Subtle noise overlay for sections */
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+  }
+
+  /* Gradient border glow on cards */
+  .card-glow {
+    position: relative;
+  }
+
+  .card-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--gradient-from),
+      var(--gradient-via),
+      var(--gradient-to)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    padding: 1px;
+  }
+
+  .card-glow:hover::before {
+    opacity: 0.35;
+  }
+
+  /* Section gradient washes */
+  .section-gradient-subtle {
+    background: linear-gradient(
+      180deg,
+      var(--background) 0%,
+      color-mix(in oklch, var(--muted) 50%, transparent) 50%,
+      var(--background) 100%
+    );
+  }
+
+  .section-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--gradient-from) 4%, var(--background)) 0%,
+      var(--background) 50%,
+      color-mix(in oklch, var(--gradient-to) 4%, var(--background)) 100%
+    );
+  }
+
+  /* Mesh gradient — layered radial stops for organic depth */
+  .section-mesh {
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, color-mix(in oklch, var(--gradient-from) 7%, transparent) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 85% 70%, color-mix(in oklch, var(--gradient-to) 6%, transparent) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, color-mix(in oklch, var(--gradient-via) 4%, transparent) 0%, transparent 60%),
+      var(--background);
+  }
+
+  /* Warm tonal gradient — amber undertone for visual rhythm */
+  .section-gradient-warm {
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 30%, color-mix(in oklch, var(--gradient-warm) 4%, transparent) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 20% 70%, color-mix(in oklch, var(--gradient-from) 3%, transparent) 0%, transparent 70%),
+      var(--background);
+  }
+
+  /* Cool directional gradient — left-to-right sweep */
+  .section-gradient-sweep {
+    background: linear-gradient(
+      105deg,
+      color-mix(in oklch, var(--gradient-from) 3%, var(--background)) 0%,
+      var(--background) 40%,
+      var(--background) 60%,
+      color-mix(in oklch, var(--gradient-to) 3%, var(--background)) 100%
+    );
+  }
+
+  /* Dramatic CTA gradient — bolder mesh */
+  .section-gradient-cta {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 50%, color-mix(in oklch, var(--gradient-from) 10%, transparent) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 60% at 80% 50%, color-mix(in oklch, var(--gradient-via) 8%, transparent) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 50% 80%, color-mix(in oklch, var(--gradient-to) 5%, transparent) 0%, transparent 60%),
+      var(--background);
+  }
+
+  /* Top fade — subtle section separator */
+  .section-fade-top {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--muted) 60%, transparent) 0%,
+      transparent 30%
+    );
+  }
+
+  /* Bottom fade — subtle section separator */
+  .section-fade-bottom {
+    background: linear-gradient(
+      0deg,
+      color-mix(in oklch, var(--muted) 60%, transparent) 0%,
+      transparent 30%
+    );
+  }
+
+  /* CSS-only fade-in-up — for above-the-fold content */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out both;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 
 /* --- Code Blocks: compact, rounded, clean --- */
 
 .expressive-code .frame {
-  @apply !rounded-lg;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06) !important;
+  @apply !rounded-xl;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 :root[data-theme='light'] .expressive-code .frame {
@@ -100,7 +349,7 @@
 }
 
 .expressive-code pre {
-  @apply !rounded-lg !text-[0.84rem] !leading-relaxed;
+  @apply !rounded-xl !text-[0.84rem] !leading-relaxed;
   padding: 0.7rem 1rem !important;
 }
 
@@ -170,15 +419,16 @@
 /* --- Feature Cards --- */
 
 .feature-card {
-  @apply rounded-lg p-6 transition-all duration-200;
+  @apply rounded-xl p-6 transition-all duration-300;
   background: var(--card);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .feature-card:hover {
   border-color: var(--ring);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .feature-card h3 {
@@ -200,7 +450,7 @@
 /* --- Motto / Testimonial --- */
 
 .motto-block {
-  @apply my-10 rounded-r-lg italic text-lg leading-relaxed;
+  @apply my-10 rounded-r-xl italic text-lg leading-relaxed;
   padding: 1.75rem 2rem;
   border-left: 3px solid var(--primary);
   background: var(--muted);
@@ -230,11 +480,13 @@ table th {
 /* --- Link Cards --- */
 
 .sl-link-card {
-  @apply transition-colors duration-200;
+  @apply transition-all duration-300;
+  border-radius: var(--radius);
 }
 
 .sl-link-card:hover {
   border-color: var(--ring);
+  box-shadow: var(--shadow-md);
 }
 
 
