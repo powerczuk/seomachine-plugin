@@ -3,3 +3,4 @@ site/dist/
 site/.astro/
 *.env
 .DS_Store
+.playwright-mcp/
