@@ -172,18 +172,24 @@ success "$PACKAGE_JSON -> $NEW_VERSION"
 
 info "Updating $CHANGELOG..."
 # Insert new section after the first --- separator line
-# Uses awk: print lines normally, and after the first --- line inject the new entry
-awk -v entry="$CHANGELOG_ENTRY" '
-  /^---$/ && !done {
-    print
-    print ""
-    print entry
-    print ""
-    done = 1
-    next
-  }
-  { print }
-' "$CHANGELOG" > "${CHANGELOG}.tmp" && mv "${CHANGELOG}.tmp" "$CHANGELOG"
+# Uses a temp-file approach for BSD compatibility (BSD awk does not support
+# multiline strings in -v assignments, nor the !var syntax)
+ENTRY_FILE="$(mktemp)"
+printf '%b' "$CHANGELOG_ENTRY" > "$ENTRY_FILE"
+
+TEMP_CHANGELOG="$(mktemp)"
+INSERTED=false
+while IFS= read -r line; do
+  echo "$line" >> "$TEMP_CHANGELOG"
+  if [[ "$INSERTED" == false && "$line" == "---" ]]; then
+    echo "" >> "$TEMP_CHANGELOG"
+    cat "$ENTRY_FILE" >> "$TEMP_CHANGELOG"
+    echo "" >> "$TEMP_CHANGELOG"
+    INSERTED=true
+  fi
+done < "$CHANGELOG"
+mv "$TEMP_CHANGELOG" "$CHANGELOG"
+rm -f "$ENTRY_FILE"
 success "$CHANGELOG updated"
 
 info "Updating $README..."
