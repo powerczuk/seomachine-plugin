@@ -422,6 +422,69 @@ starlight-theme-toggle .theme-btn svg {
 }
 
 
+/* --- Command Lines: per-line copy pills --- */
+
+.command-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.command-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--muted);
+  transition: border-color 0.15s ease;
+}
+
+.command-line:hover {
+  border-color: color-mix(in oklch, var(--border) 100%, var(--foreground) 20%);
+}
+
+.command-line code {
+  font-family: var(--sl-font-mono, ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace);
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--foreground);
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.command-copy {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.command-line:hover .command-copy {
+  opacity: 0.7;
+}
+
+.command-copy:hover {
+  opacity: 1 !important;
+  background: color-mix(in oklch, var(--foreground) 8%, transparent);
+}
+
 /* --- Inline code --- */
 
 :not(pre) > code {

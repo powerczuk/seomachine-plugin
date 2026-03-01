@@ -4,6 +4,7 @@ description: Szczegółowa konfiguracja per platforma — Claude Cowork, Claude 
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import CommandLines from '../../../components/CommandLines.astro';
 
 ## Pliki konfiguracyjne
 
@@ -22,10 +23,10 @@ Każda platforma przechowuje konfigurację MCP i pluginów w innym miejscu:
 
 Użyj `add-mcp` aby skonfigurować serwery MCP na wszystkich platformach jednocześnie:
 
-```bash
-npx add-mcp https://api.ahrefs.com/mcp/mcp -a cursor -a claude-code
-npx add-mcp https://mcp.similarweb.com -a cursor -a claude-code
-```
+<CommandLines commands={[
+  "npx add-mcp https://api.ahrefs.com/mcp/mcp -a cursor -a claude-code",
+  "npx add-mcp https://mcp.similarweb.com -a cursor -a claude-code"
+]} />
 
 Automatycznie wykrywa zainstalowane narzędzia i zapisuje odpowiednie pliki konfiguracyjne.
 
