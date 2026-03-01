@@ -248,12 +248,56 @@ Beyond pattern removal, the skill actively adds human voice:
 - **First-person** — uses "I" where appropriate for honest, personal tone
 - **Specificity** — replaces vague descriptions with concrete numbers, names, dates
 
+### Tone Presets (New in v2.2)
+
+Control the voice direction after AI patterns are removed:
+
+| Preset | Style | Best for |
+|--------|-------|----------|
+| `casual` | Short sentences, contractions, colloquial phrasing, "you/I" | Blog posts, social media, newsletters |
+| `professional` | Clean and direct, no fluff but no slang | B2B content, whitepapers, case studies |
+| `editorial` | Opinionated, structured arguments, confident voice | Thought leadership, opinion pieces, columns |
+| `conversational` (default) | Natural mix, like explaining to a colleague | General content, landing pages, guides |
+
+Usage: `/humanize --tone editorial <text>`
+
+### Humanization Score (New in v2.2)
+
+A 0-100 score measuring AI-detectability, shown before and after humanization:
+
+**Scoring factors:**
+
+| Factor | Weight | What it measures |
+|--------|--------|-----------------|
+| AI vocabulary density | 25% | Frequency of known AI words ("delve", "crucial", "leverage", etc.) |
+| Sentence structure variety | 20% | Standard deviation of sentence lengths and structure types |
+| Pattern repetition | 15% | Rule-of-three, negative parallelisms, formulaic constructions |
+| Voice presence | 15% | Opinions, first-person, specificity, personality markers |
+| Transitional padding | 15% | "Furthermore", "Moreover", "In conclusion" density |
+| Punctuation patterns | 10% | Em dash frequency, uniform punctuation habits |
+
+**Output example:**
+```
+Humanization Score: 34 → 87
+
+  AI vocabulary:      2/10 → 8/10
+  Sentence variety:   4/10 → 9/10
+  Pattern repetition: 3/10 → 8/10
+  Voice presence:     5/10 → 9/10
+  Transition padding: 3/10 → 9/10
+  Punctuation:        4/10 → 8/10
+```
+
+Use `--score-only` to get the score without rewriting.
+
 ### Workflow
 
-1. Scan text for all nine AI pattern categories
-2. Rewrite flagged sections with natural alternatives
-3. Inject personality — opinions, rhythm variation, voice
-4. Final anti-AI pass: ask "What makes this obviously AI-generated?" then fix remaining tells
+1. **Score** — calculate initial humanization score (0-100)
+2. **Scan** — detect all nine AI pattern categories
+3. **Rewrite** — replace flagged sections with natural alternatives
+4. **Inject** — add personality using the selected tone preset (default: conversational)
+5. **Final pass** — ask "What makes this obviously AI-generated?" and fix remaining tells
+6. **Re-score** — calculate final humanization score, show before/after comparison
 
 ### Trigger Phrases
 
