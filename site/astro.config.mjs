@@ -16,6 +16,10 @@ export default defineConfig({
         dark: './src/assets/logo-dark.svg',
         replacesTitle: false,
       },
+      components: {
+        Header: './src/components/Header.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro',
+      },
       customCss: ['./src/styles/custom.css'],
       editLink: {
         baseUrl: 'https://github.com/powerczuk/seomachine-plugin/edit/main/site/',

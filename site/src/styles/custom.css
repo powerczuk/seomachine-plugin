@@ -222,6 +222,12 @@
     position: relative;
   }
 
+/* Social icons (GitHub) — bigger size */
+.social-icons a svg {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
+
   .card-glow::before {
     content: "";
     position: absolute;
@@ -240,6 +246,12 @@
     mask-composite: exclude;
     padding: 1px;
   }
+
+/* Theme toggle icons — match social icon size */
+starlight-theme-toggle .theme-btn svg {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
 
   .card-glow:hover::before {
     opacity: 0.35;
@@ -263,6 +275,13 @@
       color-mix(in oklch, var(--gradient-to) 4%, var(--background)) 100%
     );
   }
+
+/* ===========================================================
+   4. SIDEBAR
+   Claude Code: w-[18rem], rounded-xl items, py-1.5 pr-3,
+   hover:bg-gray-600/5, active: bg-primary/10 text-primary
+   with text-shadow
+   =========================================================== */
 
   /* Mesh gradient — layered radial stops for organic depth */
   .section-mesh {
