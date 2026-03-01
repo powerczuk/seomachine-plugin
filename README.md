@@ -2,7 +2,7 @@
 
 **Najlepszy plugin SEO do narzędzi opartych na Claude.**
 
-16 komend · 5 skills · 4 agentów · Ahrefs & Similarweb MCP
+17 komend · 6 skills · 4 agentów · Ahrefs & Similarweb MCP
 
 ## Co to jest
 
@@ -22,7 +22,7 @@ claude plugin add seo-machine
 
 | Kategoria | Komendy |
 |-----------|---------|
-| **Treści** | `/research` · `/write-seo` · `/optimize` · `/analyze` · `/content-brief` · `/meta-tags` · `/rewrite` |
+| **Treści** | `/research` · `/write-seo` · `/optimize` · `/analyze` · `/content-brief` · `/meta-tags` · `/rewrite` · `/humanize` |
 | **Architektura** | `/audit` · `/topic-clusters` · `/internal-links` · `/schema-gen` · `/low-hanging-fruit` |
 | **GEO & AI** | `/geo-audit` · `/llms-txt` |
 | **Lokalne SEO** | `/local-seo` |
@@ -58,7 +58,7 @@ Treści oceniane 0–100: keywords (25%), czytelność (20%), struktura (20%), z
 
 ## Wersja
 
-**v2.0.0** — 6 nowych komend, 2 nowe skills, 2 nowych agentów, dokumentacja PL.
+**v2.1.0** — nowy skill Humanizer + komenda `/humanize` do usuwania wzorców AI z treści.
 
 ## Pochodzenie
 

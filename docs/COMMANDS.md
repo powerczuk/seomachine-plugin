@@ -1,6 +1,6 @@
 # Commands Reference
 
-SEO Machine provides 16 commands covering the full SEO and GEO workflow. Commands are invoked as slash commands in any Claude conversation where the plugin is active.
+SEO Machine provides 17 commands covering the full SEO and GEO workflow. Commands are invoked as slash commands in any Claude conversation where the plugin is active.
 
 ## Command Overview
 
@@ -15,6 +15,7 @@ SEO Machine provides 16 commands covering the full SEO and GEO workflow. Command
 | `/content-brief` | Generate comprehensive, writer-ready SEO content briefs | |
 | `/meta-tags` | Generate optimized meta titles, descriptions, and OG tags | |
 | `/rewrite` | Refresh and update declining or outdated content | v2 |
+| `/humanize` | Remove AI writing patterns and inject natural human voice | v2.1 |
 
 ### Site Architecture & Technical
 
@@ -486,3 +487,34 @@ Deep competitive analysis with gap identification and battlecards.
 ```
 /competitors https://mysite.com https://rival1.com https://rival2.com
 ```
+
+### `/humanize` (New in v2.1)
+
+Remove AI writing patterns and inject natural human voice into content.
+
+**Syntax:**
+```
+/humanize <text, file path, or URL>
+```
+
+**What it does:**
+1. **Pattern detection** — scans for all nine AI writing categories (inflated significance, promotional language, vague attributions, em dash overuse, rule of three, AI vocabulary, negative parallelisms, conjunctive padding, superficial -ing analyses)
+2. **Targeted rewrites** — replaces flagged sections with natural, direct alternatives
+3. **Voice injection** — adds opinions, rhythm variation, first-person perspective, and specificity where appropriate
+4. **Final anti-AI pass** — asks "What makes this obviously AI-generated?" and fixes remaining tells before delivering output
+
+**Powered by:** Humanizer skill (based on Wikipedia's "Signs of AI Writing" guide by WikiProject AI Cleanup)
+
+**Output:**
+- Fully humanized version of the content
+- Optional change log showing what was flagged and why
+
+**Example:**
+```
+/humanize "Furthermore, our platform offers a comprehensive suite of tools that are crucial for modern businesses seeking to leverage synergies in the evolving digital landscape."
+```
+
+**Also triggers naturally when you say:**
+- "Make this sound more human"
+- "Remove AI patterns from this"
+- "Edit this to not sound like AI"

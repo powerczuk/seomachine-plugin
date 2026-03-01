@@ -4,6 +4,22 @@ All notable changes to the SEO Machine plugin are documented here. This project 
 
 ---
 
+## [2.1.0] — 2026-03-01
+
+### Added
+
+**New Skill:**
+- **Humanizer** — AI writing detection and removal engine based on Wikipedia's "Signs of AI Writing" guide (WikiProject AI Cleanup). Detects and rewrites nine AI writing pattern categories: inflated significance language, promotional phrasing, superficial -ing analyses, vague attributions, em dash overuse, rule of three, AI vocabulary words, negative parallelisms, and conjunctive padding. Also actively injects human voice — opinions, rhythm variation, first-person perspective, and specificity. Includes a final anti-AI pass step.
+
+**New Command:**
+- `/humanize` — Remove AI writing patterns from any content and inject natural human voice. Accepts inline text, file paths, or URLs. Also triggers naturally when the user says "make this more human", "remove AI patterns", or "edit this to not sound like AI".
+
+### Changed
+- `SKILLS.md` — Added full Humanizer skill reference section with pattern table, voice injection techniques, workflow, trigger phrases, and before/after example
+- `COMMANDS.md` — Updated command count from 16 to 17, added `/humanize` to the Content Creation & Optimization table, added full `/humanize` command reference entry
+
+---
+
 ## [2.0.0] — 2026-02-27
 
 ### Added
