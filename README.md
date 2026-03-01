@@ -11,11 +11,13 @@ A plugin for Claude (Cowork, Code CLI, Cursor, VS Code, Windsurf) covering the e
 ## Quick install
 
 ```bash
-# Claude Code CLI
-claude plugin add seo-machine
+# Clone and install locally
+git clone https://github.com/TheCraigHewitt/seomachine.git
+cd seomachine
+claude plugin install .
 
-# Cursor / VS Code / Windsurf
-# Use your IDE's native plugin support
+# Or install from a local path
+claude plugin install /path/to/seo-machine
 ```
 
 ## Commands

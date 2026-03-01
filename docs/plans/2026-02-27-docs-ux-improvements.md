@@ -661,22 +661,14 @@ w interfejsie aplikacji. Nie musisz niczego wpisywac w terminalu.
     Claude Code CLI to narzedzie uruchamiane w terminalu (wierszu polecen). Jezeli nie wiesz
     co to terminal — wybierz zakladke **Claude Cowork**.
 
-    **Z rejestru pluginow**
+    **Z repozytorium GitHub**
 
     Otworz terminal i wpisz:
 
     ```bash
-    claude plugin add seo-machine
-    ```
-
-    **Z repozytorium GitHub**
-
-    Jezeli chcesz zainstalowac ze zrodla:
-
-    ```bash
     git clone https://github.com/powerczuk/seomachine-plugin.git
     cd seomachine-plugin
-    claude plugin add .
+    claude plugin install .
     ```
 
     **Sprawdz czy sie zainstalowalo**
@@ -715,7 +707,9 @@ w interfejsie aplikacji. Nie musisz niczego wpisywac w terminalu.
     Otworz terminal w VS Code (menu **Terminal → Nowy terminal**) i wpisz:
 
     ```bash
-    claude plugin add seo-machine
+    git clone https://github.com/powerczuk/seomachine-plugin.git
+    cd seomachine-plugin
+    claude plugin install .
     ```
 
     Mozesz tez uzyc palety polecen: `Cmd+Shift+P` → **„Claude Code: Install Plugin"** → wpisz `seo-machine`.
@@ -737,7 +731,9 @@ w interfejsie aplikacji. Nie musisz niczego wpisywac w terminalu.
     Lub w terminalu:
 
     ```bash
-    claude plugin add seo-machine
+    git clone https://github.com/powerczuk/seomachine-plugin.git
+    cd seomachine-plugin
+    claude plugin install .
     ```
   </TabItem>
 

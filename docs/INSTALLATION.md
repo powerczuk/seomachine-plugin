@@ -50,13 +50,6 @@ If the plugin is active, you'll see structured keyword research output.
 
 For developers and power users who work in the terminal.
 
-### From Plugin Registry
-
-```bash
-# Install the plugin
-claude plugin add seo-machine
-```
-
 ### From GitHub
 
 ```bash
@@ -67,7 +60,7 @@ git clone https://github.com/TheCraigHewitt/seomachine.git
 cd seomachine
 
 # Install as a local plugin
-claude plugin add .
+claude plugin install .
 ```
 
 ### From a Local Directory
@@ -75,7 +68,7 @@ claude plugin add .
 If you already have the plugin files on disk:
 
 ```bash
-claude plugin add /path/to/seo-machine
+claude plugin install /path/to/seo-machine
 ```
 
 ### Verify Installation
@@ -120,7 +113,9 @@ Plugin settings are stored in `~/.claude/plugins/seo-machine/`. You can customiz
 
 2. **Install the SEO Machine plugin:**
    ```bash
-   claude plugin add seo-machine
+   git clone https://github.com/TheCraigHewitt/seomachine.git
+   cd seomachine
+   claude plugin install .
    ```
 
 3. **Open Claude Code panel in Cursor** (Cmd+Shift+P > "Claude Code: Open")
@@ -170,7 +165,9 @@ If you want to use SEO Machine's MCP connectors (Ahrefs, Similarweb) directly in
 Open the integrated terminal and run:
 
 ```bash
-claude plugin add seo-machine
+git clone https://github.com/TheCraigHewitt/seomachine.git
+cd seomachine
+claude plugin install .
 ```
 
 ### MCP Server Configuration
@@ -213,7 +210,9 @@ Open the Claude Code panel and type:
 ### Install SEO Machine Plugin
 
 ```bash
-claude plugin add seo-machine
+git clone https://github.com/TheCraigHewitt/seomachine.git
+cd seomachine
+claude plugin install .
 ```
 
 ### MCP Configuration
@@ -315,7 +314,7 @@ See [Connectors Guide](./CONNECTORS.md) for detailed setup instructions for each
 ### Commands not recognized
 - Ensure the plugin is installed (not just the MCP servers)
 - Check for version compatibility
-- Try reinstalling: `claude plugin remove seo-machine && claude plugin add seo-machine`
+- Try reinstalling: `claude plugin uninstall seo-machine && claude plugin install .` (from the plugin directory)
 
 ### Performance issues
 - Large site audits may take several minutes — this is normal
