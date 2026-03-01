@@ -14,6 +14,7 @@ Skills to moduły wiedzy, które Claude ładuje automatycznie gdy są potrzebne.
 | Programmatic SEO | Skalowanie produkcji treści | `/topic-clusters`, `/audit`, `/low-hanging-fruit` |
 | GEO Fundamentals | Optymalizacja pod AI search | `/geo-audit`, `/llms-txt` |
 | Local SEO | Optymalizacja wyszukiwania lokalnego | `/local-seo` |
+| Humanizer | Usuwanie wzorców AI i humanizacja treści | `/humanize` |
 
 ## SEO Fundamentals
 
@@ -70,3 +71,49 @@ Baza wiedzy o optymalizacji pod AI search.
 Optymalizacja wyszukiwania lokalnego obejmująca GBP, cytacje i lokalne schema.
 
 **Zakres:** Optymalizacja Google Business Profile, spójność NAP, budowanie cytacji (agregatory danych, główne katalogi, branżowe), wzorce lokalnych keywords, schema LocalBusiness, zarządzanie opiniami.
+
+## Humanizer
+
+Wykrywa i przepisuje wzorce typowe dla treści generowanych przez AI, nadając im naturalny, ludzki ton. Oparty na przewodniku „Signs of AI Writing" z Wikipedii (WikiProject AI Cleanup).
+
+**9 kategorii wykrywanych wzorców:**
+
+| Wzorzec | Jak wygląda | Naprawa |
+|---------|-------------|---------|
+| Nadmierny patos | „marks a pivotal moment", „stands as a testament" | Wyciąć lub przepisać z konkretnymi faktami |
+| Język promocyjny | „groundbreaking", „revolutionary", „game-changing" | Zastąpić konkretnymi danymi |
+| Powierzchowne analizy z -ing | „exploring the nuances of...", „delving into..." | Pominąć wstępy; przejść do sedna |
+| Ogólnikowe źródła | „experts say", „studies show", „many believe" | Podać źródło lub usunąć |
+| Nadużycie em dash | zdanie — zdanie — zdanie | Używać oszczędnie; restrukturyzować zdania |
+| Reguła trzech | „fast, reliable, and scalable" | Wybrać jedno słowo lub przeformułować |
+| Słownictwo AI | „delve", „meticulous", „crucial", „leverage", „tapestry" | Zastąpić prostym językiem |
+| Negatywne paralelizmy | „not only...but also", „not just...but" | Przeformułować bezpośrednio |
+| Spójnikowe wypełniacze | „Furthermore,", „Moreover,", „In conclusion," | Usunąć; pozwolić myślom łączyć się naturalnie |
+
+**Wstrzykiwanie głosu:**
+
+- **Opinie** — reaguje na fakty zamiast neutralnego raportowania
+- **Zmienność rytmu** — miesza krótkie, dynamiczne zdania z dłuższymi
+- **Złożoność** — dopuszcza mieszane odczucia i niepewność
+- **Pierwsza osoba** — używa „ja" tam, gdzie pasuje
+- **Konkretność** — zastępuje ogólnikowe opisy liczbami, nazwami, datami
+
+**Presety tonu (v2.2):**
+
+| Preset | Styl | Najlepszy dla |
+|--------|------|---------------|
+| `casual` | Krótkie zdania, kolokwializmy, „ty/ja" | Posty blogowe, social media, newslettery |
+| `professional` | Czysto i bezpośrednio, bez slangu | B2B, whitepapers, case studies |
+| `editorial` | Opiniodawczy, pewny głos, ustrukturyzowane argumenty | Thought leadership, felietony |
+| `conversational` (domyślny) | Naturalny miks, jak wyjaśnianie koledze | Treści ogólne, landing pages, poradniki |
+
+**Humanization Score (v2.2):** Wynik 0–100 mierzący wykrywalność AI, pokazywany przed i po humanizacji.
+
+| Czynnik | Waga | Co mierzy |
+|---------|------|-----------|
+| Słownictwo AI | 25% | Częstotliwość znanych słów AI („delve", „crucial", „leverage" itp.) |
+| Różnorodność zdań | 20% | Odchylenie standardowe długości i typów zdań |
+| Powtarzalność wzorców | 15% | Reguła trzech, negatywne paralelizmy, szablonowe konstrukcje |
+| Obecność głosu | 15% | Opinie, pierwsza osoba, konkretność, markery osobowości |
+| Wypełniacze przejściowe | 15% | Gęstość „Furthermore", „Moreover", „In conclusion" |
+| Wzorce interpunkcji | 10% | Częstotliwość em dash, jednolite nawyki interpunkcyjne |

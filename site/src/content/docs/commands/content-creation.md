@@ -123,3 +123,43 @@ Odświeżanie i aktualizacja spadającej treści.
 ```
 
 **Co robi:** Analizuje bieżącą wydajność, identyfikuje co jest przestarzałe vs liderzy SERP, przepisuje z aktualnymi danymi, zachowuje URL i equity rankingowe, dodaje timestamp świeżości, przeprowadza pełny scoring.
+
+---
+
+## /humanize
+
+Usuwanie wzorców AI i nadawanie treściom naturalnego, ludzkiego głosu.
+
+**Składnia:**
+
+```bash
+/humanize [--tone casual|professional|editorial|conversational] [--score-only] <tekst, ścieżka do pliku lub URL>
+```
+
+**Co robi:**
+
+1. Oblicza początkowy wynik humanizacji (0–100) mierzący wykrywalność AI
+2. Skanuje dziewięć kategorii wzorców AI (nadmierny patos, język promocyjny, ogólnikowe źródła, nadużycie em dash, reguła trzech, słownictwo AI, negatywne paralelizmy, spójnikowe wypełniacze, powierzchowne analizy)
+3. Przepisuje oznaczone fragmenty na naturalne, bezpośrednie alternatywy
+4. Stosuje wybrany preset tonu (`casual`, `professional`, `editorial` lub `conversational` [domyślny])
+5. Wstrzykuje głos — opinie, zmienność rytmu, pierwsza osoba, konkretność
+6. Finalny przegląd anty-AI — „Co sprawia, że to brzmi jak AI?" i poprawki
+7. Oblicza finalny wynik i pokazuje porównanie przed/po
+
+**Flagi:**
+
+- `--tone <preset>` — kierunek głosu: `casual`, `professional`, `editorial` lub `conversational` (domyślny)
+- `--score-only` — pokaż wynik humanizacji bez przepisywania (tryb diagnostyczny)
+
+**Output:** Wynik humanizacji (przed → po), zhumanizowana wersja treści w wybranym tonie, opcjonalny log zmian.
+
+**Przykład:**
+
+```bash
+/humanize "Furthermore, our platform offers a comprehensive suite of tools that are crucial for modern businesses seeking to leverage synergies in the evolving digital landscape."
+```
+
+**Aktywuje się też naturalnie gdy powiesz:**
+- „Spraw, żeby to brzmiało bardziej ludzko"
+- „Usuń wzorce AI z tego tekstu"
+- „Zhumanizuj tę treść"
