@@ -438,20 +438,20 @@ starlight-theme-toggle .theme-btn svg {
   gap: 0.75rem;
   padding: 0.6rem 1rem;
   border-radius: 9999px;
-  border: 1px solid var(--border);
-  background: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0a0a0a;
   transition: border-color 0.15s ease;
 }
 
 .command-line:hover {
-  border-color: color-mix(in oklch, var(--border) 100%, var(--foreground) 20%);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .command-line code {
   font-family: var(--sl-font-mono, ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace);
   font-size: 0.84rem;
   line-height: 1.4;
-  color: var(--foreground);
+  color: rgba(255, 255, 255, 0.9);
   background: none !important;
   padding: 0 !important;
   border-radius: 0 !important;
@@ -460,29 +460,42 @@ starlight-theme-toggle .theme-btn svg {
   text-overflow: ellipsis;
 }
 
+:root[data-theme='light'] .command-line {
+  background: #0a0a0a;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme='light'] .command-line:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme='light'] .command-line code {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .command-copy {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 0.5rem;
   border: none;
   background: transparent;
-  color: var(--muted-foreground);
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 0.15s ease, background 0.15s ease;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 
 .command-line:hover .command-copy {
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .command-copy:hover {
-  opacity: 1 !important;
-  background: color-mix(in oklch, var(--foreground) 8%, transparent);
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* --- Inline code --- */
