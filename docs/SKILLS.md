@@ -11,6 +11,7 @@ Skills are deep knowledge modules that Claude loads when performing SEO tasks. T
 | Programmatic SEO | Scaling content production | Topic clusters, content prioritization, quick wins, landing page CRO |
 | GEO Fundamentals | AI search optimization | AI crawler access, llms.txt, citability, brand mentions, GEO scoring |
 | Local SEO | Local search optimization | GBP optimization, NAP consistency, citations, local schema, reviews |
+| Humanizer | AI writing detection & removal | Pattern detection, voice injection, Wikipedia AI writing guide, final anti-AI pass |
 
 ---
 
@@ -214,3 +215,59 @@ Name, Address, Phone must be identical across all citations — including punctu
 - `local-seo-checklist.md` — Complete local SEO audit checklist
 - `citation-sources.md` — Directory of citation sources by industry
 - `gbp-optimization-guide.md` — Step-by-step GBP optimization
+
+---
+
+## Humanizer (New in v2.1)
+
+Removes AI writing patterns to make content sound natural and human. Based on Wikipedia's "Signs of AI Writing" guide maintained by WikiProject AI Cleanup.
+
+### What It Fixes
+
+The skill detects and rewrites nine categories of AI-generated patterns:
+
+| Pattern | What it looks like | Fix |
+|---------|-------------------|-----|
+| **Inflated significance** | "marks a pivotal moment", "stands as a testament" | Cut or rewrite with specifics |
+| **Promotional language** | "groundbreaking", "revolutionary", "game-changing" | Replace with concrete facts |
+| **Superficial -ing analyses** | "exploring the nuances of...", "delving into..." | Skip throat-clearing; make the point |
+| **Vague attributions** | "experts say", "studies show", "many believe" | Name the source or cut it |
+| **Em dash overuse** | clause — clause — clause | Use sparingly; restructure sentences |
+| **Rule of three** | "fast, reliable, and scalable" | Pick one word or rephrase |
+| **AI vocabulary** | "delve", "meticulous", "crucial", "leverage", "tapestry" | Replace with plain language |
+| **Negative parallelisms** | "not only...but also", "not just...but" | Rephrase directly |
+| **Conjunctive padding** | "Furthermore,", "Moreover,", "In conclusion," | Delete; let ideas connect naturally |
+
+### Voice Injection
+
+Beyond pattern removal, the skill actively adds human voice:
+
+- **Opinions** — reacts to facts rather than neutrally reporting them
+- **Rhythm variation** — mixes short punchy sentences with longer ones
+- **Acknowledged complexity** — allows mixed feelings and uncertainty
+- **First-person** — uses "I" where appropriate for honest, personal tone
+- **Specificity** — replaces vague descriptions with concrete numbers, names, dates
+
+### Workflow
+
+1. Scan text for all nine AI pattern categories
+2. Rewrite flagged sections with natural alternatives
+3. Inject personality — opinions, rhythm variation, voice
+4. Final anti-AI pass: ask "What makes this obviously AI-generated?" then fix remaining tells
+
+### Trigger Phrases
+
+This skill activates when you ask Claude to:
+- `/humanize` — dedicated humanize command
+- "make this sound more human"
+- "remove AI patterns from this"
+- "edit this to not sound like AI"
+- "humanize this content"
+
+### Example
+
+**Before (AI-generated):**
+> Furthermore, the platform offers a comprehensive suite of tools that are crucial for modern businesses. It is worth noting that this represents a pivotal moment in the evolution of digital marketing, underscoring the importance of adapting to the ever-evolving landscape.
+
+**After (humanized):**
+> The platform covers most of what a modern marketing team actually needs day-to-day. Whether that's a "pivotal moment" — I'll leave that call to the press releases.
