@@ -4,6 +4,23 @@ All notable changes to the SEO Machine plugin are documented here. This project 
 
 ---
 
+## [2.2.0] — 2026-03-01
+
+### Added
+
+**Humanizer Enhancements:**
+- **Tone Presets** — four voice direction presets for humanized content: `casual` (blog posts, social), `professional` (B2B, whitepapers), `editorial` (thought leadership, opinion), `conversational` (default, general content)
+- **Humanization Score** — 0-100 AI-detectability score shown before and after humanization, based on six weighted factors: AI vocabulary density (25%), sentence variety (20%), pattern repetition (15%), voice presence (15%), transitional padding (15%), punctuation patterns (10%)
+- **`--score-only` flag** — diagnostic mode that shows the humanization score without rewriting
+- **`--tone` flag** — set the voice direction for `/humanize` output
+
+### Changed
+- Humanizer workflow updated from 4 steps to 6 steps (adds initial scoring and re-scoring)
+- `SKILLS.md` — Added Tone Presets and Humanization Score sections to Humanizer skill
+- `COMMANDS.md` — Updated `/humanize` syntax with new flags
+
+---
+
 ## [2.1.0] — 2026-03-01
 
 ### Added

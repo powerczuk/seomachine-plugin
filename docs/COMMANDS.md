@@ -488,25 +488,33 @@ Deep competitive analysis with gap identification and battlecards.
 /competitors https://mysite.com https://rival1.com https://rival2.com
 ```
 
-### `/humanize` (New in v2.1)
+### `/humanize` (New in v2.1, enhanced in v2.2)
 
 Remove AI writing patterns and inject natural human voice into content.
 
 **Syntax:**
 ```
-/humanize <text, file path, or URL>
+/humanize [--tone casual|professional|editorial|conversational] [--score-only] <text, file path, or URL>
 ```
 
 **What it does:**
-1. **Pattern detection** — scans for all nine AI writing categories (inflated significance, promotional language, vague attributions, em dash overuse, rule of three, AI vocabulary, negative parallelisms, conjunctive padding, superficial -ing analyses)
-2. **Targeted rewrites** — replaces flagged sections with natural, direct alternatives
-3. **Voice injection** — adds opinions, rhythm variation, first-person perspective, and specificity where appropriate
-4. **Final anti-AI pass** — asks "What makes this obviously AI-generated?" and fixes remaining tells before delivering output
+1. **Initial scoring** — calculates a humanization score (0-100) measuring AI-detectability
+2. **Pattern detection** — scans for all nine AI writing categories (inflated significance, promotional language, vague attributions, em dash overuse, rule of three, AI vocabulary, negative parallelisms, conjunctive padding, superficial -ing analyses)
+3. **Targeted rewrites** — replaces flagged sections with natural, direct alternatives
+4. **Tone application** — applies the selected tone preset (casual, professional, editorial, or conversational [default])
+5. **Voice injection** — adds opinions, rhythm variation, first-person perspective, and specificity where appropriate
+6. **Final anti-AI pass** — asks "What makes this obviously AI-generated?" and fixes remaining tells
+7. **Re-scoring** — calculates final score and shows before/after comparison
+
+**Flags:**
+- `--tone <preset>` — Set the voice direction: `casual`, `professional`, `editorial`, or `conversational` (default)
+- `--score-only` — Show the humanization score without rewriting (diagnostic mode)
 
 **Powered by:** Humanizer skill (based on Wikipedia's "Signs of AI Writing" guide by WikiProject AI Cleanup)
 
 **Output:**
-- Fully humanized version of the content
+- Humanization score (before → after)
+- Fully humanized version of the content in the selected tone
 - Optional change log showing what was flagged and why
 
 **Example:**

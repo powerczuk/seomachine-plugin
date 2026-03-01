@@ -58,7 +58,7 @@ Treści oceniane 0–100: keywords (25%), czytelność (20%), struktura (20%), z
 
 ## Wersja
 
-**v2.1.0** — nowy skill Humanizer + komenda `/humanize` do usuwania wzorców AI z treści.
+**v2.2.0** — Humanizer z presetami tonu (`--tone`) i oceną humanizacji (`--score-only`).
 
 ## Pochodzenie
 
