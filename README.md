@@ -1,69 +1,69 @@
 # SEO Machine
 
-**Najlepszy plugin SEO do narzędzi opartych na Claude.**
+**The most comprehensive SEO plugin for Claude-powered tools.**
 
-17 komend · 6 skills · 4 agentów · Ahrefs & Similarweb MCP
+17 commands · 6 skills · 4 agents · Ahrefs & Similarweb MCP
 
-## Co to jest
+## What is it
 
-Plugin do Claude (Cowork, Code CLI, Cursor, VS Code, Windsurf, Desktop) obejmujący cały workflow SEO — od badania słów kluczowych po audyty techniczne, GEO i lokalne SEO.
+A plugin for Claude (Cowork, Code CLI, Cursor, VS Code, Windsurf) covering the entire SEO workflow — from keyword research to technical audits, GEO, and local SEO.
 
-## Szybka instalacja
+## Quick install
 
 ```bash
 # Claude Code CLI
 claude plugin add seo-machine
 
 # Cursor / VS Code / Windsurf
-# Użyj natywnej obsługi pluginów w IDE
+# Use your IDE's native plugin support
 ```
 
-## Komendy
+## Commands
 
-| Kategoria | Komendy |
-|-----------|---------|
-| **Treści** | `/research` · `/write-seo` · `/optimize` · `/analyze` · `/content-brief` · `/meta-tags` · `/rewrite` · `/humanize` |
-| **Architektura** | `/audit` · `/topic-clusters` · `/internal-links` · `/schema-gen` · `/low-hanging-fruit` |
+| Category | Commands |
+|----------|----------|
+| **Content** | `/research` · `/write-seo` · `/optimize` · `/analyze` · `/content-brief` · `/meta-tags` · `/rewrite` · `/humanize` |
+| **Architecture** | `/audit` · `/topic-clusters` · `/internal-links` · `/schema-gen` · `/low-hanging-fruit` |
 | **GEO & AI** | `/geo-audit` · `/llms-txt` |
-| **Lokalne SEO** | `/local-seo` |
-| **Strategia** | `/competitors` |
+| **Local SEO** | `/local-seo` |
+| **Strategy** | `/competitors` |
 
-## Szybki start
+## Quick start
 
 ```bash
-/research "najlepsze narzędzia email marketing"
-/content-brief "najlepsze narzędzia email marketing"
-/write-seo "najlepsze narzędzia email marketing" 2500
-/optimize [plik]
+/research "best email marketing tools"
+/content-brief "best email marketing tools"
+/write-seo "best email marketing tools" 2500
+/optimize [file]
 ```
 
-## Integracje (MCP)
+## Integrations (MCP)
 
-| Narzędzie | URL serwera MCP |
-|-----------|----------------|
+| Tool | MCP server URL |
+|------|----------------|
 | Ahrefs | `https://api.ahrefs.com/mcp/mcp` |
 | Similarweb | `https://mcp.similarweb.com` |
 
-Plugin działa w pełni bez konektorów — web search zapewnia dane zastępcze.
+The plugin works fully without connectors — web search provides fallback data.
 
-## System scoringowy
+## Scoring system
 
-Treści oceniane 0–100: keywords (25%), czytelność (20%), struktura (20%), zaangażowanie (20%), techniczne SEO (15%). Próg publikacji: **70+**.
+Content scored 0–100: keywords (25%), readability (20%), structure (20%), engagement (20%), technical SEO (15%). Publishing threshold: **70+**.
 
-## Dokumentacja
+## Documentation
 
-📖 **[Pełna dokumentacja](./docs/)** — 12 plików MD z detalami każdej komendy, skill i agenta.
+📖 **[Full documentation](./docs/)** — 12 MD files covering every command, skill, and agent.
 
-🌐 **[Strona docs (Astro)](./site/)** — interaktywna strona dokumentacji z wyszukiwarką.
+🌐 **[Docs site (Astro)](./site/)** — interactive documentation site with search.
 
-## Wersja
+## Version
 
-**v2.2.0** — Humanizer z presetami tonu (`--tone`) i oceną humanizacji (`--score-only`).
+**v2.2.0** — Humanizer with tone presets (`--tone`) and humanization scoring (`--score-only`).
 
-## Pochodzenie
+## Origin
 
-Fork projektu [SEO Machine](https://github.com/TheCraigHewitt/seomachine) autorstwa Craiga Hewitta.
+Fork of [SEO Machine](https://github.com/TheCraigHewitt/seomachine) by Craig Hewitt.
 
-## Licencja
+## License
 
 MIT
