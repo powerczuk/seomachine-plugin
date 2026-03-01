@@ -432,6 +432,35 @@ starlight-theme-toggle .theme-btn svg {
 }
 
 
+/* --- Hero: gradient title + compact buttons --- */
+
+.hero h1 {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-from) 0%,
+    var(--gradient-via) 45%,
+    var(--gradient-to) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.hero .tagline {
+  color: var(--muted-foreground);
+  font-size: 1.05rem !important;
+  letter-spacing: 0.04em;
+}
+
+.hero .action {
+  @apply !text-sm !py-1.5 !px-4;
+}
+
+.hero .action.primary {
+  @apply !text-sm !py-1.5 !px-5;
+}
+
 /* --- Hero Badge --- */
 
 .hero-badge {
