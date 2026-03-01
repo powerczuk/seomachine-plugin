@@ -4,6 +4,7 @@ description: Zainstaluj SEO Machine na Claude Cowork, Claude Code, Cursor, VS Co
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import CommandLines from '../../../components/CommandLines.astro';
 
 ## Wybierz platformę
 
@@ -33,11 +34,11 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
     **Z repozytorium GitHub**
 
-    ```bash
-    git clone https://github.com/powerczuk/seomachine-plugin.git
-    cd seomachine-plugin
-    claude plugin add .
-    ```
+    <CommandLines commands={[
+      "git clone https://github.com/powerczuk/seomachine-plugin.git",
+      "cd seomachine-plugin",
+      "claude plugin add ."
+    ]} />
 
     **Weryfikacja instalacji**
 
@@ -181,10 +182,10 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 Użyj `add-mcp` aby skonfigurować serwery MCP na wszystkich platformach jednocześnie:
 
-```bash
-npx add-mcp https://api.ahrefs.com/mcp/mcp -a cursor -a claude-code
-npx add-mcp https://mcp.similarweb.com -a cursor -a claude-code
-```
+<CommandLines commands={[
+  "npx add-mcp https://api.ahrefs.com/mcp/mcp -a cursor -a claude-code",
+  "npx add-mcp https://mcp.similarweb.com -a cursor -a claude-code"
+]} />
 
 ## Weryfikacja instalacji
 
