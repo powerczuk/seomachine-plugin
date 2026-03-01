@@ -23,13 +23,13 @@ SEO Machine is a comprehensive SEO plugin for Claude-powered tools. It covers th
 ### Claude Code CLI
 
 ```bash
-# Install from the plugin registry
-claude plugin add seo-machine
-
-# Or clone and install locally
+# Clone and install locally
 git clone https://github.com/TheCraigHewitt/seomachine.git
 cd seomachine
-claude plugin add .
+claude plugin install .
+
+# Or install from an existing local path
+claude plugin install /path/to/seo-machine
 ```
 
 ### Cursor / VS Code / Windsurf

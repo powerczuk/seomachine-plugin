@@ -26,18 +26,12 @@ import CommandLines from '../../../components/CommandLines.astro';
   </TabItem>
 
   <TabItem label="Claude Code CLI">
-    **Z rejestru pluginów**
-
-    ```bash
-    claude plugin add seo-machine
-    ```
-
     **Z repozytorium GitHub**
 
     <CommandLines commands={[
       "git clone https://github.com/powerczuk/seomachine-plugin.git",
       "cd seomachine-plugin",
-      "claude plugin add ."
+      "claude plugin install ."
     ]} />
 
     **Weryfikacja instalacji**
@@ -98,9 +92,11 @@ import CommandLines from '../../../components/CommandLines.astro';
 
     Otwórz zintegrowany terminal i wpisz:
 
-    ```bash
-    claude plugin add seo-machine
-    ```
+    <CommandLines commands={[
+      "git clone https://github.com/powerczuk/seomachine-plugin.git",
+      "cd seomachine-plugin",
+      "claude plugin install ."
+    ]} />
 
     Lub użyj palety poleceń: `Cmd+Shift+P` → **„Claude Code: Install Plugin"** → wpisz `seo-machine`.
 
@@ -141,9 +137,11 @@ import CommandLines from '../../../components/CommandLines.astro';
 
     Lub przez terminal:
 
-    ```bash
-    claude plugin add seo-machine
-    ```
+    <CommandLines commands={[
+      "git clone https://github.com/powerczuk/seomachine-plugin.git",
+      "cd seomachine-plugin",
+      "claude plugin install ."
+    ]} />
   </TabItem>
 
   <TabItem label="Claude Desktop">
