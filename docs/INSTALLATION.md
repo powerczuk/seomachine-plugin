@@ -30,7 +30,7 @@ The recommended installation for marketers, content teams, and non-developers.
 
 ### Manual Installation
 
-1. Download the plugin from the [GitHub releases page](https://github.com/TheCraigHewitt/seomachine/releases)
+1. Download the plugin from the [GitHub releases page](https://github.com/powerczuk/seomachine-plugin/releases)
 2. In Cowork, go to **Settings > Plugins > Install from file**
 3. Select the downloaded `.zip` file
 4. Restart the Cowork session
@@ -54,10 +54,10 @@ For developers and power users who work in the terminal.
 
 ```bash
 # Clone the repository
-git clone https://github.com/TheCraigHewitt/seomachine.git
+git clone https://github.com/powerczuk/seomachine-plugin.git
 
 # Navigate to the directory
-cd seomachine
+cd seomachine-plugin
 
 # Install as a local plugin
 claude plugin install .
@@ -113,8 +113,8 @@ Plugin settings are stored in `~/.claude/plugins/seo-machine/`. You can customiz
 
 2. **Install the SEO Machine plugin:**
    ```bash
-   git clone https://github.com/TheCraigHewitt/seomachine.git
-   cd seomachine
+   git clone https://github.com/powerczuk/seomachine-plugin.git
+   cd seomachine-plugin
    claude plugin install .
    ```
 
@@ -165,8 +165,8 @@ If you want to use SEO Machine's MCP connectors (Ahrefs, Similarweb) directly in
 Open the integrated terminal and run:
 
 ```bash
-git clone https://github.com/TheCraigHewitt/seomachine.git
-cd seomachine
+git clone https://github.com/powerczuk/seomachine-plugin.git
+cd seomachine-plugin
 claude plugin install .
 ```
 
@@ -210,8 +210,8 @@ Open the Claude Code panel and type:
 ### Install SEO Machine Plugin
 
 ```bash
-git clone https://github.com/TheCraigHewitt/seomachine.git
-cd seomachine
+git clone https://github.com/powerczuk/seomachine-plugin.git
+cd seomachine-plugin
 claude plugin install .
 ```
 
