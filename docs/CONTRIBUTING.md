@@ -5,7 +5,7 @@ Thank you for your interest in contributing to SEO Machine. This guide explains 
 ## Plugin Architecture
 
 ```
-seo-machine/
+seo-machine-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin metadata, version, keywords
 ├── .mcp.json                # MCP server configurations

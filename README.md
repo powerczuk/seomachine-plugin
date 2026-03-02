@@ -12,12 +12,12 @@ A plugin for Claude (Cowork, Code CLI, Cursor, VS Code, Windsurf) covering the e
 
 ```bash
 # Clone and install locally
-git clone https://github.com/TheCraigHewitt/seomachine.git
-cd seomachine
+git clone https://github.com/powerczuk/seomachine-plugin.git
+cd seomachine-plugin
 claude plugin install .
 
 # Or install from a local path
-claude plugin install /path/to/seo-machine
+claude plugin install /path/to/seo-machine-plugin
 ```
 
 ## Commands
@@ -64,7 +64,7 @@ Content scored 0–100: keywords (25%), readability (20%), structure (20%), enga
 
 ## Origin
 
-Fork of [SEO Machine](https://github.com/TheCraigHewitt/seomachine) by Craig Hewitt.
+Based on [SEO Machine](https://github.com/TheCraigHewitt/seomachine) by Craig Hewitt.
 
 ## License
 
