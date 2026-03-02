@@ -1,0 +1,9 @@
+{
+  "name": "seo-machine",
+  "version": "1.1.0",
+  "description": "Complete SEO powerhouse — keyword research, content optimization, technical audits, SERP analysis, topic clusters, internal linking, schema markup, and programmatic SEO at scale",
+  "author": {
+    "name": "Piotrek"
+  },
+  "keywords": ["seo", "keyword-research", "content-optimization", "technical-seo", "serp-analysis", "topic-clusters", "schema-markup", "programmatic-seo", "internal-linking", "meta-tags"]
+}
